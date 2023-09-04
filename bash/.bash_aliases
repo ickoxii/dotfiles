@@ -11,7 +11,6 @@
 # Show or hide hidden files in Finder
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
-
 # Show or hide desktop icons
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
@@ -35,4 +34,3 @@ alias bash='/opt/homebrew/bin/bash'
 # alias rm="rm -i"
 # Alias for moving items to trash with confirmation
 # alias trash="trash -i"
-

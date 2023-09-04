@@ -44,4 +44,3 @@ export CLICOLOR=1
 
 # Customize directory and file colors
 export LSCOLORS=ExFxBxDxCxegedabagacad
-
