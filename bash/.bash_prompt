@@ -1,0 +1,44 @@
+# .bash_prompt
+# Author: Icko Iben
+# Created on: [Insert Creation Date, e.g., "7 Aug 2023"]
+# Description: Customizes the bash prompt appearance and functionalities.
+# Source: https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e
+# Note: The layout for the prompt is 'name directory (git-branch) >> |'.
+
+# ===================
+# Utility Functions
+# ===================
+# Display current GIT branch (if inside a git repository)
+git_branch() {
+    git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# ===================
+# Prompt Customization
+# ===================
+# Define prompt appearance components
+PS1="\[\e[0;91m\]\u\[\e[m\]"        # username
+PS1+=" "                            # space separator
+PS1+="\[\e[0;95m\]\W\[\e[m\]"       # current directory
+PS1+="\[\e[0;96m\]\$(git_branch)\[\e[m\]"  # current git branch (if applicable)
+PS1+=" "                            # space separator
+
+# Adjust prompt symbol based on user privileges
+if [ "$EUID" -ne 0 ]; then
+    PS1+=">> "                      # regular user
+else
+    PS1+="$ "                       # superuser (root)
+fi
+
+# Export the constructed prompt
+export PS1
+
+# ===================
+# Color Configurations
+# ===================
+# Enable color support
+export CLICOLOR=1
+
+# Customize directory and file colors
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
