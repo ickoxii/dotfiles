@@ -51,10 +51,16 @@ set shiftwidth=4
 
 " Auto-indent based on C-style blocks
 set autoindent
-set cindent
+set cindent " provides automatic indentation for c-style languages
 
 " Adjust class visibility modifiers to align with class keyword
-set cinoptions=g-1
+set cinoptions=g0
+
+" Function/Class definitions always begin 4 spaces indented
+set cinoptions+=(4
+
+" Guarantee K&R format for switch-case statements
+set cinoptions+=:0 " already default setting for vim
 
 " Special handling for C-style comments
 augroup my_comment_settings
