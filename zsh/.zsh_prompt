@@ -1,25 +1,39 @@
-# This file specifies a custom zsh prompt
-# The zsh prompt is what prints before every command
+# .zsh_prompt
+# Author: Icko Iben
+# Created on: [Insert Creation Date, e.g., "7 Aug 2023"]
+# Description: Customizes the zsh prompt appearance and functionalities.
+# Source: https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e
+# Note: The layout for the prompt is 'name directory (git-branch) >> |'.
 
-# GIT FUNCTIONS
-# these only print if inside a git repository
-# this prints the current branch within parenthesis
+# ===================
+# Utility Functions
+# ===================
+# Display current GIT branch (if inside a git repository)
 git_branch() {
     git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-# TERMINAL PROMPT
-PROMPT="%F{red}%n%f "              # username
-PROMPT+="%F{magenta}%~%f "         # current directory
-PROMPT+="%F{cyan}$(git_branch)%f"  # current branch
-# print >> if normal user, $ if sudo
-if [ "$EUID" -ne 0 ]; then
-    PROMPT+=">> "
+# ===================
+# Prompt Customization
+# ===================
+# Define prompt appearance components
+PROMPT="%{$fg[red]%}%n%{$reset_color%}"             # username
+PROMPT+=" "                                        # space separator
+PROMPT+="%{$fg[magenta]%}%1~%{$reset_color%}"      # current directory
+PROMPT+="%{$fg[cyan]%}\$(git_branch)%{$reset_color%}"  # current git branch (if applicable)
+PROMPT+=" "                                        # space separator
+
+# Adjust prompt symbol based on user privileges
+if [ "$UID" -ne 0 ]; then
+    PROMPT+=">> "                                  # regular user
 else
-    PROMPT+="$ "
+    PROMPT+="$ "                                   # superuser (root)
 fi
 
-# TURNS COLORS ON
-export CLICOLOR=1
-# CUSTOMIZES COLORS
+# ===================
+# Color Configurations
+# ===================
+# Enable color support (zsh typically supports color out-of-the-box)
+# Set LSCOLORS to customize directory and file colors (same as bash in this case)
 export LSCOLORS=ExFxBxDxCxegedabagacad
+
