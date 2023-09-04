@@ -1,12 +1,13 @@
 # .bash_aliases
 # Author: Icko Iben
-# Created on: [Insert Creation Date, e.g., "7 Aug 2023"]
+# Created on: Mon; 4 Sep 2023; 03:02 CDT
 # Description: Contains aliases to streamline command usage on macOS.
 # Source: https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e
 
 # ===================
 # Finder Configurations
 # ===================
+
 # Show or hide hidden files in Finder
 alias showhidden="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
@@ -18,6 +19,7 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 # ===================
 # Application Shortcuts
 # ===================
+
 # Launch MATLAB with specific settings
 alias matlab="/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop"
 
@@ -27,6 +29,7 @@ alias bash='/opt/homebrew/bin/bash'
 # ===================
 # Miscellaneous 
 # ===================
+
 # Caution: Aliasing default commands might be risky. Only uncomment when sure about the implications!
 # Alias to ask for confirmation when deleting files
 # alias rm="rm -i"

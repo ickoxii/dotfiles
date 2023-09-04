@@ -1,6 +1,6 @@
 # .bash_profile
 # Author: Icko Iben
-# Created on: [Insert Creation Date, e.g., "7 Aug 2023"]
+# Created on: Mon; 4 Sep 2023; 03:03 CDT
 # Description: Main configuration file for bash on macOS.
 
 # ===================
@@ -27,7 +27,7 @@ export PATH="$PATH:/Users/ickoxii/Library/Python/3.9/bin"
 # ===================
 # Sourcing Additional Configurations
 # ===================
-# Source general bash configurations
+# Source general bash configurations (for use with LINUX port)
 [ -f ~/.bashrc ] && source ~/.bashrc
 
 # Load bash prompt customizations
@@ -39,6 +39,5 @@ export PATH="$PATH:/Users/ickoxii/Library/Python/3.9/bin"
 # ===================
 # Miscellaneous
 # ===================
-# Display system information
-neofetch
-
+# Display system information only if neofetch exists
+command -v neofetch &> /dev/null && neofetch
