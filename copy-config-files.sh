@@ -3,6 +3,8 @@
 # This script backs up my configuration files then pushes changes to GitHub.
 # Using an associative array to maintain source and destination mapping.
 
+# The use of this script has since deprecated
+
 declare -A backups
 
 BACKUP="$HOME/Documents/coding/mac-configuration-files/"
