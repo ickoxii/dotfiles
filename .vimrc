@@ -27,11 +27,14 @@ set laststatus=2
 set relativenumber
 " set number
 
-" Set buffer wrapping width to 120 characters
-set textwidth=120
+" Set buffer wrapping width to 80 characters
+set textwidth=80
+
+" Enable text wrapping at window size
+" set wrap
+
 " Uncomment below to disable text wrapping
 " set textwidth=0
-set wrap
 
 " Search Settings
 " ---------------
