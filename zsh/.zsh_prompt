@@ -1,0 +1,25 @@
+# This file specifies a custom zsh prompt
+# The zsh prompt is what prints before every command
+
+# GIT FUNCTIONS
+# these only print if inside a git repository
+# this prints the current branch within parenthesis
+git_branch() {
+    git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# TERMINAL PROMPT
+PROMPT="%F{red}%n%f "              # username
+PROMPT+="%F{magenta}%~%f "         # current directory
+PROMPT+="%F{cyan}$(git_branch)%f"  # current branch
+# print >> if normal user, $ if sudo
+if [ "$EUID" -ne 0 ]; then
+    PROMPT+=">> "
+else
+    PROMPT+="$ "
+fi
+
+# TURNS COLORS ON
+export CLICOLOR=1
+# CUSTOMIZES COLORS
+export LSCOLORS=ExFxBxDxCxegedabagacad

@@ -1,0 +1,16 @@
+# aliases allow for 'shortcuts' for commonly used commands
+
+# SHOW/HIDE HIDDEN FILES
+alias showhidden="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# SHOW/HIDE DESKTOP ICONS
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# MATLAB
+# Allows for matlab interface inside command line
+alias matlab="/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop"
+
+# Use homebrew bash (more updated than Apple)
+alias bash='/opt/homebrew/bin/bash'
