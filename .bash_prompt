@@ -7,6 +7,7 @@
 
 # GIT FUNCTIONS
 # these only print if inside a git repository
+# this prints the current branch within parenthesis
 git_branch() {
     git branch 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -17,7 +18,12 @@ PS1+=" "                            # space
 PS1+="\[\e[0;95m\]\W\[\e[m\]"       # current directory
 PS1+="\[\e[0;96m\]\$(git_branch)\[\e[m\]"  # current branch
 PS1+=" "                            # space
-PS1+=">> "                          # end prompt
+# print >> if normal user, $ if sudo
+if [ "$EUID" -ne 0 ]; then
+    PS1+=">> "
+else
+    PS1+="$ "
+fi
 
 # TURNS COLORS ON
 export CLICOLOR=1

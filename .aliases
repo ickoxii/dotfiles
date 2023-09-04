@@ -13,6 +13,9 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # Allows for matlab interface inside command line
 alias matlab="/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop"
 
+# Use homebrew bash (more updated than Apple)
+alias bash='/opt/homebrew/bin/bash'
+
 # Ask for confimation when deleting
 # BAD PRACTICE
 # alias rm="rm -i"

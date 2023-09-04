@@ -1,3 +1,7 @@
+# Main configuration file for bash
+# Sets paths
+# calls other initialization files
+
 # SET PATH
 PATH="/usr/local/bin:$PATH"
 
@@ -8,6 +12,11 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 neofetch            # of course
 
 # CALL OTHER INITIALIZATION FILES
+# call .bashrc only for interactive, non-login shells
+# (Linux shit, idk, might be useful if I switch later)
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
 source ~/.bash_prompt
 source ~/.aliases # commented for now, change when .aliases is updated
 
