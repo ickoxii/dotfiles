@@ -5,6 +5,8 @@ tap "homebrew/services"
 brew "bash"
 # Emacs dependency management
 brew "cask"
+# Render markdown on the CLI
+brew "glow"
 # Improved top (interactive process viewer)
 brew "htop"
 # Lynx-like WWW browser that supports tables, menus, etc.
