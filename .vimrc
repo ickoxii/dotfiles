@@ -1,4 +1,4 @@
-" Metadata and general information
+" .vimrc
 " -------------------------------
 " Date: 7 Aug 2023 19:32
 " Author: Icko Iben
