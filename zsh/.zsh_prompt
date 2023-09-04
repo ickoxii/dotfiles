@@ -1,6 +1,6 @@
 # .zsh_prompt
 # Author: Icko Iben
-# Created on: [Insert Creation Date, e.g., "7 Aug 2023"]
+# Created on: Mon; 4 Sep 2023; 02:49
 # Description: Customizes the zsh prompt appearance and functionalities.
 # Source: https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e
 # Note: The layout for the prompt is 'name directory (git-branch) >> |'.
