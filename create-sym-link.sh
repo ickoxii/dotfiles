@@ -12,6 +12,7 @@ ln -s $HOME/.dotfiles/bash/.bash_profile $HOME/.bash_profile
 ln -s $HOME/.dotfiles/bash/.bash_prompt $HOME/.bash_prompt
 
 # ZSH
+ln -s $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
 ln -s $HOME/.dotfiles/zsh/.zprofile $HOME/.zprofile
 ln -s $HOME/.dotfiles/zsh/.z_aliases $HOME/.z_aliases
 ln -s $HOME/.dotfiles/zsh/.z_prompt $HOME/.z_prompt
