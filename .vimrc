@@ -1,53 +1,73 @@
-" 7 Aug 2023 19:32
-" author: Icko Iben
-" some code taken from my professor at Baylor
-" to my knowledge, he freely gives this material out
+" Metadata and general information
+" -------------------------------
+" Date: 7 Aug 2023 19:32
+" Author: Icko Iben
+" Note: Some code taken from my professor at Baylor who freely shares this material.
+"
+" General usage notes:
+" - To comment out any setting, prefix with a double-quote (`"`)
+" - Make live changes in Vim using ":set XXX" where "XXX" is the desired setting
+" - Re-open Vim after editing this file to see changes reflected
 
-" To comment anything out, just put a double-quote in front. 
-" Feel free to play with this file (but re-open vim when you make a change to
-" see the change reflected). You can make changes when editing using ":set XXX"
-" where XXX is the setting you want to change.
-
-
-" Set the wrapping width (# of characters) of your buffer. (A buffer is the
-" thing you're editing, which may be a file or just an unsaved thing.)
-" set textwidth=100
-
-" This would cause the buffer to never wrap -- which is usually what I do when programming.
-set textwidth=0
-
-" Tell vim to use syntax highlighting.
+" Appearance & Interface
+" ----------------------
+" Turn on syntax highlighting
 syntax on
 
-" Tell vim to automatically indent on C-style blocks, etc.
-" Sets private: and public: to same indent as class
-set autoindent
-set cindent
-set cinoptions=g-1
+" Enable mouse support
+set mouse=a
 
-" Turn tabs into 4 spaces
+" Highlight all occurrences of a search term
+set hlsearch
+
+" Always show a status line at the bottom
+set laststatus=2
+
+" Display relative line numbers (comment out to show absolute line numbers)
+set relativenumber
+" set number
+
+" Set buffer wrapping width to 120 characters
+set textwidth=120
+" Uncomment below to disable text wrapping
+" set textwidth=0
+set wrap
+
+" Search Settings
+" ---------------
+" Incremental search - highlight matches as you type
+set incsearch
+
+" By default, ignore case during searches
+" set ignorecase
+set noignorecase
+
+" Indentation & Formatting
+" ------------------------
+" Use spaces instead of tabs, set indentation width to 4 spaces
 set expandtab
 set tabstop=4
 set shiftwidth=4
 
-" Incremental searching -- highlight matches while searching.
-set incsearch
+" Auto-indent based on C-style blocks
+set autoindent
+set cindent
 
-" Ignore case when searching -- turn this off with ":set noignorecase"
-" set ignorecase
-set noignorecase
+" Adjust class visibility modifiers to align with class keyword
+set cinoptions=g-1
 
-" Highlight all occurrences of a search term.
-set hlsearch
+" Special handling for C-style comments
+augroup my_comment_settings
+    autocmd!
+    autocmd FileType c,cpp setlocal comments=sr:/*,mb:*,ex:*/,://
+augroup END
 
-" Always keep a status line at the bottom of the screen.
-set laststatus=2
+" System Integration
+" ------------------
+" Yank to the system clipboard by default (macOS)
+set clipboard=unnamed
 
-" Show line numbers
-set number
-
-" Surround comments with asterisks
-set formatoptions+=r
-
-" Turn off vim alert bell
+" Misc Settings
+" -------------
+" Disable the Vim alert bell for all events (your sanity will thank you)
 set belloff=all
