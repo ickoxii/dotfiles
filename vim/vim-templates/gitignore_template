@@ -1,0 +1,57 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# vim swap files
+# [._]*.s[a-v][a-z]
+# [._]*.sw[a-p]
+# [._]s[a-v][a-z]
+# [._]sw[a-p]
+
+# Compiled binaries
+*.exe
+*.out
+
+# Various picture files
+*.jpeg
+*.bmp
+*.gif
+*.tif
+*.tiff
+*.ico
+*.webp
+*.heic
+*.raw
+*.cr2
+*.nef
+*.arw
+*.svg
+*.psd
+*.ai
+*.indd
+*.pdf
+*.xcf
+
