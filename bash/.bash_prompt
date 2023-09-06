@@ -20,6 +20,7 @@ git_branch() {
 
 # Define prompt appearance components
 PS1="\[\e[0;91m\]\u\[\e[m\]"        # username
+PS1+="|"                            # give em the pipe
 PS1+=" "                            # space separator
 PS1+="\[\e[0;95m\]\W\[\e[m\]"       # current directory
 PS1+="\[\e[0;96m\]\$(git_branch)\[\e[m\]"  # current git branch (if applicable)
@@ -27,7 +28,7 @@ PS1+=" "                            # space separator
 
 # Adjust prompt symbol based on user privileges
 if [ "$EUID" -ne 0 ]; then
-    PS1+=">> "                      # regular user
+    PS1+="> "                      # regular user
 else
     PS1+="$ "                       # superuser (root)
 fi
