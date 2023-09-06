@@ -20,6 +20,8 @@ Tracks planned changes such as features, bugs, improvements, etc.
     - source .txt
     - source .png
 
+2. Add aliases for opening applications in .bash\_aliases
+
 ## Misc
 
 1. configure spotifyd. needed to download the following packages through brew:
