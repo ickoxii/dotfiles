@@ -83,4 +83,7 @@ set belloff=all
 
 " Autocommands
 " ------------
-source ~/.vim/autocommands.vim
+" Use Vim's ability to run shell commands to check existence of symlink target
+if !empty(system("readlink -f ~/.vim/autocommands.vim"))
+    source ~/.vim/autocommands.vim
+endif
