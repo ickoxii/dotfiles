@@ -9,12 +9,6 @@
 " - Make live changes in Vim using ":set XXX" where "XXX" is the desired setting
 " - Re-open Vim after editing this file to see changes reflected
 
-" Autocommands
-" ------------
-if filereadable("~/.vim/autocommands.vim")
-    source ~/.vim/autocommands.vim
-endif
-
 " Appearance & Interface
 " ----------------------
 " Turn on syntax highlighting
@@ -72,10 +66,10 @@ set cinoptions+=(4
 set cinoptions+=:0 " already default setting for vim
 
 " Special handling for C-style comments
-augroup my_comment_settings
-    autocmd!
-    autocmd FileType c,cpp setlocal comments=sr:/*,mb:*,ex:*/,://
-augroup END
+"augroup my_comment_settings
+"    autocmd!
+"    autocmd FileType c,cpp setlocal comments=sr:/*,mb:*,ex:*/,://
+"augroup END
 
 " System Integration
 " ------------------
@@ -86,3 +80,7 @@ set clipboard=unnamed
 " -------------
 " Disable the Vim alert bell for all events (your sanity will thank you)
 set belloff=all
+
+" Autocommands
+" ------------
+source ~/.vim/autocommands.vim
