@@ -10,12 +10,13 @@ ln -s $HOME/.dotfiles/.hushlogin $HOME/.hushlogin
 ln -s $HOME/.dotfiles/bash/.bash_aliases $HOME/.bash_aliases
 ln -s $HOME/.dotfiles/bash/.bash_profile $HOME/.bash_profile
 ln -s $HOME/.dotfiles/bash/.bash_prompt $HOME/.bash_prompt
+ln -s $HOME/.dotfiles/bash/.bashrc $HOME/.bashrc
 
 # ZSH
-ln -s $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
 ln -s $HOME/.dotfiles/zsh/.zprofile $HOME/.zprofile
-ln -s $HOME/.dotfiles/zsh/.z_aliases $HOME/.z_aliases
-ln -s $HOME/.dotfiles/zsh/.z_prompt $HOME/.z_prompt
+ln -s $HOME/.dotfiles/zsh/.z_aliases $HOME/.zsh_aliases
+ln -s $HOME/.dotfiles/zsh/.z_prompt $HOME/.zsh_prompt
+ln -s $HOME/.dotfiles/zsh/.zshrc $HOME/.zshrc
 
 # GIT
 ln -s $HOME/.dotfiles/.gitconfig $HOME/.gitconfig
