@@ -26,5 +26,11 @@ Tracks planned changes such as features, bugs, improvements, etc.
     - dbus
     - pkg-config
     - portaudio
+    - pass
 
-2. Make sure spotify-tui is able to use spotifyd as a device
+2. `pass`
+pass is a command line password manager. I may be able to use it to
+pass passwords through the spotifyd config file so I do not have to
+store my username or password in plain text.
+
+3. Make sure spotify-tui is able to use spotifyd as a device
