@@ -19,10 +19,10 @@ git_branch() {
 # ===================
 
 # Define prompt appearance components
-PS1="\[\e[0;91m\]\u\[\e[m\]"        # username
-PS1+="|"                            # give em the pipe
-PS1+=" "                            # space separator
-PS1+="\[\e[0;95m\]\W\[\e[m\]"       # current directory
+PS1="\[\e[0;91m\]\u\[\e[m\]"        # username ('bright' red)
+PS1+=" "                            # give these hoes some space
+# PS1+="\[\e[0;95m\]\W\[\e[m\]"     # current directory (magenta)
+PS1+="[\W]"                         # current directory
 PS1+="\[\e[0;96m\]\$(git_branch)\[\e[m\]"  # current git branch (if applicable)
 PS1+=" "                            # space separator
 
