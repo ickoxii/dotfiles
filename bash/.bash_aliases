@@ -23,7 +23,16 @@ alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && 
 alias matlab="/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop"
 
 # Use Homebrew's updated bash instead of macOS default
-alias bash='/opt/homebrew/bin/bash'
+alias bash="/opt/homebrew/bin/bash"
+
+# Launch Spotify
+alias spotify="open -a Spotify"
+
+# Launch Brave Browser
+alias brave="open -a Brave\ Browser"
+
+# Launch Google Chrome
+alias chrome="open -a Google\ Chrome"
 
 # ===================
 # Miscellaneous 
