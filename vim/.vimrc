@@ -66,10 +66,10 @@ set cinoptions+=(4
 set cinoptions+=:0 " already default setting for vim
 
 " Special handling for C-style comments
-"augroup my_comment_settings
-"    autocmd!
-"    autocmd FileType c,cpp setlocal comments=sr:/*,mb:*,ex:*/,://
-"augroup END
+augroup my_comment_settings
+    autocmd!
+    autocmd FileType c,cpp setlocal comments=sr:/*,mb:*,ex:*/,://
+augroup END
 
 " System Integration
 " ------------------
