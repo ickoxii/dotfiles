@@ -45,3 +45,9 @@ With the setup complete, creating a new Python file:
 ```bash
 vim newfile.py
 ```
+
+## Editing the File in Vim
+
+Now that you opened the file template, you can change the name of the current
+file while in vim by using `:file file_name` followed by `:w` to save your new
+file.
