@@ -19,7 +19,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH="/usr/local/bin:$PATH"
 
 # Add Visual Studio Code CLI to PATH
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Include Python-related tools in PATH
 export PATH="$PATH:/Users/ickoxii/Library/Python/3.9/bin"
@@ -30,14 +30,11 @@ export PATH="$PATH:/Users/ickoxii/Library/Python/3.9/bin"
 # Source general bash configurations (for use with LINUX port)
 [ -f ~/.bashrc ] && source ~/.bashrc
 
-# Load bash prompt customizations
-[ -f ~/.bash_prompt ] && source ~/.bash_prompt
-
-# Load aliases (Ensure .bash_aliases is updated before uncommenting)
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+# No need to source .bash_prompt and .bash_aliases, they are already sourced in .bashrc
 
 # ===================
 # Miscellaneous
 # ===================
 # Display system information only if neofetch exists
-command -v neofetch &> /dev/null && neofetch
+# Pipe through lolcat for rainbow display
+command -v neofetch &> /dev/null && neofetch # | lolcat  
