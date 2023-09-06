@@ -5,6 +5,8 @@ tap "homebrew/services"
 brew "bash"
 # Emacs dependency management
 brew "cask"
+# Message bus system, providing inter-application communication
+brew "dbus"
 # Render markdown on the CLI
 brew "glow"
 # Improved top (interactive process viewer)
@@ -17,6 +19,10 @@ brew "lolcat"
 brew "neofetch"
 # Password manager
 brew "pass"
+# Manage compile and link flags for libraries
+brew "pkg-config"
+# Cross-platform library for audio I/O
+brew "portaudio"
 # Perl-powered file rename script with many helpful built-ins
 brew "rename"
 # Terminal-based client for Spotify
