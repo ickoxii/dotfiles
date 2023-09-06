@@ -12,6 +12,8 @@ Tracks planned changes such as features, bugs, improvements, etc.
 
 ## Bugs
 
+1. Various unintended auto-indent behavior caused by configurations in .vimrc
+
 ## Improvements
 
 1. Find out how to customize neofetch image
