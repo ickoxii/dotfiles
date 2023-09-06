@@ -3,34 +3,40 @@
 # Loop to create symlink
 
 create_symlink() {
-  local src=$1
-  local dest=$2
+    local src=$1
+    local dest=$2
 
-  if [[ -L $dest ]]; then # Check if a symlink exists at the destination
-    if [[ ! -e $dest ]]; then # Check if the symlink is dangling
-      read -p "$dest is a dangling symlink. Do you want to remove and recreate it? [y/n] " choice
-      case $choice in
-        y|Y)
-          rm $dest && ln -s $src $dest
-          echo "Recreated symlink from $src to $dest"
-          ;;
-        *)
-          echo "Skipped $dest"
-          ;;
-      esac
-    else
-      echo "$dest symlink already exists and is not dangling. Skipped."
+    # Check if the source file exists
+    if [[ ! -e $src ]]; then
+        echo "Warning: Source file $src does not exist. Skipped."
+        return
     fi
-  else
-    ln -s $src $dest && echo "Created symlink from $src to $dest"
-  fi
+
+    if [[ -L $dest ]]; then # Check if a symlink exists at the destination
+        if [[ ! -e $dest ]]; then # Check if the symlink is dangling
+            read -p "$dest is a dangling symlink. Do you want to remove and recreate it? [y/n] " choice
+            case $choice in
+                y|Y)
+                    rm $dest && ln -s $src $dest
+                    echo "Recreated symlink from $src to $dest"
+                    ;;
+                *)
+                    echo "Skipped $dest"
+                    ;;
+            esac
+        else
+            echo "$dest symlink already exists and is not dangling. Skipped."
+        fi
+    else
+        ln -s $src $dest && echo "Created symlink from $src to $dest"
+    fi
 }
 
 # Declare associative arrays for each application
 
 declare -A GENERAL_TERMINAL=(
-  ["$HOME/.dotfiles/.profile"]="$HOME/.profile"
-  ["$HOME/.dotfiles/.hushlogin"]="$HOME/.hushlogin"
+  ["$HOME/.dotfiles/general-profile/.profile"]="$HOME/.profile"
+  ["$HOME/.dotfiles/general-profile/.hushlogin"]="$HOME/.hushlogin"
 )
 
 declare -A BASH=(
@@ -42,13 +48,13 @@ declare -A BASH=(
 
 declare -A ZSH=(
     ["$HOME/.dotfiles/zsh/.zprofile"]="$HOME/.zprofile"
-    ["$HOME/.dotfiles/zsh/.z_aliases"]="$HOME/.zsh_aliases"
-    ["$HOME/.dotfiles/zsh/.z_prompt"]="$HOME/.zsh_prompt"
+    ["$HOME/.dotfiles/zsh/.zsh_aliases"]="$HOME/.zsh_aliases"
+    ["$HOME/.dotfiles/zsh/.zsh_prompt"]="$HOME/.zsh_prompt"
     ["$HOME/.dotfiles/zsh/.zshrc"]="$HOME/.zshrc"
 )
 
 declare -A GIT=(
-    ["$HOME/.dotfiles/.gitconfig"]="$HOME/.gitconfig"
+    ["$HOME/.dotfiles/git/.gitconfig"]="$HOME/.gitconfig"
 )
 
 declare -A VIM=(
