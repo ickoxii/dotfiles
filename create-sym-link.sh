@@ -38,6 +38,8 @@ create_symlink() {
 ## Declare associative arrays for each application
 ## ===============================================
 
+# GENERAL_TERMINAL
+# ----------------
 SOURCE="$HOME/.dotfiles/general-terminal"
 DEST="$HOME"
 declare -A GENERAL_TERMINAL=(
@@ -45,6 +47,8 @@ declare -A GENERAL_TERMINAL=(
     ["$SOURCE/.hushlogin"]="$DEST/.hushlogin"
 )
 
+# BASH
+# ----
 SOURCE="$HOME/.dotfiles/bash"
 DEST="$HOME"
 declare -A BASH=(
@@ -54,6 +58,8 @@ declare -A BASH=(
     ["$SOURCE/.bashrc"]="$DEST/.bashrc"
 )
 
+# ZSH
+# ---
 SOURCE="$HOME/.dotfiles/zsh"
 DEST="$HOME"
 declare -A ZSH=(
@@ -63,12 +69,16 @@ declare -A ZSH=(
     ["$SOURCE/.zshrc"]="$DEST/.zshrc"
 )
 
+# GIT
+# ---
 SOURCE="$HOME/.dotfiles/git"
 DEST="$HOME"
 declare -A GIT=(
     ["$SOURCE/.gitconfig"]="$DEST/.gitconfig"
 )
 
+# VIM
+# ---
 SOURCE="$HOME/.dotfiles/vim"
 DEST="$HOME"
 declare -A VIM=(
@@ -76,18 +86,25 @@ declare -A VIM=(
     ["$SOURCE/autocommands.vim"]="$DEST/.vim/autocommands.vim"
 )
 
-SOURCE="$HOME/.dotfiles/vim/vim-templates"
+# VIM TEMPLATES
+# -------------
+SOURCE="$HOME/.dotfiles/vim/templates"
 DEST="$HOME/.vim/templates"
 declare -A VIMTEMPLATES=(
-    ["$SOURCE/gitignore-template"]="$DEST/gitignore-template"
+    ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
+    ["$SOURCE/TODO.template"]="$DEST/TODO.template"
 )
 
+# NEOFETCH
+# --------
 SOURCE="$HOME/.dotfiles/neofetch"
 DEST="$HOME/.config/neofetch"
 declare -A NEOFETCH=(
     ["$SOURCE/config.conf"]="$DEST/config.conf"
 )
 
+# SPOTIFYCLI
+# ----------
 declare -A SPOTIFYCLI=(
     ["$HOME/.dotfiles/spotifyd/spotifyd.conf"]="$HOME/.config/spotifyd/spotifyd.conf"
     ["$HOME/.dotfiles/spotify-tui/config.yml"]="$HOME/.config/spotify-tui/config.yml"
