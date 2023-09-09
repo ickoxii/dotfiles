@@ -13,6 +13,7 @@ Tracks planned changes such as features, bugs, improvements, etc.
 ## Bugs
 
 1. Various unintended auto-indent behavior caused by configurations in .vimrc
+    - multi-line comments no longer begin with '\*'
 
 ## Improvements
 
@@ -21,6 +22,16 @@ Tracks planned changes such as features, bugs, improvements, etc.
     - source .png
 
 2. Add aliases for opening applications in .bash\_aliases
+
+3. Split vim autocommands based on file type, especially for comment handling
+configurations. 
+    - one file for file template calls
+    - one file for .c,.cpp comments, one file for .m comments
+
+4. Add templates to vim
+    - .tex
+    - leetcode questions
+    - .cpp with prefile comments for baylor projects
 
 ## Misc
 
