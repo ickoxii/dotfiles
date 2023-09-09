@@ -22,14 +22,17 @@ git_branch() {
 
 # Define prompt appearance components
 PS1="\[\e[0;91m\]\u\[\e[m\]"        # username ('bright' red)
-PS1+="[\W]"                         # current directory
-PS1+="\[\e[0;96m\]\$(git_branch)\[\e[m\]"  # current git branch (if applicable)
+PS1+="\[\e[0;96m\][\W]\[\e[m\]"     # current dir
+# PS1+="[\W]"                         # current directory
+PS1+="\[\e[0;91m\]\$(git_branch)\[\e[m\]"  # current git branch (if applicable)
 
 # Adjust prompt symbol based on user privileges
 if [ "$EUID" -ne 0 ]; then
-    PS1+="\[\e[1;91m\]> \[\e[0m\]"  # regular user
+#    PS1+="\[\e[1;91m\]> \[\e[0m\]"  # regular user
+    PS1+="> "
 else
-    PS1+="\[\e[1;91m\]$ \[\e[0m\]"  # superuser (root)
+#    PS1+="\[\e[1;91m\]$ \[\e[0m\]"  # superuser (root)
+    PS1+="$ "
 fi
 
 # Export the constructed prompt
