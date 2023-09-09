@@ -15,8 +15,14 @@ brew "htop"
 brew "links"
 # Rainbows and unicorns in your console!
 brew "lolcat"
+# Provides a formatted and highlighted view of Markdown files in Terminal
+brew "mdless"
 # Fast, highly customisable system info script
 brew "neofetch"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
+# Pandoc filter for numbering and cross-referencing
+brew "pandoc-crossref"
 # Password manager
 brew "pass"
 # Manage compile and link flags for libraries
@@ -39,6 +45,8 @@ brew "wget"
 cask "iterm2"
 # Full TeX Live distribution with GUI applications
 cask "mactex"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # PDF reader and note-taking application
 cask "skim"
 # General-purpose text editor
@@ -59,6 +67,7 @@ vscode "ms-vscode.cpptools"
 vscode "ms-vscode.cpptools-extension-pack"
 vscode "ms-vscode.cpptools-themes"
 vscode "ms-vscode.remote-repositories"
+vscode "streetsidesoftware.code-spell-checker"
 vscode "twxs.cmake"
 vscode "vscodevim.vim"
 vscode "zhuangtongfa.material-theme"
