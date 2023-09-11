@@ -39,6 +39,8 @@ brew "spotifyd", restart_service: true
 brew "symlinks"
 # CLI tool that moves files or folder to the trash
 brew "trash"
+# Vi 'workalike' with many additional features
+brew "vim"
 # Internet file retriever
 brew "wget"
 # Terminal emulator as alternative to Apple's Terminal app
