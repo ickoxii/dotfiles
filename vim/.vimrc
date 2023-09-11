@@ -11,6 +11,9 @@
 
 " Appearance & Interface
 " ----------------------
+" Backspace does not work on brew installed vim on macOS
+set backspace=2
+
 " Turn on syntax highlighting
 syntax on
 
