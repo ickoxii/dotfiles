@@ -40,16 +40,24 @@ create_symlink() {
 
 # GENERAL_TERMINAL
 # ----------------
-SOURCE="$HOME/.dotfiles/general-terminal"
+SOURCE="$HOME/.dotfiles-and-scripts/general-terminal"
 DEST="$HOME"
 declare -A GENERAL_TERMINAL=(
     ["$SOURCE/.profile"]="$DEST/.profile"
     ["$SOURCE/.hushlogin"]="$DEST/.hushlogin"
 )
 
+# PACKAGE_MANAGERS
+# ----------------
+SOURCE="$HOME/.dotfiles-and-scripts/package-managers"
+DEST="$HOME"
+declare -A PACKAGE_MANAGERS=(
+    ["$SOURCE/get-pip.py"]="$DEST/get-pip.py"
+)
+
 # BASH
 # ----
-SOURCE="$HOME/.dotfiles/bash"
+SOURCE="$HOME/.dotfiles-and-scripts/bash"
 DEST="$HOME"
 declare -A BASH=(
     ["$SOURCE/.bash_aliases"]="$DEST/.bash_aliases"
@@ -60,7 +68,7 @@ declare -A BASH=(
 
 # ZSH
 # ---
-SOURCE="$HOME/.dotfiles/zsh"
+SOURCE="$HOME/.dotfiles-and-scripts/zsh"
 DEST="$HOME"
 declare -A ZSH=(
     ["$SOURCE/.zprofile"]="$DEST/.zprofile"
@@ -71,7 +79,7 @@ declare -A ZSH=(
 
 # GIT
 # ---
-SOURCE="$HOME/.dotfiles/git"
+SOURCE="$HOME/.dotfiles-and-scripts/git"
 DEST="$HOME"
 declare -A GIT=(
     ["$SOURCE/.gitconfig"]="$DEST/.gitconfig"
@@ -79,7 +87,7 @@ declare -A GIT=(
 
 # VIM
 # ---
-SOURCE="$HOME/.dotfiles/vim"
+SOURCE="$HOME/.dotfiles-and-scripts/vim"
 DEST="$HOME"
 declare -A VIM=(
     ["$SOURCE/.vimrc"]="$DEST/.vimrc"
@@ -88,7 +96,7 @@ declare -A VIM=(
 
 # VIM TEMPLATES
 # -------------
-SOURCE="$HOME/.dotfiles/vim/templates"
+SOURCE="$HOME/.dotfiles-and-scripts/vim/templates"
 DEST="$HOME/.vim/templates"
 declare -A VIMTEMPLATES=(
     ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
@@ -97,7 +105,7 @@ declare -A VIMTEMPLATES=(
 
 # NEOFETCH
 # --------
-SOURCE="$HOME/.dotfiles/neofetch"
+SOURCE="$HOME/.dotfiles-and-scripts/neofetch"
 DEST="$HOME/.config/neofetch"
 declare -A NEOFETCH=(
     ["$SOURCE/config.conf"]="$DEST/config.conf"
@@ -106,8 +114,8 @@ declare -A NEOFETCH=(
 # SPOTIFYCLI
 # ----------
 declare -A SPOTIFYCLI=(
-    ["$HOME/.dotfiles/spotifyd/spotifyd.conf"]="$HOME/.config/spotifyd/spotifyd.conf"
-    ["$HOME/.dotfiles/spotify-tui/config.yml"]="$HOME/.config/spotify-tui/config.yml"
+    ["$HOME/.dotfiles-and-scripts/spotifyd/spotifyd.conf"]="$HOME/.config/spotifyd/spotifyd.conf"
+    ["$HOME/.dotfiles-and-scripts/spotify-tui/config.yml"]="$HOME/.config/spotify-tui/config.yml"
 )
 
 
@@ -115,9 +123,15 @@ declare -A SPOTIFYCLI=(
 ## Loops to actually run the create_symlink function on all files
 ## ==============================================================
 
-echo "Linking GENERAL TERMINAL config files..."
+echo "Linking GENERAL-TERMINAL config files..."
 for src in "${!GENERAL_TERMINAL[@]}"; do
     create_symlink "$src" "${GENERAL_TERMINAL[$src]}"
+done
+echo
+
+echo "Linking PACKAGE-MANAGERS..."
+for src in "${!PACKAGE_MANAGERS[@]}"; do
+    create_symlink "$src" "${PACKAGE_MANAGERS[$src]}"
 done
 echo
 
