@@ -16,7 +16,8 @@
 *.exe
 *.o
 *.so
-*.out
+*.out  
+*.dYSM  # from compiling in debug mode
 
 # Packages #
 ############
