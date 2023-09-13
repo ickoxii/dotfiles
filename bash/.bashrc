@@ -7,7 +7,10 @@
 # PATH Configurations
 # ===================
 # Ensure user-installed binaries take precedence
-export PATH="/usr/local/bin:$PATH"
+# export PATH="/usr/local/bin:$PATH"
+
+# Ensure brew-installed binaries take precedence
+export PATH="$PATH:/opt/homebrew/bin"
 
 # Add Visual Studio Code CLI to PATH
 # Necessary when installed from browser
@@ -25,3 +28,6 @@ export PATH="$PATH:/Users/ickoxii/Library/Python/3.9/bin"
 
 # Load bash prompt customizations
 [ -f ~/.bash_prompt ] && source ~/.bash_prompt
+
+# Load bash functions
+[ -f ~/.bash_functions ] && source ~/.bash_functions

@@ -34,15 +34,15 @@ alias brave="open -a Brave\ Browser"
 # Launch Google Chrome
 alias chrome="open -a Google\ Chrome"
 
-# ============
-# Script Calls
-# ============
+# ====================
+# .bash_function Calls
+# ====================
 
-# Markdown live previewer script
+# Markdown Live Previewer
 # Uses a combination of pandoc, entr, and a pdf viewer to render live changes
 # made to (.md) files
-alias
-livepreview='$HOME/.dotfiles-and-scripts/bash/scripts/pandoc-live-markdown.sh"
+alias startpreview="startwatch"
+alias stoppreview="kill $(cat ~/.onmodify_pid) && rm ~/.onmodify_pid"
 
 # ===================
 # Miscellaneous 
