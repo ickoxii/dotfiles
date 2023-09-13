@@ -37,10 +37,12 @@ create_symlink() {
 ## ===============================================
 ## Declare associative arrays for each application
 ## ===============================================
+SRCBASE="$HOME/.dotfiles-and-scripts"
+
 
 # GENERAL_TERMINAL
 # ----------------
-SOURCE="$HOME/.dotfiles-and-scripts/general-terminal"
+SOURCE="$SRCBASE/general-terminal"
 DEST="$HOME"
 declare -A GENERAL_TERMINAL=(
     ["$SOURCE/.profile"]="$DEST/.profile"
@@ -49,7 +51,7 @@ declare -A GENERAL_TERMINAL=(
 
 # PACKAGE_MANAGERS
 # ----------------
-SOURCE="$HOME/.dotfiles-and-scripts/package-managers"
+SOURCE="$SRCBASE/package-managers"
 DEST="$HOME"
 declare -A PACKAGE_MANAGERS=(
     ["$SOURCE/get-pip.py"]="$DEST/get-pip.py"
@@ -57,10 +59,11 @@ declare -A PACKAGE_MANAGERS=(
 
 # BASH
 # ----
-SOURCE="$HOME/.dotfiles-and-scripts/bash"
+SOURCE="$SRCBASE/bash"
 DEST="$HOME"
 declare -A BASH=(
     ["$SOURCE/.bash_aliases"]="$DEST/.bash_aliases"
+    ["$SOURCE/.bash_functions"]="$DEST/.bash_functions"
     ["$SOURCE/.bash_profile"]="$DEST/.bash_profile"
     ["$SOURCE/.bash_prompt"]="$DEST/.bash_prompt"
     ["$SOURCE/.bashrc"]="$DEST/.bashrc"
@@ -68,7 +71,7 @@ declare -A BASH=(
 
 # ZSH
 # ---
-SOURCE="$HOME/.dotfiles-and-scripts/zsh"
+SOURCE="$SRCBASE/zsh"
 DEST="$HOME"
 declare -A ZSH=(
     ["$SOURCE/.zprofile"]="$DEST/.zprofile"
@@ -79,7 +82,7 @@ declare -A ZSH=(
 
 # GIT
 # ---
-SOURCE="$HOME/.dotfiles-and-scripts/git"
+SOURCE="$SRCBASE/git"
 DEST="$HOME"
 declare -A GIT=(
     ["$SOURCE/.gitconfig"]="$DEST/.gitconfig"
@@ -87,7 +90,7 @@ declare -A GIT=(
 
 # VIM
 # ---
-SOURCE="$HOME/.dotfiles-and-scripts/vim"
+SOURCE="$SRCBASE/vim"
 DEST="$HOME"
 declare -A VIM=(
     ["$SOURCE/.vimrc"]="$DEST/.vimrc"
@@ -96,7 +99,7 @@ declare -A VIM=(
 
 # VIM TEMPLATES
 # -------------
-SOURCE="$HOME/.dotfiles-and-scripts/vim/templates"
+SOURCE="$SRCBASE/vim/templates"
 DEST="$HOME/.vim/templates"
 declare -A VIMTEMPLATES=(
     ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
@@ -105,7 +108,7 @@ declare -A VIMTEMPLATES=(
 
 # NEOFETCH
 # --------
-SOURCE="$HOME/.dotfiles-and-scripts/neofetch"
+SOURCE="$SRCBASE/neofetch"
 DEST="$HOME/.config/neofetch"
 declare -A NEOFETCH=(
     ["$SOURCE/config.conf"]="$DEST/config.conf"
@@ -114,8 +117,8 @@ declare -A NEOFETCH=(
 # SPOTIFYCLI
 # ----------
 declare -A SPOTIFYCLI=(
-    ["$HOME/.dotfiles-and-scripts/spotifyd/spotifyd.conf"]="$HOME/.config/spotifyd/spotifyd.conf"
-    ["$HOME/.dotfiles-and-scripts/spotify-tui/config.yml"]="$HOME/.config/spotify-tui/config.yml"
+    ["$SRCBASE/spotifyd/spotifyd.conf"]="$HOME/.config/spotifyd/spotifyd.conf"
+    ["$SRCBASE/spotify-tui/config.yml"]="$HOME/.config/spotify-tui/config.yml"
 )
 
 
