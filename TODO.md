@@ -33,6 +33,17 @@ configurations.
     - leetcode questions
     - .cpp with prefile comments for baylor projects
 
+5. Live Markdown Viewer
+    - write onmodify() in .bash\_functions [y]
+    - write startwatch() [y]
+    - add .bash\_functions to create-sym-link.sh [y]
+        - modify create-sym-link, make sure paths are straight [y]
+    - run create-sym-link.sh [y]
+    - add .bash\_functions to .bashrc or .bash\_profile [y]
+    - setup vim autocommand [y]
+        `au BufWritePost *.md !touch /tmp/bufwrite`
+    - add alias to start and stop onmodify [y]
+
 ## Misc
 
 1. configure spotifyd. needed to download the following packages through brew:
