@@ -1,3 +1,8 @@
+# Repository Specific #
+#######################
+start-live-markdown-preview.sh
+stop-live-markdown-preview.sh
+
 # Compiled source #
 ###################
 *.com
