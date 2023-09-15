@@ -11,6 +11,10 @@ autocmd BufNewFile newgitignore 0r ~/.vim/templates/gitignore.template
 " Usage: `vim newtodo` from command line
 autocmd BufNewFile newtodo 0r ~/.vim/templates/TODO.template
 
+" new template for baylor csi projects
+" includes pre-file comments and pre-function comments
+autocmd BufNewFile newbaylorcsi 0r ~/.vim/templates/baylorcsi.template
+
 " Comment Formatting
 " ==================
 
