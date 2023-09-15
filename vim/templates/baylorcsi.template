@@ -1,0 +1,27 @@
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-//
+/**
+  * file:
+  * author: Icko Iben
+  * course: CSI 3334
+  * assignment:
+  * due date:
+  * version: 1.0
+  *
+  * file_description */
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-//
+
+// INCLUDE DIRECTIVES
+
+ /**
+  * function_name
+  *
+  * function_description
+  *
+  * Parameters:
+  *
+  * Return value:
+  */
+int main(int argc, char *argv[]) {
+
+    return 0;
+}
