@@ -1,9 +1,13 @@
 # .bash_prompt
 # Author: Icko Iben
 # Created on: Mon; 4 Sep 2023; 03:05 CDT
+# Last Modified: Fri; 15 Sep 2023; 07:04 CDT
 # Description: Customizes the bash prompt appearance and functionalities.
 # Source: https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e
 # Note: The layout for the prompt is 'name directory (git-branch) >> |'.
+
+# DEBUG
+# echo "in .bash_prompt"
 
 # ===================
 # Utility Functions

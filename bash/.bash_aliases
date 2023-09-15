@@ -1,8 +1,14 @@
+#!/opt/homebrew/bin/bash
+
 # .bash_aliases
 # Author: Icko Iben
 # Created on: Mon; 4 Sep 2023; 03:02 CDT
+# Last Modified: Fri; 15 Sep 2023; 07:04 CDT
 # Description: Contains aliases to streamline command usage on macOS.
 # Source: https://medium.com/@charlesdobson/how-to-customize-your-macos-terminal-7cce5823006e
+
+# DEBUG
+# echo "in .bash_aliases"
 
 # ===================
 # Finder Configurations
@@ -26,23 +32,13 @@ alias matlab="/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop"
 alias bash="/opt/homebrew/bin/bash"
 
 # Launch Spotify
-alias spotify="open -a Spotify"
+# alias spotify="open -a Spotify"
 
 # Launch Brave Browser
-alias brave="open -a Brave\ Browser"
+# alias brave="open -a Brave\ Browser"
 
 # Launch Google Chrome
-alias chrome="open -a Google\ Chrome"
-
-# ====================
-# .bash_function Calls
-# ====================
-
-# Markdown Live Previewer
-# Uses a combination of pandoc, entr, and a pdf viewer to render live changes
-# made to (.md) files
-alias startpreview="startwatch"
-alias stoppreview="kill $(cat ~/.onmodify_pid) && rm ~/.onmodify_pid"
+# alias chrome="open -a Google\ Chrome"
 
 # ===================
 # Miscellaneous 
