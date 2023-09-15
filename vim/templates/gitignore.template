@@ -2,11 +2,23 @@
 ###############################
 
 
-# IDE Project Files #
-#####################
+# Program Files #
+#################
 .vscode # visual studio code
 .vs     # visual studios (IDE)
 *.sln   # visual studios solution
+.viminfo    # because why not
+.netrwhist  # Netrw's network directories (ViM netrw plugin)
+
+# Temporary files #
+###################
+# ViM Swap Files
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+*~          # ViM Backup files
+*.un~       # ViM persistent undo files 
 
 # Compiled source #
 ###################
@@ -40,6 +52,7 @@
 
 # OS generated files #
 ######################
+# MacOS
 .DS_Store
 .DS_Store?
 ._*
