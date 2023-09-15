@@ -104,6 +104,7 @@ DEST="$HOME/.vim/templates"
 declare -A VIMTEMPLATES=(
     ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
     ["$SOURCE/TODO.template"]="$DEST/TODO.template"
+    ["$SOURCE/baylorcsi.template"]="$DEST/baylorcsi.template"
 )
 
 # NEOFETCH
