@@ -4,9 +4,9 @@
 
 # Program Files #
 #################
-.vscode # visual studio code
-.vs     # visual studios (IDE)
-*.sln   # visual studios solution
+.vscode/    # visual studio code
+.vs/        # visual studios (IDE)
+*.sln/      # visual studios solution
 .viminfo    # because why not
 .netrwhist  # Netrw's network directories (ViM netrw plugin)
 
