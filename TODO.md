@@ -17,6 +17,8 @@ Tracks planned changes such as features, bugs, improvements, etc.
 
 ## Improvements
 
+1. Add latex preambles to create-sym-link?
+
 1. Find out how to customize neofetch image
     - source .txt
     - source .png
