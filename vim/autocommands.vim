@@ -24,4 +24,12 @@ autocmd BufNewFile newbaylorcsi 0r ~/.vim/templates/baylorcsi.template
 " Markdown Live Previewer Helper
 " Vim autocommand to touch /tmp/bufwrite upon saving a Markdown file
 " This triggers the onmodify function (when used) to perform its actions
-au BufWritePost *.md !touch /tmp/bufwrite
+" au BufWritePost *.md !touch /tmp/bufwrite
+
+augroup PandocMarkdown
+    autocmd!
+    autocmd BufWritePost *.md !pandoc % --pdf-engine=xelatex -H ~/.dotfiles-and-scripts/latex/preambles/math.tex --highlight-style=breezedark -o %<.pdf
+augroup END
+
+" Define the Pandoc command
+" command! Pandoc w | !pandoc % --pdf-engine=xelatex -H ~/.dotfiles-and-scripts/latex/preambles/math.tex --highlight-style=breezedark -o %<.pdf
