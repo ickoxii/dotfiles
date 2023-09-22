@@ -14,134 +14,89 @@
 # Markdown Live Preview
 # =====================
 
-# Temporary files for tracking PIDs
-WATCH_PID_FILE="/tmp/watch_pid"
-EVINCE_PID_FILE="/tmp/evince_pid"
+ONMODIFY_PID_FILE=".onmodify_pid"
 
 # ====================
 # start_preview
 # ====================
 #
-# Initiates the live markdown preview by watching for changes to the markdown file
-# and displaying its PDF representation using Evince.
+# Initiates the live markdown preview by opening the PDF in Evince and starting
+# the watch process on the markdown file.
 #
 # Parameters:
-#   $1 - Markdown file to be watched and converted to PDF.
+#   $1 - Markdown file to be watched.
+#   $2 - PDF file to be opened in Evince.
 #
 # Assumptions:
 #   Assumes `fswatch`, `pandoc`, and `evince` are available in the system.
 #
 # Usage:
-# $ start_preview input.md
+# $ start_preview input.md output.pdf
 # -----------------------
 start_preview() {
-    local markdown_file="$1"
-    local pdf_file="${markdown_file%.md}.pdf"
-    
-    # If the PDF file does not exist, create it
-    if [ ! -e "$pdf_file" ]; then
-        touch "$pdf_file"
-    fi
+    local md_file="$1"
+    local pdf_file="$2"
 
-    # Start watching the markdown file and converting it to PDF
-    start_watch "$markdown_file" "$pdf_file" &
-    echo $! > "$WATCH_PID_FILE"
-    
-    # Start the Evince PDF viewer
-    start_evince "$pdf_file" &
-    echo $! > "$EVINCE_PID_FILE"
+    # Open PDF in a background evince process
+    #evince "$pdf_file" &
+
+    # Start the watch process using onmodify
+    onmodify /tmp/bufwrite "pandoc '$md_file' \
+    --include-in-header=$PREAMBLE/math.tex --highlight-style=pygments -o \
+    '$pdf_file'" &
+    echo $! > $ONMODIFY_PID_FILE # Record the PID of the onmodify function
+}
+
+# ====================
+# onmodify
+# ====================
+#
+# Watches for changes to a target (default is current directory).
+# When changes are detected, it executes the provided command.
+#
+# Parameters:
+#   $1 - Target file or directory to watch.
+#   $@ - Command to execute upon detected changes.
+#
+# Assumptions:
+#   Assumes `fswatch` is available in the system.
+#
+# Usage:
+# $ onmodify /path/to/watch "command to execute"
+# -------------------
+onmodify() {
+    local TARGET=${1:-.}; shift
+    local CMD="$@"
+
+    echo "Watching: $TARGET | Command: $CMD"
+
+    fswatch -0 "$TARGET" | while read -d "" event; do
+        sleep 0.2
+        bash -c "$CMD"
+        echo "in fswatch loop"
+        echo
+    done
 }
 
 # ====================
 # stop_preview
 # ====================
 #
-# Terminates the live markdown preview process. Stops both the markdown watch 
-# and the Evince PDF viewer.
+# Stops all ongoing background evince processes.
 #
 # Usage:
 # $ stop_preview
-# -----------------
+# -----------------------
 stop_preview() {
-    stop_watch
-    stop_evince
-}
+    #pkill evince
+    echo "All evince processes stopped."
 
-# ====================
-# start_watch
-# ====================
-#
-# Uses `fswatch` to monitor changes to a given markdown file and, on modification,
-# converts it to a PDF using `pandoc`.
-#
-# Parameters:
-#   $1 - Markdown file to be watched.
-#   $2 - PDF file to which the markdown will be converted.
-#
-# Usage:
-# [Called internally by start_preview]
-# -----------------
-start_watch() {
-    local markdown_file="$1"
-    local pdf_file="$2"
-    
-    # Monitor changes to the markdown file and convert to PDF using pandoc
-    fswatch -0 "$markdown_file" | while read -d "" event; do
-        sleep 0.2
-        pandoc "$markdown_file" -o "$pdf_file"
-        echo "Markdown converted to PDF."
-    done
-}
-
-# ====================
-# stop_watch
-# ====================
-#
-# Stops the markdown file watch process.
-#
-# Usage:
-# [Called internally by stop_preview]
-# -----------------
-stop_watch() {
-    if [ -f "$WATCH_PID_FILE" ]; then
-        kill -9 $(cat "$WATCH_PID_FILE") 2>/dev/null
-        rm "$WATCH_PID_FILE"
-        echo "Markdown watch process stopped."
+    # Kill onmodify background process
+    if [ -f $ONMODIFY_PID_FILE ]; then
+        kill -9 $(cat $ONMODIFY_PID_FILE) 2>/dev/null
+        rm $ONMODIFY_PID_FILE
+        echo "onmodify process stopped."
     fi
-}
 
-# ====================
-# start_evince
-# ====================
-#
-# Opens the provided PDF file in the Evince PDF viewer.
-#
-# Parameters:
-#   $1 - PDF file to be viewed.
-#
-# Usage:
-# [Called internally by start_preview]
-# -----------------
-start_evince() {
-    local pdf_file="$1"
-    
-    evince "$pdf_file" &
-    echo "Evince PDF viewer started."
-}
-
-# ====================
-# stop_evince
-# ====================
-#
-# Stops the running instance of the Evince PDF viewer.
-#
-# Usage:
-# [Called internally by stop_preview]
-# -----------------
-stop_evince() {
-    if [ -f "$EVINCE_PID_FILE" ]; then
-        kill -9 $(cat "$EVINCE_PID_FILE") 2>/dev/null
-        rm "$EVINCE_PID_FILE"
-        echo "Evince PDF viewer stopped."
-    fi
+    echo "All evince processes and onmodify stopped."
 }
