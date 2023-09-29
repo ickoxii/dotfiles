@@ -9,7 +9,6 @@
 .sln/       # visual studios solution
 .viminfo    # because why not
 .netrwhist  # Netrw's network directories (ViM netrw plugin)
-*.dSYM/
 
 # Temporary files #
 ###################
@@ -20,6 +19,7 @@
 [._]sw[a-p]
 *~          # ViM Backup files
 *.un~       # ViM persistent undo files 
+*.gch       # pre-compiled headers
 
 # Compiled source #
 ###################
@@ -30,7 +30,7 @@
 *.o
 *.so
 *.out  
-*.dYSM  # from compiling in debug mode
+*.dYSM/     # from compiling in debug mode
 
 # Packages #
 ############
