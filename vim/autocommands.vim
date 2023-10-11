@@ -16,17 +16,6 @@ autocmd BufNewFile newtodo 0r ~/.vim/templates/TODO.template
 " Usage: `vim newbaylorcsi` from command line
 autocmd BufNewFile newbaylorcsi 0r ~/.vim/templates/baylorcsi.template
 
-" Comment Formatting
-" ==================
-
-" C-style comment formatting
-"augroup c_comment_settings
-"    autocmd!
-"    autocmd FileType c,cpp setlocal formatoptions+=ro
-"    autocmd FileType c,cpp setlocal formatoptions-=r
-"    autocmd FileType c,cpp setlocal comments=s1:/*,mb:*,ex:*/
-"augroup END
-
 
 " Autocommands
 " ============
@@ -38,7 +27,31 @@ autocmd BufNewFile newbaylorcsi 0r ~/.vim/templates/baylorcsi.template
 
 " Markdown Live Preview Helper
 " Vim autocommand to pandoc current file upon write if the current file is .md
+"augroup PandocMarkdown
+"    autocmd!
+"    autocmd BufWritePost *.md !pandoc % --pdf-engine=xelatex -H ~/.dotfiles-and-scripts/latex/preambles/math.tex --highlight-style=breezedark -o %<.pdf
+"augroup END
+
 augroup PandocMarkdown
     autocmd!
-    autocmd BufWritePost *.md !pandoc % --pdf-engine=xelatex -H ~/.dotfiles-and-scripts/latex/preambles/math.tex --highlight-style=breezedark -o %<.pdf
+    " The autocmd is listed here, but it's not active by default.
 augroup END
+
+" Command to enable the PandocMarkdown autocommands
+command! enablepandoc autocmd! PandocMarkdown | autocmd PandocMarkdown BufWritePost *.md !pandoc % --pdf-engine=xelatex -H ~/.dotfiles-and-scripts/latex/preambles/math.tex --highlight-style=breezedark -o %<.pdf
+
+" Command to disable the PandocMarkdown autocommands
+command! disablepandoc autocmd! PandocMarkdown
+
+" Function and command to toggle the PandocMarkdown autocommands
+function! TogglePandoc()
+    if exists("#PandocMarkdown#BufWritePost")
+        " The autocmd exists, so we remove it
+        autocmd! PandocMarkdown BufWritePost *.md
+    else
+        " The autocmd doesn't exist, so we add it
+        autocmd PandocMarkdown BufWritePost *.md !pandoc % --pdf-engine=xelatex -H ~/.dotfiles-and-scripts/latex/preambles/math.tex --highlight-style=breezedark -o %<.pdf
+    endif
+endfunction
+
+command! togglepandoc call TogglePandoc()
