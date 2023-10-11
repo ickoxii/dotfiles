@@ -97,6 +97,7 @@ declare -A VIM=(
     ["$SOURCE/autocommands.vim"]="$DEST/.vim/autocommands.vim"
     ["$SOURCE/plugins.vim"]="$DEST/.vim/plugins.vim"
     ["$SOURCE/ghdark.vim"]="$DEST/.vim/colors/ghdark.vim"
+    ["$SOURCE/config.vim"]="$DEST/.vim/config.vim"
 )
 
 # VIM TEMPLATES
