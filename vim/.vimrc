@@ -9,29 +9,50 @@
 " - Make live changes in Vim using ":set XXX" where "XXX" is the desired setting
 " - Re-open Vim after editing this file to see changes reflected
 
+" Source Other Config Files
+" -------------------------
+" Autocommands
+" Use Vim's ability to run shell commands to check existence of symlink target
+if !empty(system("readlink -f ~/.vim/autocommands.vim"))
+    source ~/.vim/autocommands.vim
+endif
+
+" GitHub Dark Color Scheme
+" https://github.com/vv9k/vim-github-dark
+if !empty(system("readlink -f ~/.vim/colors/ghdark.vim"))
+    source ~/.vim/colors/ghdark.vim
+endif
+
+" Use soft version
+" let g:gh_color = "soft"
+
+" Plug-ins
+"if !empty(system("readlink -f ~/.vim/plugins.vim"))
+"    source ~/.vim/plugins.vim
+"endif
+
 " Appearance & Interface
 " ----------------------
+
+" Aldiun Color Scheme
+" https://github.com/rafi/awesome-vim-colorschemes
+" https://github.com/AlessandroYorba/Alduin
+" let g:alduin_Shout_Dragon_Aspect = 1  " Almost Black Background
+" let g:alduin_Shout_Become_Ethereal = 1 " Black Background
+" let g:alduin_Shout_Fire_Breath = 1  " Adds Deep Red Color for special
+                                    " highlighting groups
+" let g: alduin_Shout_Aura_Whisper = 1  " removes block matchparens setting and
+                                        " adds an underline
+" colorscheme alduin      " Dark Grey
+
+" Color Scheme (vim default)
+" colorscheme slate
+
 " Backspace does not work on brew installed vim on macOS
 set backspace=2
 
 " Turn on syntax highlighting
 syntax on
-
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-"if (empty($TMUX) && getenv('TERM_PROGRAM') != 'Apple_Terminal')
-"  if (has("nvim"))
-"    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-"    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"  endif
-"  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-"  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-"  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-"  if (has("termguicolors"))
-"    set termguicolors
-"  endif
-"endif
 
 " Enable mouse support
 set mouse=a
@@ -62,7 +83,9 @@ set incsearch
 
 " By default, ignore case during searches
 " set ignorecase
-set noignorecase
+set noignorecase    " Vim default (search is case sensitive)
+" set smarcase      " Case sensitive search ONLY if search term
+                    " contains upper case characters
 
 " Indentation & Formatting
 " ------------------------
@@ -79,24 +102,18 @@ set cindent " provides automatic indentation for c-style languages
 set cinoptions=g0
 
 " Function/Class definitions always begin 4 spaces indented
-set cinoptions+=(4
+" set cinoptions+=(4
 
 " Guarantee K&R format for switch-case statements
-set cinoptions+=:0 " already default setting for vim
+" set cinoptions+=:0 " already default setting for vim
 
 " System Integration
 " ------------------
 " Yank to the system clipboard by default (macOS)
+" Otherwise, yank to clipboard using `"*y`
 set clipboard=unnamed
 
 " Misc Settings
 " -------------
 " Disable the Vim alert bell for all events (your sanity will thank you)
 set belloff=all
-
-" Autocommands
-" ------------
-" Use Vim's ability to run shell commands to check existence of symlink target
-if !empty(system("readlink -f ~/.vim/autocommands.vim"))
-    source ~/.vim/autocommands.vim
-endif
