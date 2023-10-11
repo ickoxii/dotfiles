@@ -1,4 +1,4 @@
-# .bash_prompt
+#.bash_prompt
 # Author: Icko Iben
 # Created on: Mon; 4 Sep 2023; 03:05 CDT
 # Last Modified: Fri; 15 Sep 2023; 07:04 CDT
@@ -46,8 +46,8 @@ export PS1
 # Color Configurations
 # ===================
 
-# Enable color support
+# Enable color support (directories/files color-coded)
 export CLICOLOR=1
 
 # Customize directory and file colors
-export LSCOLORS=ExFxBxDxCxegedabagacad
+#export LSCOLORS=ExFxBxDxCxegedabagacad
