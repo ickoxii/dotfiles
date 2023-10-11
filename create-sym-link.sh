@@ -95,6 +95,8 @@ DEST="$HOME"
 declare -A VIM=(
     ["$SOURCE/.vimrc"]="$DEST/.vimrc"
     ["$SOURCE/autocommands.vim"]="$DEST/.vim/autocommands.vim"
+    ["$SOURCE/plugins.vim"]="$DEST/.vim/plugins.vim"
+    ["$SOURCE/ghdark.vim"]="$DEST/.vim/colors/ghdark.vim"
 )
 
 # VIM TEMPLATES
@@ -102,6 +104,25 @@ declare -A VIM=(
 SOURCE="$SRCBASE/vim/templates"
 DEST="$HOME/.vim/templates"
 declare -A VIMTEMPLATES=(
+    ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
+    ["$SOURCE/TODO.template"]="$DEST/TODO.template"
+    ["$SOURCE/baylorcsi.template"]="$DEST/baylorcsi.template"
+)
+
+# NVIM
+# ----
+SOURCE="$SRCBASE/nvim"
+DEST="$HOME/.config/nvim"
+declare -A NVIM=(
+    ["$SOURCE/init.vim"]="$DEST/init.vim"
+    ["$SOURCE/autocommands.vim"]="$DEST/autocommands.vim"
+)
+
+# NVIM TEMPLATES
+# --------------
+SOURCE="$SRCBASE/vim/templates"
+DEST="$HOME/.config/nvim"
+declare -A NVIMTEMPLATES=(
     ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
     ["$SOURCE/TODO.template"]="$DEST/TODO.template"
     ["$SOURCE/baylorcsi.template"]="$DEST/baylorcsi.template"
@@ -166,6 +187,18 @@ echo
 echo "Linking VIM templates..."
 for src in "${!VIMTEMPLATES[@]}"; do
     create_symlink "$src" "${VIMTEMPLATES[$src]}"
+done
+echo
+
+echo "Linking NVIM config files..."
+for src in "${!NVIM[@]}"; do
+    create_symlink "$src" "${NVIM[$src]}"
+done
+echo
+
+echo "Linking NVIM templates..."
+for src in "${!NVIMTEMPLATES[@]}"; do
+    create_symlink "$src" "${NVIMTEMPLATES[$src]}"
 done
 echo
 
