@@ -38,10 +38,10 @@ augroup PandocMarkdown
 augroup END
 
 " Command to enable the PandocMarkdown autocommands
-command! enablepandoc autocmd! PandocMarkdown | autocmd PandocMarkdown BufWritePost *.md !pandoc % --pdf-engine=xelatex -H ~/.dotfiles-and-scripts/latex/preambles/math.tex --highlight-style=breezedark -o %<.pdf
+command! EnablePandoc autocmd! PandocMarkdown | autocmd PandocMarkdown BufWritePost *.md !pandoc % --pdf-engine=xelatex -H ~/.dotfiles-and-scripts/latex/preambles/math.tex --highlight-style=breezedark -o %<.pdf
 
 " Command to disable the PandocMarkdown autocommands
-command! disablepandoc autocmd! PandocMarkdown
+command! DisablePandoc autocmd! PandocMarkdown
 
 " Function and command to toggle the PandocMarkdown autocommands
 function! TogglePandoc()
@@ -54,4 +54,6 @@ function! TogglePandoc()
     endif
 endfunction
 
-command! togglepandoc call TogglePandoc()
+command! TogglePandoc call TogglePandoc()
+
+command! TP call TogglePandoc()
