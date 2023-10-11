@@ -24,7 +24,7 @@ if !empty(system("readlink -f ~/.vim/colors/ghdark.vim"))
 endif
 
 " Use soft version
-" let g:gh_color = "soft"
+let g:gh_color = "soft"
 
 " Plug-ins
 "if !empty(system("readlink -f ~/.vim/plugins.vim"))
