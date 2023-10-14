@@ -108,6 +108,8 @@ declare -A VIMTEMPLATES=(
     ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
     ["$SOURCE/TODO.template"]="$DEST/TODO.template"
     ["$SOURCE/baylorcsi.template"]="$DEST/baylorcsi.template"
+    ["$SOURCE/Makefile.cpp.template"]="$DEST/Makefile.cpp.template"
+    ["$SOURCE/Makefile.pandoc.template"]="$DEST/Makefile.pandoc.template"
 )
 
 # NVIM
