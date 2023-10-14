@@ -7,11 +7,24 @@
 # DEBUG
 # echo "in .bashrc"
 
+# ================
+# GLOBAL Variables
+# ================
+
+# Application Nicknames
+declare -A app_names
+app_names=(
+    ["matlab"]="MATLAB_r2023a"
+    ["browser"]="Brave\ Browser"    # Default browser application
+    ["brave"]="Brave\ Browser"
+    ["chrome"]="Google\ Chrome"
+)
+
 # ===================
 # PATH Configurations
 # ===================
 # Ensure user-installed binaries take precedence
-export PATH="/usr/local/bin:$PATH"
+# export PATH="/usr/local/bin:$PATH"
 
 # Set up Homebrew configurations
 eval "$(/opt/homebrew/bin/brew shellenv)"

@@ -21,24 +21,53 @@ alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 
-# ===================
+# =====================
 # Application Shortcuts
-# ===================
-
-# Launch MATLAB with specific settings
-alias matlab="/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop"
+# ---------------------
+# Save nicknames for common applications to open.
+# =====================
 
 # Use Homebrew's updated bash instead of macOS default
 alias bash="/opt/homebrew/bin/bash"
 
-# Launch Spotify
-# alias spotify="open -a Spotify"
+# Launch MATLAB CLI
+alias mat="/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop"
 
-# Launch Brave Browser
-# alias brave="open -a Brave\ Browser"
 
-# Launch Google Chrome
-# alias chrome="open -a Google\ Chrome"
+# ======================
+# Open Browser Bookmarks
+# ======================
+
+# ========
+# DEFAULTS
+# --------
+
+# Default Email
+alias email="browser https://gmail.com"
+# ========
+
+
+# Canvas
+alias canvas="browser https://canvas.web.baylor.edu"
+
+# Gmail
+alias gmail="browser https://gmail.com"
+
+# Proton Mail
+alias proton="browser https://proton.me"
+
+# GitHub
+alias github="browser https://github.com/ickoxii"
+
+# DIM
+alias dim="browser https://beta.destinyitemmanager.com/4611686018486746069/d2/inventory"
+
+# Bungie LFG
+alias lfg="browser https://www.bungie.net/7/en/Fireteams/Search?platform=0&activity=0"
+
+# Instagram
+alias ig="browser https://instagram.com"
+
 
 # ===================
 # Miscellaneous 

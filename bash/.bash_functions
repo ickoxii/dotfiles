@@ -11,6 +11,77 @@
 
 # --------------------------------------------------------------------------- #
 # =====================
+# Application Shortcuts
+# =====================
+
+# Declare Global Nicknames using an associative array (Bash 4.0 or later)
+# Check using `echo $BASH_VERSION` or `bash --version`
+# In .bashrc
+#declare -A app_names
+#app_names=(
+#    ["matlab"]="open -a MATLAB_r2023a"
+#    ["spotify"]="Spotify"
+#    ["browser"]="Brave\ Browser"    # Default browser application
+#    ["brave"]="Brave\ Browser"
+#    ["chrome"]="Google\ Chrome"
+#    ["discord"]="Discord"
+#)
+
+# ===================
+# openapp
+# ===================
+#
+# ***JUST USE open -a BRUH***
+# Opens an application using `open -a`
+#
+# Parameters:
+#   $1 - First command line argument
+#        Name of our application (or nickname)
+# 
+# Return: None
+# -------------------
+#openapp() {
+    # Check if nickname exists, otherwise use name provided    
+#   app_to_open="${app_names[$1]:-$1}"
+#
+    # If only wanting to use openapp only on applications with nicknames
+#   if [[ -z $app_to_open ]]; then
+#       echo "Unknown app nickname (or name): $1"
+#       return 1
+#   fi
+#
+#   open -a "$app_to_open"
+#}
+
+# ===================
+# close
+# ===================
+#
+# Closes the given application using `osascript -e`
+#
+# Parameters:
+#   $1 - First command line argument
+#        Name of our application (or nickname)
+#
+# Return: None
+# -------------------
+close() {
+    # Check if nickname exists, otherwise use name provided
+    app_to_close="${app_names[$1]:-$1}"
+
+    # If only wanting to use openapp only on applications with nickname
+#   if [[ -z $app_to_close ]]; then
+#       echo "Unknown app nickname (or name): $1"
+#       return 1
+#   fi
+
+    osascript -e "tell application \"$app_to_close\" to quit"
+}
+# END APPLICATION SHORTCUTS
+# --------------------------------------------------------------------------- #
+
+# --------------------------------------------------------------------------- #
+# =====================
 # Markdown Live Preview
 # =====================
 
@@ -100,3 +171,5 @@ stop_preview() {
 
     echo "All evince processes and onmodify stopped."
 }
+# END: PANDOCMARKDOWN
+# --------------------------------------------------------------------------- #
