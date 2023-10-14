@@ -5,6 +5,7 @@ stop-live-markdown-preview.sh
 vim/alduin.vim
 vim/ghdark.vim
 vim/plugins.vim
+spotifyd/.spotifyd.conf.orig
 
 # Compiled source #
 ###################
