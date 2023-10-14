@@ -1,0 +1,14 @@
+# Specify the source files, this assumes they are all in the current directory
+CPP_FILES = $(wildcard *.cpp)
+# Name of the final executable
+EXECUTABLE = main
+# Compiler flags
+CFLAGS = -Wall -std=c++11
+
+all: $(EXECUTABLE)
+
+$(EXECUTABLE): $(CPP_FILES)
+	@g++ $(CFLAGS) -o $@ $^
+
+clean:
+	@rm -f $(EXECUTABLE)

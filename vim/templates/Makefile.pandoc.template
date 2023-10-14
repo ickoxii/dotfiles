@@ -1,0 +1,12 @@
+# Specify all markdown files, this assumes they are all in the current directory
+MARKDOWN_FILES = $(wildcard *.md)
+# Convert each markdown file to a corresponding pdf target
+PDF_FILES = $(patsubst %.md,%.pdf,$(MARKDOWN_FILES))
+
+all: $(PDF_FILES)
+
+%.pdf: %.md
+	@pandoc $< --pdf-engine=xelatex -H ~/.dotfiles-and-scripts/latex/preambles/math.tex --highlight-style=breezedark -o $@
+
+clean:
+    @rm -f $(PDF_FILES)
