@@ -69,6 +69,9 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+" Except for makefiles, we need tabs for Makefiles
+autocmd FileType make setlocal noexpandtab
+
 " Auto-indent based on C-style blocks
 set autoindent
 set cindent " provides automatic indentation for c-style languages

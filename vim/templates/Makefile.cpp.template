@@ -1,14 +1,136 @@
-# Specify the source files, this assumes they are all in the current directory
-CPP_FILES = $(wildcard *.cpp)
-# Name of the final executable
-EXECUTABLE = main
-# Compiler flags
-CFLAGS = -Wall -std=c++11
+# File: Makefile.cpp.template
+# Author: Icko Iben
+# Date Created: 13 October 2023
+# Date Last Modified: 16 October 2023
+# Version: 1.0.2
+#
+# V1.0.0 - 10/13/2023
+# - File created
+# - Initial versions for: all, debug, soln, test, diff, clean
+#
+# V1.0.1 - 10/14/2023
+# - Comments added
+#
+# V1.0.2 - 10/16/2023
+# - Explicitly define CPP_FILES, EXECUTABLE and SOLN_EXEC
+# - Added new targets testmore and diffmore that handles verbose output
+#
+# ----------------
+# USAGE
+# ----------------
+# To compile:
+# make
+# 
+# Debug mode:
+# make debug
+#
+# Link ncurses library:
+# make curses
+#
+# Run soln executable:
+# make soln
+#
+# Run compiled project `test`:
+# make test
+#
+# Run compiled project `test` with verbose output:
+# make testmore
+# 
+# Diff the outputs:
+# make diff
+#
+# Diff the verbose outputs:
+# make diffmore
+#
+# Clean executables:
+# make clean
 
+# Specify the source files, passed as command line arguments
+CPP_FILES := CPP_FILES_GO_HERE
+# By default, name of the final executable is "main", but this can be overridden
+EXECUTABLE := EXECUTABLE_NAME_GOES_HERE
+# Name of professor's executable
+SOLN_EXEC := PROFESSOR_EXECUTABLE_NAME_GOES_HERE
+# Compiler flags
+CFLAGS := -Wall -std=c++11
+CURSES_LINK := -lncurses
+DEBUG_FLAGS := -g
+
+.PHONY: all debug curses clean soln test testmore diff diffmore
+
+# all
+#
+# Default target. This is run when `make` is called with no arguments.
+# In this case, we build the target $(EXECUTABLE), which is the target
+# specified below which compiles our program
 all: $(EXECUTABLE)
 
+# $(EXECUTABLE)
+#
+# Compiles out program
 $(EXECUTABLE): $(CPP_FILES)
-	@g++ $(CFLAGS) -o $@ $^
+	g++ $(CFLAGS) -o $(EXECUTABLE) $(CPP_FILES)
 
+# debug
+#
+# Compiles our project in debug mode (i.e. with `g++ -g`)
+debug: CFLAGS += $(DEBUG_FLAGS)
+debug: $(EXECUTABLE)
+
+# curses
+#
+# Links the ncurses library to our project (i.e. with `g++ -lncurses`)
+curses: CFLAGS += $(CURSES_LINK)
+curses: $(EXECUTABLE)
+
+# soln
+#
+# Runs the professors solution with normal and verbose output.
+soln:
+	for f in io/input-*.txt; do \
+		num=$$(basename $$f | sed 's/^input-//; s/\.txt$$//'); \
+		./$(SOLN_EXEC) < $$f > io/soln-$$num.txt; \
+		./$(SOLN_EXEC) printMore < $$f > io/verbose-soln-$$num.txt; \
+	done
+
+# test
+#
+# Runs our compiled project with normal output
+test:
+	for f in io/input-*.txt; do \
+		outfile=$$(basename $$f | sed 's/^input-/output-/'); \
+		./$(EXECUTABLE) < $$f > io/$$outfile; \
+	done
+
+# testmore
+#
+# Runs our compiled project with verbose output
+testmore:
+	for f in io/input-*.txt; do \
+		verbose_outfile=$$(basename $$f | sed 's/^input-/verbose-output-/'); \
+		./$(EXECUTABLE) printMore < $$f > io/$$verbose_outfile; \
+	done
+
+# diff
+#
+# Checks our output with professors solution
+diff:
+	for f in io/input-*.txt; do \
+		num=$$(basename $$f .txt | sed 's/^input-//'); \
+		diff io/output-$$num.txt io/soln-$$num.txt; \
+	done
+
+# diffmore
+#
+# Compares our verbose output with professors' verbose solutions.
+diffmore:
+	for f in io/input-*.txt; do \
+		num=$$(basename $$f .txt | sed 's/^input-//'); \
+		diff io/verbose-output-$$num.txt io/verbose-soln-$$num.txt; \
+	done
+
+# clean
+#
+# Cleans up any executable created
 clean:
-	@rm -f $(EXECUTABLE)
+	rm -i $(EXECUTABLE)

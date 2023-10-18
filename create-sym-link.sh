@@ -104,12 +104,20 @@ declare -A VIM=(
 # -------------
 SOURCE="$SRCBASE/vim/templates"
 DEST="$HOME/.vim/templates"
-declare -A VIMTEMPLATES=(
+declare -A VIM_TEMPLATES=(
     ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
     ["$SOURCE/TODO.template"]="$DEST/TODO.template"
     ["$SOURCE/baylorcsi.template"]="$DEST/baylorcsi.template"
     ["$SOURCE/Makefile.cpp.template"]="$DEST/Makefile.cpp.template"
     ["$SOURCE/Makefile.pandoc.template"]="$DEST/Makefile.pandoc.template"
+)
+
+# LATEX PREAMBLES
+# ---------------
+SOURCE="$SRCBASE/latex/preambles"
+DEST="$HOME/.config/latex/preambles"
+declare -A LATEX_TEMPLATES=(
+    ["$SOURCE/math.tex"]="$DEST/math.tex"
 )
 
 # NVIM
@@ -125,7 +133,7 @@ declare -A NVIM=(
 # --------------
 SOURCE="$SRCBASE/vim/templates"
 DEST="$HOME/.config/nvim"
-declare -A NVIMTEMPLATES=(
+declare -A NVIM_TEMPLATES=(
     ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
     ["$SOURCE/TODO.template"]="$DEST/TODO.template"
     ["$SOURCE/baylorcsi.template"]="$DEST/baylorcsi.template"
@@ -188,8 +196,14 @@ done
 echo
 
 echo "Linking VIM templates..."
-for src in "${!VIMTEMPLATES[@]}"; do
-    create_symlink "$src" "${VIMTEMPLATES[$src]}"
+for src in "${!VIM_TEMPLATES[@]}"; do
+    create_symlink "$src" "${VIM_TEMPLATES[$src]}"
+done
+echo
+
+echo "Linking LaTeX preambles..."
+for src in "${!LATEX_TEMPLATES[@]}"; do
+    create_symlink "$src" "${LATEX_TEMPLATES[$src]}"
 done
 echo
 
@@ -200,7 +214,7 @@ done
 echo
 
 echo "Linking NVIM templates..."
-for src in "${!NVIMTEMPLATES[@]}"; do
+for src in "${!NVIM_TEMPLATES[@]}"; do
     create_symlink "$src" "${NVIMTEMPLATES[$src]}"
 done
 echo
