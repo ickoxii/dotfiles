@@ -21,6 +21,15 @@ alias hidehidden="defaults write com.apple.finder AppleShowAllFiles -bool false 
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 
+
+# =================
+# Command Shortcuts
+# =================
+
+# bat is a nicer formatted cat cli
+# brew install bat
+# alias cat="bat"
+
 # =====================
 # Application Shortcuts
 # ---------------------
@@ -33,6 +42,14 @@ alias bash="/opt/homebrew/bin/bash"
 # Launch MATLAB CLI
 alias mat="/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop"
 
+# Default Browser
+alias browser="open -a Brave\ Browser"
+
+# Microsoft Word
+alias winword="open -a Microsoft\ Word"
+
+# Microsoft OneNote
+alias onenote="open -a Microsoft\ OneNote"
 
 # ======================
 # Open Browser Bookmarks
@@ -50,6 +67,15 @@ alias email="browser https://gmail.com"
 # Canvas
 alias canvas="browser https://canvas.web.baylor.edu"
 
+# Baylor Program Upload Site
+alias upload="browser https://csi-info.baylor.edu/upload/"
+
+# Pawprints
+alias pawprints="browser https://print.baylor.edu/user"
+
+# Google Calendar
+alias googlecal="browser https://calendar.google.com/calendar/u/0/r"
+
 # Gmail
 alias gmail="browser https://gmail.com"
 
@@ -57,7 +83,10 @@ alias gmail="browser https://gmail.com"
 alias proton="browser https://proton.me"
 
 # GitHub
-alias github="browser https://github.com/ickoxii"
+alias gh="browser https://github.com/ickoxii"
+
+# LeetCode
+alias lc="browser https://leetcode.com/problemset/all/"
 
 # DIM
 alias dim="browser https://beta.destinyitemmanager.com/4611686018486746069/d2/inventory"
