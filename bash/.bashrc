@@ -11,14 +11,7 @@
 # GLOBAL Variables
 # ================
 
-# Application Nicknames
-declare -A app_names
-app_names=(
-    ["matlab"]="MATLAB_r2023a"
-    ["browser"]="Brave\ Browser"    # Default browser application
-    ["brave"]="Brave\ Browser"
-    ["chrome"]="Google\ Chrome"
-)
+
 
 # ===================
 # PATH Configurations
@@ -42,6 +35,9 @@ export PATH="$PATH:/Users/ickoxii/Library/Python/3.9/bin"
 # ===================
 # Sourcing Additional Configurations
 # ===================
+
+# Expand aliases when used in the following files
+# shopt -s expand_aliases
 
 # Load aliases
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases

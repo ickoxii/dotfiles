@@ -14,18 +14,14 @@
 # Application Shortcuts
 # =====================
 
-# Declare Global Nicknames using an associative array (Bash 4.0 or later)
-# Check using `echo $BASH_VERSION` or `bash --version`
-# In .bashrc
-#declare -A app_names
-#app_names=(
-#    ["matlab"]="open -a MATLAB_r2023a"
-#    ["spotify"]="Spotify"
-#    ["browser"]="Brave\ Browser"    # Default browser application
-#    ["brave"]="Brave\ Browser"
-#    ["chrome"]="Google\ Chrome"
-#    ["discord"]="Discord"
-#)
+declare -A apps
+# NOTE: we do not need to delimit spaces, i.e. ` ` instead of `\ `
+apps[chrome]="Google Chrome"
+apps[matlab]="MATLAB_r2023a"
+apps[browser]="Brave Browser"
+apps[brave]="Brave Browser"
+apps[msg]="Messages"
+apps[word]="Microsoft Word"
 
 # ===================
 # openapp
@@ -40,18 +36,12 @@
 # 
 # Return: None
 # -------------------
-#openapp() {
-    # Check if nickname exists, otherwise use name provided    
-#   app_to_open="${app_names[$1]:-$1}"
-#
-    # If only wanting to use openapp only on applications with nicknames
-#   if [[ -z $app_to_open ]]; then
-#       echo "Unknown app nickname (or name): $1"
-#       return 1
-#   fi
-#
-#   open -a "$app_to_open"
-#}
+openapp() {
+    # Use mapped name if it exists
+    app_name="${apps[$1]:-$1}"
+
+    open -a "$app_name"
+}
 
 # ===================
 # close
@@ -66,18 +56,27 @@
 # Return: None
 # -------------------
 close() {
-    # Check if nickname exists, otherwise use name provided
-    app_to_close="${app_names[$1]:-$1}"
+    # Use mapped name if it exists
+    app_name="${apps[$1]:-$1}"
 
-    # If only wanting to use openapp only on applications with nickname
-#   if [[ -z $app_to_close ]]; then
-#       echo "Unknown app nickname (or name): $1"
-#       return 1
-#   fi
-
-    osascript -e "tell application \"$app_to_close\" to quit"
+    osascript -e "tell application \"$app_name\" to quit"
 }
 # END APPLICATION SHORTCUTS
+# --------------------------------------------------------------------------- #
+
+# --------------------------------------------------------------------------- #
+# OPEN BAYLOR CSI PROJECTS SHORTCUTS
+
+
+proj() {
+    if [[ "$1" =~ ^[0-9]+$ ]]; then
+        open -a "Brave Browser" "https://cs.baylor.edu/~hamerly/courses/3334_23f/project$1/"
+    else
+        echo "Invalid Argument."
+    fi
+}
+
+# END BAYLOR CSI PROJECTS SHORTCUTS
 # --------------------------------------------------------------------------- #
 
 # --------------------------------------------------------------------------- #
