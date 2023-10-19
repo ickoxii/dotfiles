@@ -97,6 +97,9 @@ alias lfg="browser https://www.bungie.net/7/en/Fireteams/Search?platform=0&activ
 # Instagram
 alias ig="browser https://instagram.com"
 
+# ASCII Flow Infinite Canvas
+alias asciiflow="browser https://asciiflow.com/#/"
+
 
 # ===================
 # Miscellaneous 
