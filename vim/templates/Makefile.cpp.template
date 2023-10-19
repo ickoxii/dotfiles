@@ -66,7 +66,7 @@ help:
 	@echo "Link ncurses: 					  make curses"
 	@echo "Run soln executable:               make soln"
 	@echo "Run compiled project 'test':       make test"
-	@echo "Run compiled project 'test' with verbose output: make testmore"
+	@echo "Run verbose 'test':                make testmore"
 	@echo "Diff the outputs:                  make diff"
 	@echo "Diff the verbose outputs:          make diffmore"
 	@echo "Clean executables:                 make clean"
