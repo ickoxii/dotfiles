@@ -8,9 +8,12 @@ PREAMBLE = -H ~/.config/latex/preambles/math.tex
 HIGHLIGHT = --highlight-style=breezedark
 CFLAGS = $(ENGINE) $(PREAMBLE) $(HIGHLIGHT)
 
+.PHONY: all clean
+
 all: $(PDF_FILES)
 
-%.pdf: %.md
-    pandoc $< $(CFLAGS) -o $@
+%.pdf: $(MARKDOWN_FILES)
+	pandoc $< $(CFLAGS) -o $(PDF_FILES)
 
-clean: rm -f $(PDF_FILES)
+clean: 
+	rm -i $(PDF_FILES)
