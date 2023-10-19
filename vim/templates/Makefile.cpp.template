@@ -112,11 +112,13 @@ curses: $(EXECUTABLE)
 #
 # Runs the professors solution with normal and verbose output.
 soln:
-	for f in io/input-*.txt; do \
+	@for f in io/input-*.txt; do \
 		num=$$(basename $$f | sed 's/^input-//; s/\.txt$$//'); \
+		echo "./$(SOLN_EXEC) < $$f > io/soln-$$num.txt"; \
 		./$(SOLN_EXEC) < $$f > io/soln-$$num.txt; \
+		echo "./$(SOLN_EXEC) printMore < $$f > io/verbose-soln-$$num.txt"; \
 		./$(SOLN_EXEC) printMore < $$f > io/verbose-soln-$$num.txt; \
-		@echo;
+		echo;
 	done
 	@echo "---------------"
 
@@ -124,10 +126,11 @@ soln:
 #
 # Runs our compiled project with normal output
 test:
-	for f in io/input-*.txt; do \
+	@for f in io/input-*.txt; do \
 		outfile=$$(basename $$f | sed 's/^input-/output-/'); \
+		echo "./$(EXECUTABLE) < $$f > io/$$outfile"; \
 		./$(EXECUTABLE) < $$f > io/$$outfile; \
-		@echo;
+		echo;
 	done
 	@echo "---------------"
 
@@ -135,10 +138,11 @@ test:
 #
 # Runs our compiled project with verbose output
 testmore:
-	for f in io/input-*.txt; do \
+	@for f in io/input-*.txt; do \
 		verbose_outfile=$$(basename $$f | sed 's/^input-/verbose-output-/'); \
+		echo "./$(EXECUTABLE) printMore < $$f > io/$$verbose_outfile"; \
 		./$(EXECUTABLE) printMore < $$f > io/$$verbose_outfile; \
-		@echo;
+		echo;
 	done
 	@echo "---------------"
 
@@ -146,10 +150,11 @@ testmore:
 #
 # Checks our output with professors solution
 diff:
-	for f in io/input-*.txt; do \
+	@for f in io/input-*.txt; do \
 		num=$$(basename $$f .txt | sed 's/^input-//'); \
+		echo "diff io/output-$$num.txt io/soln-$$num.txt"; \
 		diff io/output-$$num.txt io/soln-$$num.txt; \
-		@echo;
+		echo;
 	done
 	@echo "---------------"
 
@@ -157,10 +162,11 @@ diff:
 #
 # Compares our verbose output with professors' verbose solutions.
 diffmore:
-	for f in io/input-*.txt; do \
+	@for f in io/input-*.txt; do \
 		num=$$(basename $$f .txt | sed 's/^input-//'); \
+		echo "diff io/verbose-output-$$num.txt io/verbose-soln-$$num.txt"; \
 		diff io/verbose-output-$$num.txt io/verbose-soln-$$num.txt; \
-		@echo;
+		echo;
 	done
 	@echo "---------------"
 
