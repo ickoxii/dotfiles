@@ -57,7 +57,22 @@ SOLN_EXEC := projectX_solution_osx
 # Compiler flags
 CFLAGS := -Wall -Wextra -std=c++11
 CURSES_LINK := -lncurses
-DEBUG_FLAGS := -g
+
+help:
+	@echo "----------------"
+	@echo "USAGE"
+	@echo "----------------"
+	@echo "To compile:                        make"
+	@echo "Link ncurses: 					  make curses"
+	@echo "Run soln executable:               make soln"
+	@echo "Run compiled project 'test':       make test"
+	@echo "Run compiled project 'test' with verbose output: make testmore"
+	@echo "Diff the outputs:                  make diff"
+	@echo "Diff the verbose outputs:          make diffmore"
+	@echo "Clean executables:                 make clean"
+	@echo "----------------"
+	@echo
+
 
 # PHONY: special target used to declare certain targets as "phony".
 # Phony targets are not actual files; they are used to specify actions
@@ -72,7 +87,7 @@ DEBUG_FLAGS := -g
 # files created are of the same name as our targets. Therefore, they should
 # all be phony (i.e. `test` does not create a file named `test`, `diff` does
 # not create a file named `diff`, etc.)
-.PHONY: all debug curses clean soln test testmore diff diffmore
+.PHONY: all curses clean soln test testmore diff diffmore
 
 # all
 #
@@ -86,12 +101,6 @@ all: $(EXECUTABLE)
 # Compiles out program
 $(EXECUTABLE): $(CPP_FILES)
 	g++ $(CFLAGS) -o $(EXECUTABLE) $(CPP_FILES)
-
-# debug
-#
-# Compiles our project in debug mode (i.e. with `g++ -g`)
-debug: CFLAGS += $(DEBUG_FLAGS)
-debug: $(EXECUTABLE)
 
 # curses
 #
@@ -107,7 +116,9 @@ soln:
 		num=$$(basename $$f | sed 's/^input-//; s/\.txt$$//'); \
 		./$(SOLN_EXEC) < $$f > io/soln-$$num.txt; \
 		./$(SOLN_EXEC) printMore < $$f > io/verbose-soln-$$num.txt; \
+		@echo;
 	done
+	@echo "---------------"
 
 # test
 #
@@ -116,7 +127,9 @@ test:
 	for f in io/input-*.txt; do \
 		outfile=$$(basename $$f | sed 's/^input-/output-/'); \
 		./$(EXECUTABLE) < $$f > io/$$outfile; \
+		@echo;
 	done
+	@echo "---------------"
 
 # testmore
 #
@@ -125,7 +138,9 @@ testmore:
 	for f in io/input-*.txt; do \
 		verbose_outfile=$$(basename $$f | sed 's/^input-/verbose-output-/'); \
 		./$(EXECUTABLE) printMore < $$f > io/$$verbose_outfile; \
+		@echo;
 	done
+	@echo "---------------"
 
 # diff
 #
@@ -134,7 +149,9 @@ diff:
 	for f in io/input-*.txt; do \
 		num=$$(basename $$f .txt | sed 's/^input-//'); \
 		diff io/output-$$num.txt io/soln-$$num.txt; \
+		@echo;
 	done
+	@echo "---------------"
 
 # diffmore
 #
@@ -143,7 +160,9 @@ diffmore:
 	for f in io/input-*.txt; do \
 		num=$$(basename $$f .txt | sed 's/^input-//'); \
 		diff io/verbose-output-$$num.txt io/verbose-soln-$$num.txt; \
+		@echo;
 	done
+	@echo "---------------"
 
 # clean
 #
