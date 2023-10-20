@@ -15,35 +15,9 @@
 # - Explicitly define CPP_FILES, EXECUTABLE and SOLN_EXEC
 # - Added new targets testmore and diffmore that handles verbose output
 #
-# ----------------
-# USAGE
-# ----------------
-# To compile:
-# make
-# 
-# Debug mode:
-# make debug
-#
-# Link ncurses library:
-# make curses
-#
-# Run soln executable:
-# make soln
-#
-# Run compiled project `test`:
-# make test
-#
-# Run compiled project `test` with verbose output:
-# make testmore
-# 
-# Diff the outputs:
-# make diff
-#
-# Diff the verbose outputs:
-# make diffmore
-#
-# Clean executables:
-# make clean
+# V1.0.3 - 10/19/2023
+# - Added clean targets to clean output files
+# - Added help target to print usage to screen
 
 # Specify the source files
 CPP_FILES := CPP_FILES_GO_HERE
@@ -58,35 +32,6 @@ SOLN_EXEC := projectX_solution_osx
 CFLAGS := -Wall -Wextra -std=c++11
 CURSES_LINK := -lncurses
 
-help:
-	@echo "----------------"
-	@echo "USAGE"
-	@echo "----------------"
-	@echo "To compile:                        make"
-	@echo "Link ncurses: 					  make curses"
-	@echo "Run soln executable:               make soln"
-	@echo "Run compiled project 'test':       make test"
-	@echo "Run verbose 'test':                make testmore"
-	@echo "Diff the outputs:                  make diff"
-	@echo "Diff the verbose outputs:          make diffmore"
-	@echo "Clean executables:                 make clean"
-	@echo "----------------"
-	@echo
-
-
-# PHONY: special target used to declare certain targets as "phony".
-# Phony targets are not actual files; they are used to specify actions
-# that should always be executed, regardless of whether a file with
-# the same name as target exists.
-#
-# Phony targets are typically used for tasks that don't produce output
-# files or don't depend on the existence/modification of files. Instead,
-# They are executed based on their dependencies and commands.
-#
-# Even though some of our targets create output files, none of the output
-# files created are of the same name as our targets. Therefore, they should
-# all be phony (i.e. `test` does not create a file named `test`, `diff` does
-# not create a file named `diff`, etc.)
 .PHONY: all curses clean soln test testmore diff diffmore
 
 # all
@@ -101,6 +46,26 @@ all: $(EXECUTABLE)
 # Compiles out program
 $(EXECUTABLE): $(CPP_FILES)
 	g++ $(CFLAGS) -o $(EXECUTABLE) $(CPP_FILES)
+
+# help
+# 
+# Prints make usage to screen
+help:
+	@echo "----------------"
+	@echo "USAGE"
+	@echo "----------------"
+	@echo "To compile:                        make"
+	@echo "Link ncurses:                      make curses"
+	@echo "Run soln executable:               make soln"
+	@echo "Run compiled project 'test':       make test"
+	@echo "Run verbose 'test':                make testmore"
+	@echo "Diff the outputs:                  make diff"
+	@echo "Diff the verbose outputs:          make diffmore"
+	@echo "Clean executables:                 make clean"
+	@echo "Clean professors output files:     make cleansoln"
+	@echo "Clean output files:                make cleanout"
+	@echo "----------------"
+	@echo
 
 # curses
 #
@@ -118,7 +83,7 @@ soln:
 		./$(SOLN_EXEC) < $$f > io/soln-$$num.txt; \
 		echo "./$(SOLN_EXEC) printMore < $$f > io/verbose-soln-$$num.txt"; \
 		./$(SOLN_EXEC) printMore < $$f > io/verbose-soln-$$num.txt; \
-		echo;
+		echo; \
 	done
 	@echo "---------------"
 
@@ -130,7 +95,7 @@ test:
 		outfile=$$(basename $$f | sed 's/^input-/output-/'); \
 		echo "./$(EXECUTABLE) < $$f > io/$$outfile"; \
 		./$(EXECUTABLE) < $$f > io/$$outfile; \
-		echo;
+		echo; \
 	done
 	@echo "---------------"
 
@@ -142,7 +107,7 @@ testmore:
 		verbose_outfile=$$(basename $$f | sed 's/^input-/verbose-output-/'); \
 		echo "./$(EXECUTABLE) printMore < $$f > io/$$verbose_outfile"; \
 		./$(EXECUTABLE) printMore < $$f > io/$$verbose_outfile; \
-		echo;
+		echo; \
 	done
 	@echo "---------------"
 
@@ -154,7 +119,7 @@ diff:
 		num=$$(basename $$f .txt | sed 's/^input-//'); \
 		echo "diff io/output-$$num.txt io/soln-$$num.txt"; \
 		diff io/output-$$num.txt io/soln-$$num.txt; \
-		echo;
+		echo; \
 	done
 	@echo "---------------"
 
@@ -166,12 +131,32 @@ diffmore:
 		num=$$(basename $$f .txt | sed 's/^input-//'); \
 		echo "diff io/verbose-output-$$num.txt io/verbose-soln-$$num.txt"; \
 		diff io/verbose-output-$$num.txt io/verbose-soln-$$num.txt; \
-		echo;
+		echo; \
 	done
 	@echo "---------------"
 
 # clean
 #
-# Cleans up any executable created
+# Cleans up any executable created.
 clean:
 	rm -i $(EXECUTABLE)
+
+# cleanout
+#
+# cleans up our output files.
+cleanout:
+	@for f in io/*output-*.txt; do \
+		echo "rm -f $$f"; \
+		rm -f $$f; \
+	done	
+	@echo
+
+# cleansoln
+#
+# Cleans professors output files.
+cleansoln:
+	@for f in io/*soln-*.txt; do \
+		echo "rm -f $$f"; \
+		rm -f $$f; \
+	done
+	@echo

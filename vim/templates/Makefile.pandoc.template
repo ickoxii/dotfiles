@@ -1,19 +1,31 @@
 # Specify all markdown files, this assumes they are all in the current directory
-MARKDOWN_FILES = SPECIFY_HERE.md
+MARKDOWN_FILES = $(wildcard *.md)
 # Convert each markdown file to a corresponding pdf target
-PDF_FILES = SPECIFY_HERE.pdf
+PDF_FILES = $(patsubst %.md, %.pdf, $(MARKDOWN_FILES))
 
 ENGINE = --pdf-engine=xelatex
 PREAMBLE = -H ~/.config/latex/preambles/math.tex
 HIGHLIGHT = --highlight-style=breezedark
 CFLAGS = $(ENGINE) $(PREAMBLE) $(HIGHLIGHT)
 
-.PHONY: all clean
+.PHONY: all clean help
+
+help:
+	@echo "Usage:"
+	@echo "  make [all]         Convert all Markdown files in the current directory to PDF."
+	@echo "  make target.pdf	Builds 'target.pdf' from 'target.md'"
+	@echo "                     'target.md' must exist in the directory"
+	@echo "  make clean         Remove all generated PDF files."
+	@echo "  make help          Show this help message."
 
 all: $(PDF_FILES)
+	@echo "All files have been pandoc'ed"
 
-%.pdf: $(MARKDOWN_FILES)
-	pandoc $< $(CFLAGS) -o $(PDF_FILES)
+%.pdf: %.md
+	pandoc $< $(CFLAGS) -o $@
 
 clean: 
-	rm -i $(PDF_FILES)
+	@for f in *.pdf; do \
+		rm -i $$f; \
+		echo; \
+	done
