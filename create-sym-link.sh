@@ -110,6 +110,9 @@ declare -A VIM_TEMPLATES=(
     ["$SOURCE/baylorcsi.template"]="$DEST/baylorcsi.template"
     ["$SOURCE/Makefile.cpp.template"]="$DEST/Makefile.cpp.template"
     ["$SOURCE/Makefile.pandoc.template"]="$DEST/Makefile.pandoc.template"
+    ["$SOURCE/tasks.json"]="$DEST/tasks.json"
+    ["$SOURCE/launch.json"]="$DEST/launch.json"
+    ["$SOURCE/c_cpp_properties.json"]="$DEST/c_cpp_properties.json"
 )
 
 # LATEX PREAMBLES
