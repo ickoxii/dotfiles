@@ -6,6 +6,16 @@
 " File for autocommands in vim. These autocommands include opening template
 " files and defining user commands.
 
+" File Specific Commands
+" ======================
+
+" Turn off syntax highlighting for json files
+autocmd BufRead,BufNewFile *.json syntax off
+
+" Turn off expand tab for Markdown files
+" (Makefiles require tabs)
+autocmd FileType make setlocal noexpandtab
+
 " Templates
 " =========
 
