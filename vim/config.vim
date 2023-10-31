@@ -31,8 +31,9 @@ set mouse=a             " Enable mouse support
 
 set laststatus=2        " Always show a status line at the bottom
 
-set relativenumber      " Display line numbers as offset from the current
+" set relativenumber      " Display line numbers as offset from the current
 " set number              " Display absolute line numbers
+set number relativenumber " Display current line with others as offset from curr
 
 set laststatus=2        " Always show status line
 set statusline=%l,%c%=%P    " Print current line, column, position in file as a percentage
@@ -68,9 +69,6 @@ set noignorecase    " Vim default (search is case sensitive)
 set expandtab
 set tabstop=4
 set shiftwidth=4
-
-" Except for makefiles, we need tabs for Makefiles
-autocmd FileType make setlocal noexpandtab
 
 " Auto-indent based on C-style blocks
 set autoindent
