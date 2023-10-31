@@ -32,7 +32,7 @@ SOLN_EXEC := projectX_solution_osx
 CFLAGS := -Wall -Wextra -std=c++11
 CURSES_LINK := -lncurses
 
-.PHONY: all curses clean soln test testmore diff diffmore
+.PHONY: all curses clean soln test testmore diff diffmore json
 
 # all
 #
@@ -64,6 +64,7 @@ help:
 	@echo "Clean executables:                 make clean"
 	@echo "Clean professors output files:     make cleansoln"
 	@echo "Clean output files:                make cleanout"
+	@echo "Make VSCode json:                  make json"
 	@echo "----------------"
 	@echo
 
@@ -134,6 +135,11 @@ diffmore:
 		echo; \
 	done
 	@echo "---------------"
+
+json:
+	cp $(HOME)/.vim/templates/tasks.json ./.vscode/tasks.json
+	cp $(HOME)/.vim/templates/launch.json ./.vscode/launch.json
+	cp $(HOME)/.vim/templates/c_cpp_properties.json ./.vscode/c_cpp_properties.json
 
 # clean
 #
