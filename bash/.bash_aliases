@@ -51,6 +51,9 @@ alias winword="open -a Microsoft\ Word"
 # Microsoft OneNote
 alias onenote="open -a Microsoft\ OneNote"
 
+# Messaging App
+alias msg="open -a Messages"
+
 # ======================
 # Open Browser Bookmarks
 # ======================
