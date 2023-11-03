@@ -35,5 +35,5 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # ===================
 # Display system information only if neofetch exists
 # Pipe through lolcat for rainbow display
-command -v neofetch &> /dev/null && neofetch # | lolcat  
-_byobu_sourced=1 . /opt/homebrew/Cellar/byobu/5.133_3/bin/byobu-launch 2>/dev/null || true
+command -v neofetch &> /dev/null && neofetch  | lolcat
+# _byobu_sourced=1 . /opt/homebrew/Cellar/byobu/5.133_3/bin/byobu-launch 2>/dev/null || true
