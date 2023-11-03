@@ -103,6 +103,9 @@ alias ig="browser https://instagram.com"
 # ASCII Flow Infinite Canvas
 alias asciiflow="browser https://asciiflow.com/#/"
 
+# Chunk-base seed map (minecraft)
+alias seed-map="browser https://www.chunkbase.com/apps/seed-map#"
+
 
 # ===================
 # Miscellaneous 
