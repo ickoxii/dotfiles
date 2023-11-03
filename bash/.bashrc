@@ -7,6 +7,14 @@
 # DEBUG
 # echo "in .bashrc"
 
+# ===============================
+# Default Terminal Configurations
+# ===============================
+
+# Launch in byobu by default
+# use `byobu-enable` in command-line
+# use `byobu-disable` in command-line to return to default emulator
+
 # ================
 # GLOBAL Variables
 # ================
