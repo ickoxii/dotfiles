@@ -37,7 +37,7 @@ create_symlink() {
 ## ===============================================
 ## Declare associative arrays for each application
 ## ===============================================
-SRCBASE="$HOME/.dotfiles-and-scripts"
+SRCBASE="$HOME/.dotfiles"
 
 
 # GENERAL_TERMINAL
@@ -57,6 +57,14 @@ declare -A PACKAGE_MANAGERS=(
     ["$SOURCE/get-pip.py"]="$DEST/get-pip.py"
 )
 
+# NVIM
+# ----------------
+SOURCE="$SRCBASE/nvim"
+DEST="$HOME/.config"
+declare -A NVIM=(
+    ["$SOURCE"]="$DEST"
+)
+
 # BASH
 # ----
 SOURCE="$SRCBASE/bash"
@@ -74,9 +82,9 @@ declare -A BASH=(
 SOURCE="$SRCBASE/zsh"
 DEST="$HOME"
 declare -A ZSH=(
-    ["$SOURCE/.zprofile"]="$DEST/.zprofile"
-    ["$SOURCE/.zsh_aliases"]="$DEST/.zsh_aliases"
-    ["$SOURCE/.zsh_prompt"]="$DEST/.zsh_prompt"
+    ["$SOURCE/.z_profile"]="$DEST/.z_profile"
+    ["$SOURCE/.z_aliases"]="$DEST/.zsh_aliases"
+    ["$SOURCE/.z_prompt"]="$DEST/.zsh_prompt"
     ["$SOURCE/.zshrc"]="$DEST/.zshrc"
 )
 
@@ -94,67 +102,42 @@ SOURCE="$SRCBASE/vim"
 DEST="$HOME"
 declare -A VIM=(
     ["$SOURCE/.vimrc"]="$DEST/.vimrc"
-    ["$SOURCE/autocommands.vim"]="$DEST/.vim/autocommands.vim"
+    ["$SOURCE/autocmds.vim"]="$DEST/.vim/autocmds.vim"
     ["$SOURCE/plugins.vim"]="$DEST/.vim/plugins.vim"
-    ["$SOURCE/ghdark.vim"]="$DEST/.vim/colors/ghdark.vim"
+    ["$SOURCE/colors"]="$DEST/.vim/"
     ["$SOURCE/config.vim"]="$DEST/.vim/config.vim"
 )
 
 # VIM TEMPLATES
 # -------------
-SOURCE="$SRCBASE/vim/templates"
-DEST="$HOME/.vim/templates"
+SOURCE="$SRCBASE/skeleton-files"
+DEST="$HOME/"
 declare -A VIM_TEMPLATES=(
-    ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
-    ["$SOURCE/TODO.template"]="$DEST/TODO.template"
-    ["$SOURCE/baylorcsi.template"]="$DEST/baylorcsi.template"
-    ["$SOURCE/Makefile.cpp.template"]="$DEST/Makefile.cpp.template"
-    ["$SOURCE/Makefile.pandoc.template"]="$DEST/Makefile.pandoc.template"
-    ["$SOURCE/tasks.json"]="$DEST/tasks.json"
-    ["$SOURCE/launch.json"]="$DEST/launch.json"
-    ["$SOURCE/c_cpp_properties.json"]="$DEST/c_cpp_properties.json"
+    ["$SOURCE"]="$DEST"
 )
+
 
 # LATEX PREAMBLES
 # ---------------
-SOURCE="$SRCBASE/latex/preambles"
-DEST="$HOME/.config/latex/preambles"
+SOURCE="$SRCBASE/latex/"
+DEST="$HOME/.config/"
 declare -A LATEX_TEMPLATES=(
-    ["$SOURCE/math.tex"]="$DEST/math.tex"
-)
-
-# NVIM
-# ----
-SOURCE="$SRCBASE/nvim"
-DEST="$HOME/.config/nvim"
-declare -A NVIM=(
-    ["$SOURCE/init.vim"]="$DEST/init.vim"
-    ["$SOURCE/autocommands.vim"]="$DEST/autocommands.vim"
-)
-
-# NVIM TEMPLATES
-# --------------
-SOURCE="$SRCBASE/vim/templates"
-DEST="$HOME/.config/nvim"
-declare -A NVIM_TEMPLATES=(
-    ["$SOURCE/gitignore.template"]="$DEST/gitignore.template"
-    ["$SOURCE/TODO.template"]="$DEST/TODO.template"
-    ["$SOURCE/baylorcsi.template"]="$DEST/baylorcsi.template"
+    ["$SOURCE"]="$DEST"
 )
 
 # NEOFETCH
 # --------
 SOURCE="$SRCBASE/neofetch"
-DEST="$HOME/.config/neofetch"
+DEST="$HOME/.config/"
 declare -A NEOFETCH=(
-    ["$SOURCE/config.conf"]="$DEST/config.conf"
+    ["$SOURCE"]="$DEST"
 )
 
 # SPOTIFYCLI
 # ----------
 declare -A SPOTIFYCLI=(
-    ["$SRCBASE/spotifyd/spotifyd.conf"]="$HOME/.config/spotifyd/spotifyd.conf"
-    ["$SRCBASE/spotify-tui/config.yml"]="$HOME/.config/spotify-tui/config.yml"
+    ["$SRCBASE/spotifyd"]="$HOME/.config/"
+    ["$SRCBASE/spotify-tui"]="$HOME/.config/"
 )
 
 
@@ -173,6 +156,13 @@ for src in "${!PACKAGE_MANAGERS[@]}"; do
     create_symlink "$src" "${PACKAGE_MANAGERS[$src]}"
 done
 echo
+
+echo "Linking NVIM..."
+for src in "${!NVIM[@]}"; do
+    create_symlink "$src" "${NVIM[$src]}"
+done
+echo
+
 
 echo "Linking BASH config files..."
 for src in "${!BASH[@]}"; do
@@ -207,18 +197,6 @@ echo
 echo "Linking LaTeX preambles..."
 for src in "${!LATEX_TEMPLATES[@]}"; do
     create_symlink "$src" "${LATEX_TEMPLATES[$src]}"
-done
-echo
-
-echo "Linking NVIM config files..."
-for src in "${!NVIM[@]}"; do
-    create_symlink "$src" "${NVIM[$src]}"
-done
-echo
-
-echo "Linking NVIM templates..."
-for src in "${!NVIM_TEMPLATES[@]}"; do
-    create_symlink "$src" "${NVIMTEMPLATES[$src]}"
 done
 echo
 
