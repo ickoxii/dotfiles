@@ -137,6 +137,7 @@ diffmore:
 	@echo "---------------"
 
 json:
+	mkdir .vscode	
 	cp $(HOME)/.vim/templates/tasks.json ./.vscode/tasks.json
 	cp $(HOME)/.vim/templates/launch.json ./.vscode/launch.json
 	cp $(HOME)/.vim/templates/c_cpp_properties.json ./.vscode/c_cpp_properties.json
