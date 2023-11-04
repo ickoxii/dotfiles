@@ -2,7 +2,7 @@
 	name = Icko
 	email = 80863308+ickoxii@users.noreply.github.com
 [core]
-	editor = vim
+	editor = nvim
 [init]
 	defaultBranch = main
 [filter "lfs"]
