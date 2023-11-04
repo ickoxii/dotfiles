@@ -1,0 +1,3 @@
+Turn off the fucking italic comments and shit
+
+Add pandoc and other functionality from vim
