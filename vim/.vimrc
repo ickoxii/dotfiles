@@ -50,8 +50,8 @@ if !empty(system("readlink -f ~/.vim/config.vim"))
 endif
 
 " Autocommands
-if !empty(system("readlink -f ~/.vim/autocommands.vim"))
-    source ~/.vim/autocommands.vim
+if !empty(system("readlink -f ~/.vim/autocmds.vim"))
+    source ~/.vim/autocmds.vim
 endif
 
 " GitHub Dark Color Scheme
