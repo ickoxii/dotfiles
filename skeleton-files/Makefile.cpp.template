@@ -1,4 +1,4 @@
-# File: Makefile.cpp.template
+# File: Makefile
 # Author: Icko Iben
 # Date Created: 13 October 2023
 # Date Last Modified: 16 October 2023
@@ -19,20 +19,21 @@
 # - Added clean targets to clean output files
 # - Added help target to print usage to screen
 
-# Specify the source files
-CPP_FILES := CPP_FILES_GO_HERE
+# Specify the source files                   // CHANGE
+CPP_FILES := CPP_FILES_GOES_HERE
+TEST_DRIVER := TEST_DRIVER_GOES_HERE
 
-# Specify name of final executable
+# Specify name of final executable           // CHANGE
 EXECUTABLE := a
+TEST_EXECUTABLE := b
 
-# Name of professor's executable
+# Name of professor's executable             // CHANGE
 SOLN_EXEC := projectX_solution_osx
 
 # Compiler flags
-CFLAGS := -Wall -Wextra -std=c++11
-CURSES_LINK := -lncurses
-
-.PHONY: all curses clean soln test testmore diff diffmore json
+# Some typical ones to use are -Wall -Wextra -std=c++17 -g
+# In order to link the ncurses library, we use `-lncurses`
+CFLAGS := -Wall -Wextra -std=c++17 -g
 
 # all
 #
@@ -40,44 +41,51 @@ CURSES_LINK := -lncurses
 # In this case, we build the target $(EXECUTABLE), which is the target
 # specified below which compiles our program
 all: $(EXECUTABLE)
-
-# $(EXECUTABLE)
-#
-# Compiles out program
-$(EXECUTABLE): $(CPP_FILES)
-	g++ $(CFLAGS) -o $(EXECUTABLE) $(CPP_FILES)
+.PHONY: all
 
 # help
 # 
 # Prints make usage to screen
 help:
-	@echo "----------------"
-	@echo "USAGE"
-	@echo "----------------"
-	@echo "To compile:                        make"
-	@echo "Link ncurses:                      make curses"
-	@echo "Run soln executable:               make soln"
-	@echo "Run compiled project 'test':       make test"
-	@echo "Run verbose 'test':                make testmore"
-	@echo "Diff the outputs:                  make diff"
-	@echo "Diff the verbose outputs:          make diffmore"
-	@echo "Clean executables:                 make clean"
-	@echo "Clean professors output files:     make cleansoln"
-	@echo "Clean output files:                make cleanout"
-	@echo "Make VSCode json:                  make json"
-	@echo "----------------"
-	@echo
+	@echo "--------------------------------------------------------------------------------"
+	@echo "     make [target]"
+	@echo "--------------------------------------------------------------------------------"
+	@echo "  target    -    description"
+	@echo "No Target   - 'make' called with no targets will compile the project"
+	@echo "all         - 'make' called with no targets will compile the project"
+	@echo "json        - Creates VSCode configuration files for cpp debugging"
+	@echo "soln        - Runs input files .io/input-[0-9].txt against professors"
+	@echo "              executable. We run input files normally and with verbose output,"
+	@echo "              saving files as ./io/soln-[0-9].txt and"
+	@echo "              ./io/verbose-soln-[0-9].txt, respectively"
+	@echo "test        - Compiles the specified test driver"
+	@echo "run         - Runs input files against our projects executable. Our output files"
+	@echo "              are saved as .io/output-[0-9].txt"
+	@echo "runmore     - Runs input files against our projects executable, but with verbose"
+	@echo "              output this time, saving files as .io/verbose-output-[0-9].txt"
+	@echo "diff        - Runs a diff against each corresponding 'soln' and 'output' file"
+	@echo "diffmore    - Runs a diff against each corresponding 'verbose-soln' and"
+	@echo "              'verbose-output' file"
+	@echo "clean       - Cleans all associated files. This includes the executable, "
+	@echo "              solution files, and output files. It does this by 'rm'ing the exe,"
+	@echo "              then calling 'make cleansoln' and 'make cleanout'"
+	@echo "cleansoln   - Cleans the professors 'soln' and 'verbose-soln' files"
+	@echo "cleanout    - Cleans our 'output' and 'verbose-output' files"
+	@echo "gitadd      - Add .cpp and .h files to staging area"
+	@echo "--------------------------------------------------------------------------------"
+.PHONY: help
 
-# curses
+# $(EXECUTABLE)
 #
-# Links the ncurses library to our project (i.e. with `g++ -lncurses`)
-curses: CFLAGS += $(CURSES_LINK)
-curses: $(EXECUTABLE)
+# Compiles out program
+$(EXECUTABLE): $(CPP_FILES)
+	g++ $(CFLAGS) $(CPP_FILES) -o $(EXECUTABLE)
 
 # soln
 #
 # Runs the professors solution with normal and verbose output.
 soln:
+	chmod +x $(SOLN_EXEC)
 	@for f in io/input-*.txt; do \
 		num=$$(basename $$f | sed 's/^input-//; s/\.txt$$//'); \
 		echo "./$(SOLN_EXEC) < $$f > io/soln-$$num.txt"; \
@@ -87,11 +95,12 @@ soln:
 		echo; \
 	done
 	@echo "---------------"
+.PHONY: soln
 
-# test
+# run
 #
 # Runs our compiled project with normal output
-test:
+run:
 	@for f in io/input-*.txt; do \
 		outfile=$$(basename $$f | sed 's/^input-/output-/'); \
 		echo "./$(EXECUTABLE) < $$f > io/$$outfile"; \
@@ -99,11 +108,12 @@ test:
 		echo; \
 	done
 	@echo "---------------"
+.PHONY: run
 
-# testmore
+# runmore
 #
 # Runs our compiled project with verbose output
-testmore:
+runmore:
 	@for f in io/input-*.txt; do \
 		verbose_outfile=$$(basename $$f | sed 's/^input-/verbose-output-/'); \
 		echo "./$(EXECUTABLE) printMore < $$f > io/$$verbose_outfile"; \
@@ -111,6 +121,7 @@ testmore:
 		echo; \
 	done
 	@echo "---------------"
+.PHONY: runmore
 
 # diff
 #
@@ -123,6 +134,7 @@ diff:
 		echo; \
 	done
 	@echo "---------------"
+.PHONY: diff
 
 # diffmore
 #
@@ -135,18 +147,26 @@ diffmore:
 		echo; \
 	done
 	@echo "---------------"
+.PHONY: diffmore
 
+# json
+#
+# Creates vscode config files
 json:
 	mkdir .vscode	
-	cp $(HOME)/.vim/templates/tasks.json ./.vscode/tasks.json
-	cp $(HOME)/.vim/templates/launch.json ./.vscode/launch.json
-	cp $(HOME)/.vim/templates/c_cpp_properties.json ./.vscode/c_cpp_properties.json
+	cp $(HOME)/skeleton-files/tasks.json ./.vscode/tasks.json
+	cp $(HOME)/skeleton-files/launch.json ./.vscode/launch.json
+	cp $(HOME)/skeleton-files/c_cpp_properties.json ./.vscode/c_cpp_properties.json
+.PHONY: json
 
 # clean
 #
 # Cleans up any executable created.
 clean:
 	rm -i $(EXECUTABLE)
+	@make cleanout
+	@make cleansoln
+.PHONY: clean
 
 # cleanout
 #
@@ -157,6 +177,7 @@ cleanout:
 		rm -f $$f; \
 	done	
 	@echo
+.PHONY: cleanout
 
 # cleansoln
 #
@@ -167,3 +188,11 @@ cleansoln:
 		rm -f $$f; \
 	done
 	@echo
+.PHONY: cleansoln
+
+# gitadd
+#
+# Stages files to get ready for commit
+gitadd:
+	git add -p $(CPP_FILES) $(H_FILES)
+.PHONY: gitadd
