@@ -12,6 +12,10 @@ Tracks planned changes such as features, bugs, improvements, etc.
 
 ## Bugs
 
+1. nvim autocommand for opening skeleton-files does not work
+
+2. nvim difference from yanking to clipboard vs yank to nvim buffer
+
 ## Improvements
 
 1. Neofetch

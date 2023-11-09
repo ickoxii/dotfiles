@@ -1,5 +1,3 @@
-HOME := /Macintosh\ HD/Users/ickoxii
-
 # Help target to display available targets
 help:
 	@echo "You may call the following targets `make <target>`"
@@ -17,11 +15,12 @@ help:
 	@echo "spotifycli"
 	@echo "spotifyd"
 	@echo "spotify-tui"
+	@echo "tmux"
 	@echo "clean -- Searches for and removes broken sym-links"
 .PHONY: help
 
 # Targets
-all: general-terminal nvim bash zsh git vim latex skeleton-files neofetch spotifycli
+all: general-terminal nvim bash zsh git vim latex skeleton-files neofetch spotifycli tmux
 .PHONY: all
 
 general-terminal:
@@ -33,8 +32,8 @@ general-terminal:
 
 # hella shit, just symlink the whole directory lmao
 nvim:
-	SRC = $(HOME)/.dotfiles/nvim
-	DEST = $(HOME)/.config/nvim
+	SRC = $(HOME)/\.dotfiles/nvim
+	DEST = $(HOME)/\.config/nvim
 	ln -sf $(SRC) $(DEST)
 .PHONY: nvim
 
@@ -111,6 +110,12 @@ spotify-tui:
 	DEST = $(HOME)/.config/spotify-tui
 	ln -sf $(SRC) $(DEST)
 .PHONY: spotify-tui
+
+tmux:
+	SRC = ~/.dotfiles/tmux/.tmux.conf
+	DEST = ~/.tmux.conf
+	ln -sf $(SRC) $(DEST)
+.PHONY: tmux
 
 # Clean symlinks for all specified applications
 clean:

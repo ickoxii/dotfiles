@@ -140,6 +140,12 @@ declare -A SPOTIFYCLI=(
     ["$SRCBASE/spotify-tui"]="$HOME/.config/"
 )
 
+# TMUX Configuration
+# ------------------
+declare -A TMUX=(
+    ["$SRCBASE/tmux/.tmux.conf"]="$HOME/.tmux.conf"
+)
+
 
 ## ==============================================================
 ## Loops to actually run the create_symlink function on all files
@@ -212,3 +218,8 @@ for src in "${!SPOTIFYCLI[@]}"; do
 done
 echo
 
+echo "Linking TMUX config files..."
+for src in "${!TMUX[@]}"; do
+    create_symlink "$src" "${TMUX[$src]}"
+done
+echo
