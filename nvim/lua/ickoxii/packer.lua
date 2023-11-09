@@ -16,10 +16,11 @@ return require('packer').startup(function(use)
   }
 
   -- Rose-pine
-  -- Color Scheme
+  -- Light: rose-pine-dawn
+  -- Dark:  rose-pine rose-pine-moon
   use ({
 	  'rose-pine/neovim',
-	  as = 'rose-pine',
+	  as = 'rose-pine',     -- `as` sets an alias to use above
 	  config = function()
 		  vim.cmd('colorscheme rose-pine')
 	  end
@@ -27,12 +28,34 @@ return require('packer').startup(function(use)
 
   -- Git-Hub-Dark
   -- Color Scheme
---  use({
---	  'projekt0n/github-nvim-theme',
---	  config = function()
---		  vim.cmd('colorscheme github_dark')
---	  end
---  })
+  use({
+	  'projekt0n/github-nvim-theme',
+      as = 'gh-dark',
+	  config = function()
+          vim.cmd('colorscheme github_dark')
+	  end
+  })
+
+  -- Catppuccin
+  -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catpuccin-mocha
+  -- Favorite: catppuccin-macchiato
+  use({
+      'catppuccin/nvim',
+      config = function()
+          vim.cmd('colorscheme catppuccin')
+      end
+  })
+
+  -- Tokyo Night
+  -- Light: tokyonight-day
+  -- Dark:  tokyonight-storm tokyonight tokyonight-night tokyonight-moon
+  -- Favorite: tokyonight-moon
+  use({
+      'folke/tokyonight.nvim',
+      config = function()
+          vim.cmd('colorscheme tokyonight')
+      end
+  })
 
   -- Treesitter
   -- Code Parser and syntax highlighter

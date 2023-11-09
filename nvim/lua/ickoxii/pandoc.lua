@@ -1,3 +1,16 @@
+-- File: pandoc.lua
+-- Author: Icko Iben
+-- Date Created: 5 November 2023
+-- Date Last Modified: 5 November 2023
+--
+-- This autocommand pandoc's a markdown file into a pdf file whenever it is
+-- written. If you have a pdf previewer that auto-refreshes whenever a pdf is
+-- updated, this allows you to take notes in your vim terminal and watch the
+-- updates live on your pdf.
+--
+-- Since this pandoc function is slow, this feature starts toggled off. It
+-- can be invoked by using the command :TP
+
 -- Define a global variable to track the Pandoc state
 _G.pandoc_enabled = false
 
@@ -15,6 +28,3 @@ end
 
 -- Command to toggle Pandoc
 vim.cmd("command! TP lua TogglePandoc()")
-
--- To enable Pandoc initially, you can use the :TP command
-

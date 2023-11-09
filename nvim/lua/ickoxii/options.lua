@@ -22,3 +22,6 @@ vim.o.wrap = true
 
 -- Disable automatic commenting in comment blocks
 vim.cmd[[au BufEnter * set fo-=cro fo-=o fo-=r]]
+
+-- Set a default color scheme
+vim.cmd('colorscheme rose-pine-moon')

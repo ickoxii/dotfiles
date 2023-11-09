@@ -6,8 +6,8 @@
 
 -- Global Function
 function ColorMyPencils(color)
-	-- We either use default color or rose-pine
-	color = color or "rose-pine"
+	-- We either use default color or rose-pine-moon
+	color = color or "tokyonight-moon"
 	vim.cmd.colorscheme(color)
 
 	-- Set transparent background
