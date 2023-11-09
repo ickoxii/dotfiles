@@ -35,7 +35,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # ===================
 
 # Launch terminal in tmux
-command -v tmux &> /dev/null && tmux
+# command -v tmux &> /dev/null && tmux
 
 # Neofetch that hoe
 # Pipe through lolcat for rainbow display
