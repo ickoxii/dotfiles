@@ -12,25 +12,30 @@
 # - Comments added
 #
 # V1.0.2 - 10/16/2023
-# - Explicitly define CPP_FILES, EXECUTABLE and SOLN_EXEC
+# - Explicitly define CFILES, PEXE and SEXE
 # - Added new targets testmore and diffmore that handles verbose output
 #
 # V1.0.3 - 10/19/2023
 # - Added clean targets to clean output files
 # - Added help target to print usage to screen
 
-# Specify the source files                   // CHANGE
-CPP_FILES := CPP_FILES_GOES_HERE
-TEST_DRIVER := TEST_DRIVER_GOES_HERE
+# Specify the source files
+# [H]eader files 							CHANGE
+HFILES := HFILES GO HERE
+# [C](pp) files								CHANGE
+CFILES := CFILES GO HERE
+# [T]est cpp files							CHANGE
+TFILES := TEST HERE
 
-# Specify name of final executable           // CHANGE
-EXECUTABLE := a
-TEST_EXECUTABLE := b
+# [P]roject [EXE]cutable					CHANGE
+PEXE := a
+# [T]est [EXE]cutable						CHANGE
+TEXE := b
 
-# Name of professor's executable             // CHANGE
-SOLN_EXEC := projectX_solution_osx
+# [S]olution [EXE]cutable					CHANGE
+SEXE := projectX_solution_osx
 
-# Compiler flags
+# [C]ompiler flags
 # Some typical ones to use are -Wall -Wextra -std=c++17 -g
 # In order to link the ncurses library, we use `-lncurses`
 CFLAGS := -Wall -Wextra -std=c++17 -g
@@ -38,9 +43,9 @@ CFLAGS := -Wall -Wextra -std=c++17 -g
 # all
 #
 # Default target. This is run when `make` is called with no arguments.
-# In this case, we build the target $(EXECUTABLE), which is the target
+# In this case, we build the target $(PEXE), which is the target
 # specified below which compiles our program
-all: $(EXECUTABLE)
+all: $(PEXE)
 .PHONY: all
 
 # help
@@ -51,6 +56,8 @@ help:
 	@echo "     make [target]"
 	@echo "--------------------------------------------------------------------------------"
 	@echo "  target    -    description"
+	@echo ""
+	@echo "--help      - Show flags to use with the \`make\` utility"
 	@echo "No Target   - 'make' called with no targets will compile the project"
 	@echo "all         - 'make' called with no targets will compile the project"
 	@echo "json        - Creates VSCode configuration files for cpp debugging"
@@ -75,23 +82,29 @@ help:
 	@echo "--------------------------------------------------------------------------------"
 .PHONY: help
 
-# $(EXECUTABLE)
+# $(PEXE)
 #
 # Compiles out program
-$(EXECUTABLE): $(CPP_FILES)
-	g++ $(CFLAGS) $(CPP_FILES) -o $(EXECUTABLE)
+$(PEXE): $(CFILES)
+	g++ $(CFLAGS) $(CFILES) -o $(PEXE)
+
+# test
+#
+# Compiles the test cpp program
+test:
+	g++ $(CFLAGS) $(TFILES) -o $(TEXE)
 
 # soln
 #
 # Runs the professors solution with normal and verbose output.
 soln:
-	chmod +x $(SOLN_EXEC)
+	chmod +x $(SEXE)
 	@for f in io/input-*.txt; do \
 		num=$$(basename $$f | sed 's/^input-//; s/\.txt$$//'); \
-		echo "./$(SOLN_EXEC) < $$f > io/soln-$$num.txt"; \
-		./$(SOLN_EXEC) < $$f > io/soln-$$num.txt; \
-		echo "./$(SOLN_EXEC) printMore < $$f > io/verbose-soln-$$num.txt"; \
-		./$(SOLN_EXEC) printMore < $$f > io/verbose-soln-$$num.txt; \
+		echo "./$(SEXE) < $$f > io/soln-$$num.txt"; \
+		./$(SEXE) < $$f > io/soln-$$num.txt; \
+		echo "./$(SEXE) printMore < $$f > io/verbose-soln-$$num.txt"; \
+		./$(SEXE) printMore < $$f > io/verbose-soln-$$num.txt; \
 		echo; \
 	done
 	@echo "---------------"
@@ -103,8 +116,8 @@ soln:
 run:
 	@for f in io/input-*.txt; do \
 		outfile=$$(basename $$f | sed 's/^input-/output-/'); \
-		echo "./$(EXECUTABLE) < $$f > io/$$outfile"; \
-		./$(EXECUTABLE) < $$f > io/$$outfile; \
+		echo "./$(PEXE) < $$f > io/$$outfile"; \
+		./$(PEXE) < $$f > io/$$outfile; \
 		echo; \
 	done
 	@echo "---------------"
@@ -116,8 +129,8 @@ run:
 runmore:
 	@for f in io/input-*.txt; do \
 		verbose_outfile=$$(basename $$f | sed 's/^input-/verbose-output-/'); \
-		echo "./$(EXECUTABLE) printMore < $$f > io/$$verbose_outfile"; \
-		./$(EXECUTABLE) printMore < $$f > io/$$verbose_outfile; \
+		echo "./$(PEXE) printMore < $$f > io/$$verbose_outfile"; \
+		./$(PEXE) printMore < $$f > io/$$verbose_outfile; \
 		echo; \
 	done
 	@echo "---------------"
@@ -163,7 +176,7 @@ json:
 #
 # Cleans up any executable created.
 clean:
-	rm -i $(EXECUTABLE)
+	rm -i $(PEXE)
 	@make cleanout
 	@make cleansoln
 .PHONY: clean
@@ -176,7 +189,6 @@ cleanout:
 		echo "rm -f $$f"; \
 		rm -f $$f; \
 	done	
-	@echo
 .PHONY: cleanout
 
 # cleansoln
@@ -187,12 +199,11 @@ cleansoln:
 		echo "rm -f $$f"; \
 		rm -f $$f; \
 	done
-	@echo
 .PHONY: cleansoln
 
 # gitadd
 #
 # Stages files to get ready for commit
 gitadd:
-	git add -p $(CPP_FILES) $(H_FILES)
+	git add -p $(CFILES) $(HFILES)
 .PHONY: gitadd
