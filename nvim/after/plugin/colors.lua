@@ -4,6 +4,9 @@
 -- Date Last Modified: 3 November 2023
 -- Version: 1.0
 
+-- Set a default color scheme
+vim.cmd('colorscheme tokyonight-moon')
+
 -- Global Function
 function ColorMyPencils(color)
 	-- We either use default color or rose-pine-moon

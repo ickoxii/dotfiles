@@ -1,3 +1,6 @@
-Turn off the fucking italic comments and shit
+-- LSP Configuration works for lua, json
 
-Add pandoc and other functionality from vim
+-- clangd requires extra configuration
+    -- need to figure out how to add include path
+    -- work on .clangd config
+    /opt/homebrew/opt/llvm/include/c++/v1/
