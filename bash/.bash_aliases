@@ -87,6 +87,7 @@ alias proton="browser https://proton.me"
 
 # GitHub
 alias gh="browser https://github.com/ickoxii"
+alias ghrepo="browser https://github.com/ickoxii?tab=repositories"
 
 # LeetCode
 alias lc="browser https://leetcode.com/problemset/all/"
@@ -116,3 +117,6 @@ alias seed-map="browser https://www.chunkbase.com/apps/seed-map#"
 # alias rm="rm -i"
 # Alias for moving items to trash with confirmation
 # alias trash="trash -i"
+
+# Get resolution for mac and any connected displays
+alias getResolution="system_profiler SPDisplaysDataType | grep Resolution"
