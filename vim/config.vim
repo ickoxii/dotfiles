@@ -87,7 +87,7 @@ set cinoptions=g0
 " ------------------
 " Yank to the system clipboard by default (macOS)
 " Otherwise, yank to clipboard using `"*y`
-set clipboard=unnamed
+" set clipboard=unnamed
 
 
 " -------------
