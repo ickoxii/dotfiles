@@ -39,6 +39,13 @@ create_symlink() {
 ## ===============================================
 SRCBASE="$HOME/.dotfiles"
 
+# CLANGD
+# ------
+SOURCE="$SRCBASE/clangd"
+DEST="$HOME/.config"
+declare -A CLANGD=(
+    ["$SOURCE"]="$DEST"
+)
 
 # GENERAL_TERMINAL
 # ----------------
@@ -80,12 +87,10 @@ declare -A BASH=(
 # ZSH
 # ---
 SOURCE="$SRCBASE/zsh"
-DEST="$HOME"
+DEST="$HOME/.config"
 declare -A ZSH=(
-    ["$SOURCE/.z_profile"]="$DEST/.z_profile"
-    ["$SOURCE/.z_aliases"]="$DEST/.zsh_aliases"
-    ["$SOURCE/.z_prompt"]="$DEST/.zsh_prompt"
-    ["$SOURCE/.zshrc"]="$DEST/.zshrc"
+    ["$SOURCE/.zshenv"]="$HOME/.zshenv"
+    ["$SOUCE/zsh"]="$DEST"
 )
 
 # GIT
@@ -150,6 +155,12 @@ declare -A TMUX=(
 ## ==============================================================
 ## Loops to actually run the create_symlink function on all files
 ## ==============================================================
+
+echo "Linking clangd config files..."
+for src in "${!CLANGD[@]}"; do
+    create_symlink "$src" "${CLANGD[$src]}"
+done
+echo
 
 echo "Linking GENERAL-TERMINAL config files..."
 for src in "${!GENERAL_TERMINAL[@]}"; do
