@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+GIT_AHEAD="⇡"
+GIT_BEHIND="⇣"
+PROMPT_CHAR="$"
+SEPARATOR=" "
+
+PROMPT="%m%n%~%*"

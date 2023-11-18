@@ -7,7 +7,7 @@ we may further understand which files are sourced when.
 
 <https://stackoverflow.com/questions/18186929/what-are-the-differences-between-a-login-shell-and-interactive-shell>  
 
-***Tl;dr***  
+***Tl;dr***   
 
 1. A *login shell* is a shell where you login.
 2. An *interactive shell** reads commands from its standard-input (usually a terminal)  
@@ -20,6 +20,20 @@ Ex: If you type bash then you enter an interactive shell, but not a login shell
 * So, the terminal spawned by vim is probably interactive non-login  
 
 Ex: A shell script runs a shell that is neither login nor interactive  
+
+<https://askubuntu.com/questions/879364/differentiate-interactive-login-and-non-interactive-non-login-shell>  
+
+***Tl;dr***  
+
+1. **interactive login shell**: Log into a remote computer via `ssh`, drop a 
+   tty (teletypewriter -- most terminal emulators are synonymous with tty).
+
+2. **interactive non-login shell**: Open a new terminal
+
+3. **non-interactive non-login shell**: Run a script.
+
+4. **non-interactive login shell**: Extremely rare. One way to do so is to 
+   `echo command | ssh server`. Another is `bash -l -c command`.
 
 ## List of Files and What They Do
 
