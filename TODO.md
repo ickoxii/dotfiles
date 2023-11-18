@@ -26,3 +26,5 @@ Tracks planned changes such as features, bugs, improvements, etc.
     - leetcode questions
 
 ## Misc
+
+1. Migrate kitty configs from .config/kitty then symlink it up
