@@ -1,6 +1,0 @@
--- LSP Configuration works for lua, json
-
--- clangd requires extra configuration
-    -- need to figure out how to add include path
-    -- work on .clangd config
-    /opt/homebrew/opt/llvm/include/c++/v1/
