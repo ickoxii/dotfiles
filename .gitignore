@@ -7,6 +7,7 @@ vim/ghdark.vim
 vim/plugins.vim
 spotifyd/.spotifyd.conf.orig
 spotify-tui/.spotify_token_cache.json
+git/
 
 # Compiled source #
 ###################
