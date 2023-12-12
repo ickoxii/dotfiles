@@ -5,12 +5,12 @@
 -- Version: 1.0
 
 -- Set a default color scheme
-vim.cmd('colorscheme tokyonight-moon')
+vim.cmd('colorscheme catppuccin-macchiato')
 
 -- Global Function
 function ColorMyPencils(color)
 	-- We either use default color or rose-pine-moon
-	color = color or "tokyonight-moon"
+	color = color or "catppuccin-macchiato"
 	vim.cmd.colorscheme(color)
 
 	-- Set transparent background
