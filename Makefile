@@ -22,7 +22,7 @@ help:
 .PHONY: help
 
 # Targets
-all: general-terminal nvim bash zsh git vim latex skeleton-files neofetch spotifycli tmux
+all: general-terminal nvim bash zsh git vim latex skeleton-files neofetch spotifycli tmux ubuntu-nordvpn ubuntu-valgrind
 .PHONY: all
 
 general-terminal:
