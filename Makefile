@@ -16,6 +16,8 @@ help:
 	@echo "spotifyd"
 	@echo "spotify-tui"
 	@echo "tmux"
+	@echo "ubuntu-nordvpn"
+	@echo "ubuntu-valgrind"
 	@echo "clean -- Searches for and removes broken sym-links"
 .PHONY: help
 
@@ -49,13 +51,13 @@ bash:
 .PHONY: bash
 
 # .z_aliases .z_profile .z_prompt .zshrc
+# .zshenv stores basic environment variables and tells us where the rest of 
+# our configuration files are
 zsh:
 	SRC = $(HOME)/.dotfiles/zsh
-	DEST = $(HOME)
-	ln -sf $(SRC)/.z_aliases $(DEST)/.z_aliases
-	ln -sf $(SRC)/.z_profile $(DEST)/.z_profile
-	ln -sf $(SRC)/.z_prompt $(DEST)/.z_prompt
-	ln -sf $(SRC)/.zshrc $(DEST)/.zshrc
+	DEST = $(HOME)/.config/zsh
+	ln -sf $(SRC)/.zshenv $(HOME)/.zshenv
+	ln -sf $(SRC)/zsh $(DEST)
 .PHONY: zsh
 
 git:
@@ -116,6 +118,14 @@ tmux:
 	DEST = ~/.tmux.conf
 	ln -sf $(SRC) $(DEST)
 .PHONY: tmux
+
+ubuntu-nordvpn:
+	./docker/ubuntu-nordvpn/symlink.sh
+.PHONY: ubuntu-nordvpn
+
+ubuntu-valgrind:
+	./docker/ubuntu-valgrind/symlink.sh
+.PHONY: ubuntu-valgrind
 
 # Clean symlinks for all specified applications
 clean:
