@@ -45,7 +45,8 @@ CFLAGS := -Wall -Wextra -std=c++17 -g
 # Default target. This is run when `make` is called with no arguments.
 # In this case, we build the target $(PEXE), which is the target
 # specified below which compiles our program
-all: $(PEXE)
+all: $(CFILES) $(HFILES)
+	make $(PEXE)
 .PHONY: all
 
 # help
