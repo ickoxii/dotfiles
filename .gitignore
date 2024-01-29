@@ -1,56 +1,33 @@
+# ------------------- #
 # Repository Specific #
-#######################
+# ------------------- #
 start-live-markdown-preview.sh
 stop-live-markdown-preview.sh
+
+# Vim 
 vim/alduin.vim
 vim/ghdark.vim
 vim/plugins.vim
-spotifyd/.spotifyd.conf.orig
-spotify-tui/.spotify_token_cache.json
+
+# Spotify-tui
+.spotify_token_cache.json
+
+# ignore for now...
 git/
-zsh/zsh/.zsh_history
-zsh/zsh/.zsh_sessions
-zsh/zsh/.zcompdump*
 
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
+# zsh
+.zsh_history
+.zsh_sessions
+.zcompdump*
 
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
 
-# Logs and databases #
-######################
-*.log
-*.sql
-*.sqlite
-
+# ------------------ #
 # OS generated files #
-######################
+# ------------------ #
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
 
+
+# -------- #
 # Pictures #
-############
+# -------- #
 *.png
-
