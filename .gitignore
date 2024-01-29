@@ -10,6 +10,7 @@ spotify-tui/.spotify_token_cache.json
 git/
 zsh/zsh/.zsh_history
 zsh/zsh/.zsh_sessions
+.zcompdump*
 
 # Compiled source #
 ###################
