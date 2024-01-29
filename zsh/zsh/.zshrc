@@ -1,3 +1,5 @@
+#==============================================================================#
+
 # >>>> p10k configuration >>>>
 
 # Turn off the god-forsaken beeping
@@ -25,6 +27,8 @@ ZSH_THEME="common"
 
 # <<<< p10k configuration <<<<
 
+#==============================================================================#
+
 # >>>> My Configurations >>>>
 
 # Move location of zcompdump files
@@ -33,7 +37,9 @@ export ZSH_COMPDUMP=~/.zsh-cache/.zcompdump-$HOST
 
 # Source aliases
 [[ ! -f ~/.dotfiles/zsh/zsh/.zaliases ]] || source ~/.dotfiles/zsh/zsh/.zaliases
+# Loading prompt is not needed, we are using p10k (see above)
 # [[ ! -f ~/.dotfiles/zsh/zsh/.zprompt ]] || source ~/.dotfiles/zsh/zsh/.zprompt
 
 # <<<< My Configurations <<<<
 
+#==============================================================================#
