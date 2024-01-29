@@ -28,6 +28,9 @@ alias onenote="open -a Microsoft\ OneNote"
 # Messaging App
 alias msg="open -a Messages"
 
+# IntelliJ IDEA
+alias idea="open -a Intellij\ IDEA"
+
 # ======================
 # Open Browser Bookmarks
 # ======================
