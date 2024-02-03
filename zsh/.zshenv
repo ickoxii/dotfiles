@@ -21,3 +21,7 @@ PATH="${JAVA_HOME}/bin:${PATH}"
 export PATH
 
 # <<<< Java <<<<
+
+# >>>> Options >>>>
+# Should probably move to its own file
+BAT_THEME=base16
