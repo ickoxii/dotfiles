@@ -8,8 +8,6 @@ PREAMBLE = -H ~/.config/latex/preambles/math.tex
 HIGHLIGHT = --highlight-style=breezedark
 CFLAGS = $(ENGINE) $(PREAMBLE) $(HIGHLIGHT)
 
-.PHONY: all clean help
-
 help:
 	@echo "Usage:"
 	@echo "  make [all]         Convert all Markdown files in the current directory to PDF."
@@ -17,9 +15,11 @@ help:
 	@echo "                     'target.md' must exist in the directory"
 	@echo "  make clean         Remove all generated PDF files."
 	@echo "  make help          Show this help message."
+.PHONY: help
 
 all: $(PDF_FILES)
 	@echo "All files have been pandoc'ed"
+.PHONY: all
 
 %.pdf: %.md
 	pandoc $< $(CFLAGS) -o $@
@@ -29,3 +29,4 @@ clean:
 		rm -i $$f; \
 		echo; \
 	done
+.PHONY: clean
