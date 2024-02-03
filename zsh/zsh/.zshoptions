@@ -1,3 +1,4 @@
+echo "sourced .zshoptions"
 # Additional configurations and such
 
 BAT_THEME=base16

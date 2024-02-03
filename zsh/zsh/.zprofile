@@ -1,4 +1,3 @@
-# 
 # File: .zprofile
 # Author: Icko Iben
 # Date Created: 14 November 2023
@@ -10,9 +9,11 @@
 # shell is executed. This is to maintain compatability between different 
 # shell environments
 #
+# ISSUE: 
+# Having it setup in this way caused it so that .zshrc and the rest of my 
+# zsh config was sourced twice. So potentially this is not needed
 
-# >>>> My Configurations >>>>
-
-[[ ! -f ~/.config/zsh/zsh/.zshrc ]] || source ~/.config/zsh/zsh/.zshrc
-
-# <<<< My Configurations <<<<
+# What is my purpose?
+# You source .zshrc
+# Oh my god
+# [[ ! -f $ZDOTDIR/.zshrc ]] || source $ZDOTDIR/.zshrc
