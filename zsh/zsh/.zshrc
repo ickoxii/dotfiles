@@ -37,6 +37,10 @@ export ZSH_COMPDUMP=~/.zsh-cache/.zcompdump-$HOST
 
 # Source aliases
 [[ ! -f ~/.dotfiles/zsh/zsh/.zaliases ]] || source ~/.dotfiles/zsh/zsh/.zaliases
+
+# Source other options (themes, cli tool customizations)
+[[ ! -f ~/.dotfiles/zsh/zsh/.zshoptions ]] || source ~/.dotfiles/zsh/zsh/.zaliases
+
 # Loading prompt is not needed, we are using p10k (see above)
 # [[ ! -f ~/.dotfiles/zsh/zsh/.zprompt ]] || source ~/.dotfiles/zsh/zsh/.zprompt
 
