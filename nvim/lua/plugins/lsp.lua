@@ -2,11 +2,16 @@
 -- Taken from dmmulroy
 -- Customized by ickoxii
 -- Date Copied: 02/02/2024
-
 return {
     "neovim/nvim-lspconfig",
+
     dependencies = {
-        "williamboman/mason.nvim",
+        {
+            "williamboman/mason.nvim",
+            config = function()
+                require('mason').setup()
+            end,
+        },
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
@@ -27,32 +32,31 @@ return {
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
 
-        -- Spinny symbol when things are loading
         require("fidget").setup({})
-        -- LSP package manager
         require("mason").setup()
-        -- Mason -> lsp intermediary
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "autotools_language_server", -- make
+                "autotools_ls", -- make
                 "bashls",
-                -- clangd = {},
-                "html",
+                -- "clangd",
                 "dockerls",
+                "html",
                 "jdtls", -- java
-                -- "ltex", -- latex
-                "vimls", -- vim script
                 "jsonls",
+                -- "ltex", -- latex
                 "lua_ls",
                 "marksman", -- markdown
                 "sqlls",
+                "vimls", -- vim script
             },
             handlers = {
-                function(server_name) -- defualt handler
+                function(server_name) -- default handler (optional)
+
                     require("lspconfig")[server_name].setup {
                         capabilities = capabilities
                     }
                 end,
+
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
@@ -69,6 +73,10 @@ return {
             }
         })
 
+        -- BIGGEST CLANGD SETUP OF YOUR FUCKING LIFE
+        -- See: https://github.com/neovim/nvim-lspconfig
+        require'lspconfig'.clangd.setup{}
+
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
         cmp.setup({
@@ -82,14 +90,13 @@ return {
                 ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
                 ['<C-y>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
-                ["tab"] = false,
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
             }, {
-                    { name = 'buffer' },
-                })
+                { name = 'buffer' },
+            })
         })
 
         vim.diagnostic.config({

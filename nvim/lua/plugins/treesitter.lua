@@ -4,6 +4,7 @@ return {
     config = function()
         require("nvim-treesitter.configs").setup({
             -- A list of parser names, or "all"
+            -- see https://tree-sitter.github.io/tree-sitter/ for a full list
             ensure_installed = {
                 "bash",
                 "c",
@@ -29,9 +30,9 @@ return {
             -- Recommendation: set to false if you don"t have `tree-sitter` CLI installed locally
             auto_install = true,
 
-            indent = {
-                enable = true
-            },
+            -- indent = {
+            --     enable = true
+            -- },
 
             highlight = {
                 -- `false` will disable the whole extension

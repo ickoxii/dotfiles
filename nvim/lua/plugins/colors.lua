@@ -1,3 +1,5 @@
+---@diagnostic disable: missing-fields
+
 function ColorMyPencils(color)
     color = color or "rose-pine"
     vim.cmd.colorscheme(color)
@@ -10,10 +12,12 @@ end
 return {
     {
         "rose-pine/nvim",
+        lazy = false; -- Disable lazy loading for main color theme
+        priority = 1000; -- Load before everything else
         config = function()
             require("rose-pine").setup({
                 integrations = {
-                    -- cmp = true,
+                    cmp = true,
                     -- gitsigns = true,
                     harpoon = true,
                     -- illuminate = true,
@@ -40,9 +44,9 @@ return {
         end,
     },
 
-    --[[
     {
         "folke/tokyonight.nvim",
+        lazy = true; -- Lazy load backup color schemes
         config = function()
             require("tokyonight").setup({
                 -- your configuration comes here
@@ -62,5 +66,13 @@ return {
             })
         end
     },
-    ]]--
+
+    {
+        "catppuccin/catppuccin",
+        lazy = true;
+        config = function()
+            -- require("catppuccin").setup({})
+            vim.cmd.colorscheme("catppuccin-machiatto")
+        end
+    },
 }

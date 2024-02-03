@@ -1,12 +1,13 @@
 -- Leader (changed in options.lua)
 -- vim.g.mapleader = " "
 
--- VIM remaps
+-- VIM Keybinds
 -- [P]roject [V]ew
 -- Opens up the current directory in nvim
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- LSP Keybinds (exports a function to be used in ../../after/plugin/lsp.lua b/c we need a reference to the current buffer) --
+--[[
 local M = {}
 M.map_lsp_keybinds = function(buffer_number)
     nnoremap("<leader>rn", vim.lsp.buf.rename, { desc = "LSP: [R]e[n]ame", buffer = buffer_number })
@@ -49,3 +50,4 @@ M.map_lsp_keybinds = function(buffer_number)
     nnoremap("td", vim.lsp.buf.type_definition, { desc = "LSP: [T]ype [D]efinition", buffer = buffer_number })
 end
 return M
+]]--
