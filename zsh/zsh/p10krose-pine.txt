@@ -1,0 +1,8 @@
+  # rose-pine
+  local grey='#908caa'      # subtle
+  local red='#eb6f92'       # love
+  local yellow='#f6c177'    # gold
+  local blue='#9ccfd8'      # foam
+  local magenta='#c4a7e7'   # iris
+  local cyan='#31748f'      # pine
+  local white='#e0def4'     # text
