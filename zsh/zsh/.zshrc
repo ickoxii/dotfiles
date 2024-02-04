@@ -50,7 +50,7 @@ export ZSH_COMPDUMP=~/.zsh-cache/.zcompdump-$HOST
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Maven
-export M2_HOME="/Users/ickoxii/bin/apache-maven-3.9.6"
+export M2_HOME="/Users/ickoxii/Packages/apache-maven-3.9.6"
 export PATH="${M2_HOME}/bin:${PATH}"
 
 # JAVA_HOME (for JDK)

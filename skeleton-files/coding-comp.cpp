@@ -18,9 +18,11 @@
 using namespace std;
 
 class Solution {
-    public:
-        void fun() {
-        }
+private:
+
+public:
+    void fun() {
+    }
 };
 
 /*

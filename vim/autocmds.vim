@@ -19,52 +19,48 @@ autocmd FileType make setlocal noexpandtab
 " Templates
 " =========
 
-" newgitignore
-" Creates a `.gitignore` file from template
-" Usage: `vim newgitignore` from command line
-" autocmd BufNewFile newgitignore 0r ~/skeleton-files/gitignore.template
-
-" newtodo
-" Creates a `TODO.md` file from template
-" Usage: `vim newtodo` from command line
-" autocmd BufNewFile newtodo 0r ~/skeleton-files/TODO.template
+" >>>> CPP stuff >>>>
 
 " new template for baylor csi projects
-" includes pre-file comments and pre-function comments
-" Usage: `vim newbaylorcsi` from command line
-autocmd BufNewFile newbaylorcsi 0r ~/skeleton-files/baylorcsi.template
+autocmd BufNewFile newbaylorcsi 0r ~/skeleton-files/baylorcsi.cpp
 
-" cpp Makefile
-" Usage: `vim newcppmake`
-" autocmd BufNewFile newcppmake 0r ~/skeleton-files/Makefile.cpp.template
+" competitive coding template
+autocmd BufNewFile newcodingcomp 0r ~/skeleton-files/coding-comp.cpp
 
-" pandoc Makefile
-" Usage: `vim newpandocmake`
-autocmd BufNewFile newpandocmake 0r ~/skeleton-files/Makefile.pandoc.template
+" <<<< CPP stuff <<<<
+
+
+" >>>> Java stuff >>>>
+
+" Parent pom for Maven project
+autocmd BufNewFile newparentpom 0r ~/skeleton-files/pom.xml
+
+" Makefile for building Maven projects
+autocmd BufNewFile newmvnmake 0r ~/skeleton-files/mvnmake
+
+" <<<< Java stuff <<<<
+
+" >>>> Makefiles >>>>
+
+" Makefile for cpp projects
+" autocmd BufNewFile newcppmake 0r ~/skeleton-files/cppmake
+
+" Makefile for linking latex math libraries and such for generating pdfs of
+" markdown files
+autocmd BufNewFile newpandocmake 0r ~/skeleton-files/pandocmake
+
+" Makefile for small SDL projects
+autocmd BufNewFile newsdlmake 0r ~/skeleton-files/sdlmake
+
+" Dockerfile for valgrind testing
+autocmd BufNewFile newvalgrind 0r ~/skeleton-files/dockervalgrind
+
+" <<<< Makefiles <<<<
 
 " Autocommands
 " ============
 
-" Markdown Live Previewer Helper (depreciated version)
-" Vim autocommand to touch /tmp/bufwrite upon saving a Markdown file
-" This triggers the onmodify function (when used) to perform its actions
-" au BufWritePost *.md !touch /tmp/bufwrite
-
-" Markdown Live Preview Helper
-" Vim autocommand to pandoc current file upon write if the current file is .md
-"augroup PandocMarkdown
-"    autocmd!
-"    autocmd BufWritePost *.md !pandoc % --pdf-engine=xelatex -H ~/.config/latex/preambles/math.tex --highlight-style=breezedark -o %<.pdf
-"augroup END
-
-" Only activate PandocMarkdown on startup if set in .vimrc
-"if g:enable_pandoc_markdown
-"    augroup PandocMarkdown
-"        autocmd!
-"        " The autocmd is listed here, but it's not active by default.
-"    augroup END
-"endif
-
+" Use pandoc to generate a pdf of markdown files when saving
 " Always define the PandocMarkdown augroup
 augroup PandocMarkdown
     autocmd!

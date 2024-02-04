@@ -41,7 +41,7 @@ return {
                 -- "clangd", -- DO NOT INSTALL WITH MASON
                 -- "dockerls",
                 -- "html",
-                -- "jdtls", -- java
+                "jdtls", -- java
                 -- "jsonls",
                 -- "ltex", -- latex
                 "lua_ls",
