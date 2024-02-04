@@ -41,8 +41,8 @@ return {
                     documentation = cmp.config.window.bordered(),
                 },
                 mapping = cmp.mapping.preset.insert({
-                    ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-                    ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+                    ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+                    ["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
 --                     ["<Tab>"] = cmp.mapping(function(fallback)
 --                     if cmp.visible() then
 --                         cmp.select_next_item()
@@ -66,6 +66,7 @@ return {
                     ["<C-Space>"] = cmp.mapping.complete({}), -- show completion suggestions
 --                     ["<C-c>"] = cmp.mapping.abort(), -- close completion window
                     ["<C-y>"] = cmp.mapping.confirm({ select = true }), -- select suggestion
+                    ["<C-CR>"] = cmp.mapping.confirm({ select = true }), -- CR = carraige return = enter
                 }),
                 -- sources for autocompletion
                 sources = cmp.config.sources({
