@@ -60,6 +60,11 @@ if !empty(system("readlink -f ~/.vim/colors/ghdark.vim"))
     source ~/.vim/colors/ghdark.vim
 endif
 
+" rose-pine
+" if !empty(system("readlink -f !/.vim/colors/rose-pine.vim"))
+"     source ~/.vim/colors/rose-pine-moon.vim
+" endif
+
 " Plug-ins
 "if !empty(system("readlink -f ~/.vim/plugins.vim"))
 "    source ~/.vim/plugins.vim

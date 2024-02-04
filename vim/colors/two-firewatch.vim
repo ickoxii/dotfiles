@@ -235,7 +235,9 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
   "}}}
 
   " Color definition --------------------------------------------------------{{{
-  if &background ==? 'light'
+  " light mode
+  " if &background ==? 'light'
+  if g:colors_name ==? 'two-firewatch-light'
     let s:uno_1 = '2d2006'
     let s:uno_2 = '896724'
     let s:uno_3 = 'B29762'
@@ -257,6 +259,7 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     let s:syntax_selection        = 'E5DDCB'
     let s:syntax_fold_bg          = 'd1cec7'
     let s:syntax_cursor_line      = 'F3EFE7'
+  " dark mode
   else
     let s:uno_1 = 'd6e9ff'
     let s:uno_2 = 'abb2bf'
