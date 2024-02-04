@@ -36,17 +36,17 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
-                "autotools_ls", -- make
+                -- "autotools_ls", -- make
                 "bashls",
-                -- "clangd",
-                "dockerls",
-                "html",
-                "jdtls", -- java
-                "jsonls",
+                -- "clangd", -- DO NOT INSTALL WITH MASON
+                -- "dockerls",
+                -- "html",
+                -- "jdtls", -- java
+                -- "jsonls",
                 -- "ltex", -- latex
                 "lua_ls",
                 "marksman", -- markdown
-                "sqlls",
+                -- "sqlls",
                 "vimls", -- vim script
             },
             handlers = {
@@ -76,6 +76,9 @@ return {
         -- BIGGEST CLANGD SETUP OF YOUR FUCKING LIFE
         -- See: https://github.com/neovim/nvim-lspconfig
         require'lspconfig'.clangd.setup{}
+
+        -- Might need
+        require'lspconfig'.jdtls.setup{}
 
         local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
