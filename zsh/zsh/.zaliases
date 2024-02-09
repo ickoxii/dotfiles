@@ -2,7 +2,8 @@
 # Directory Navigation
 # ====================
 
-alias csi3334="cd ~/Documents/baylor/classes/csi3334/"
+alias 3334="cd ~/Documents/baylor/classes/csi3334/"
+alias 3471="cd ~/Documents/baylor/classes/csi3471/"
 
 # =====================
 # Application Shortcuts
@@ -11,13 +12,14 @@ alias csi3334="cd ~/Documents/baylor/classes/csi3334/"
 # =====================
 
 # Use Homebrew's updated bash instead of macOS default
+# For scripts mainly (idfk)
 alias bash="/opt/homebrew/bin/bash"
 
 # Launch MATLAB CLI
 alias mat="/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop"
 
 # Default Browser
-alias browser="open -a Brave\ Browser"
+alias browser="open -a Firefox"
 
 # Microsoft Word
 alias winword="open -a Microsoft\ Word"
@@ -35,49 +37,14 @@ alias idea="open -a Intellij\ IDEA"
 # Open Browser Bookmarks
 # ======================
 
-# ========
-# DEFAULTS
-# --------
-
-# Default Email
-alias email="browser https://gmail.com"
-# ========
-
-# Canvas
-alias canvas="browser https://canvas.web.baylor.edu"
-
-# Baylor Program Upload Site
-alias upload="browser https://csi-info.baylor.edu/upload/"
-
-# Pawprints
-alias pawprints="browser https://print.baylor.edu/user"
-
-# Google Calendar
-alias googlecal="browser https://calendar.google.com/calendar/u/0/r"
-
-# Gmail
-alias gmail="browser https://gmail.com"
-
-# Proton Mail
-alias proton="browser https://proton.me"
-
 # GitHub
 alias gh="browser https://github.com/ickoxii"
-
-# LeetCode
-alias lc="browser https://leetcode.com/problemset/all/"
 
 # DIM
 alias dim="browser https://beta.destinyitemmanager.com/4611686018486746069/d2/inventory"
 
 # Bungie LFG
 alias lfg="browser https://www.bungie.net/7/en/Fireteams/Search?platform=0&activity=0"
-
-# Instagram
-alias ig="browser https://instagram.com"
-
-# ASCII Flow Infinite Canvas
-alias asciiflow="browser https://asciiflow.com/#/"
 
 # Chunk-base seed map (minecraft)
 alias seed-map="browser https://www.chunkbase.com/apps/seed-map#"
@@ -95,6 +62,7 @@ alias palias="bat $ZDOTDIR/.zaliases"
 # ===============
 
 # Open associated CSI 3334 Project
+# DEPRECATED
 proj() {
     if [[ "$1" =~ ^[0-9]+$ ]]; then
         open -a "Brave Browser" "https://cs.baylor.edu/~hamerly/courses/3334_23f/project$1/"
