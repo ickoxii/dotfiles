@@ -58,3 +58,12 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
 export PATH="${JAVA_HOME}/bin:${PATH}"
 
 # <<<< Paths <<<<
+
+# >>>> Functions >>>>
+noSpecChar() {
+    defaults write -g ApplePressAndHoldEnabled -bool false
+}
+setSpecChar() {
+    defaults write -g ApplePressAndHoldEnabled -bool true
+}
+# <<<< Functions <<<<
