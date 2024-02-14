@@ -95,10 +95,16 @@ return {
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
+                -- lsp completion
                 { name = 'nvim_lsp' },
-                { name = 'luasnip' }, -- For luasnip users.
-            }, {
+                { name = 'nvim_lua'},
+                -- { name = 'luasnip' }, -- For luasnip users.
+            },{
+                -- Text completion for text in current buffer
                 { name = 'buffer' },
+            },{
+                -- Directory completion
+                { name = 'path' },
             })
         })
 
