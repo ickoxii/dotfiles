@@ -48,10 +48,10 @@ export PATH="$PATH:/Users/ickoxii/Library/Python/3.9/bin"
 # shopt -s expand_aliases
 
 # Load aliases
-[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+[ -f ~/.config/bash/.bash_aliases ] && source ~/.config/bash.bash_aliases
 
 # Load bash functions
-[ -f ~/.bash_functions ] && source ~/.bash_functions
+[ -f ~/.config/bash/.bash_functions ] && source ~/.config/bash/.bash_functions
 
 # Load bash prompt customizations
-[ -f ~/.bash_prompt ] && source ~/.bash_prompt
+[ -f ~/.config/bash/.bash_prompt ] && source ~/.config/bash/.bash_prompt
