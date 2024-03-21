@@ -45,24 +45,24 @@ let g:enable_pandoc_markdown=0      " 0 - disable | 1 - enable
 " to the file, and sources this file if it exists.
 " =========================
 " Vim Settings
-if !empty(system("readlink -f ~/.vim/config.vim"))
+if !empty(system("readlink -f ~/.vim//config/config.vim"))
     source ~/.vim/config/config.vim
 endif
 
 " Autocommands
-if !empty(system("readlink -f ~/.vim/autocmds.vim"))
+if !empty(system("readlink -f ~/.vim/config/autocmds.vim"))
     source ~/.vim/config/autocmds.vim
 endif
 
 " GitHub Dark Color Scheme
 " https://github.com/vv9k/vim-github-dark
-if !empty(system("readlink -f ~/.vim/colors/ghdark.vim"))
-    source ~/.vim/colors/ghdark.vim
+if !empty(system("readlink -f ~/.vim/.colors/ghdark.vim"))
+    source ~/.vim/.colors/ghdark.vim
 endif
 
 " rose-pine
-" if !empty(system("readlink -f !/.vim/colors/rose-pine.vim"))
-"     source ~/.vim/colors/rose-pine-moon.vim
+" if !empty(system("readlink -f !/.vim/.colors/rose-pine.vim"))
+"     source ~/.vim/.colors/rose-pine-moon.vim
 " endif
 
 " Plug-ins
