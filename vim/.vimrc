@@ -46,12 +46,12 @@ let g:enable_pandoc_markdown=0      " 0 - disable | 1 - enable
 " =========================
 " Vim Settings
 if !empty(system("readlink -f ~/.vim/config.vim"))
-    source ~/.vim/config.vim
+    source ~/.vim/config/config.vim
 endif
 
 " Autocommands
 if !empty(system("readlink -f ~/.vim/autocmds.vim"))
-    source ~/.vim/autocmds.vim
+    source ~/.vim/config/autocmds.vim
 endif
 
 " GitHub Dark Color Scheme
