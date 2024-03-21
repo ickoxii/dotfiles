@@ -17,8 +17,8 @@ git/
 
 # zsh
 .zsh_history
-.zsh_sessions
-.zcompdump*
+.zsh_sessions/
+.zcompdump**
 
 
 # ------------------ #
