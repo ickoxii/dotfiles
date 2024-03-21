@@ -77,7 +77,7 @@ create_symlink "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 # Vim
 create_symlink "$DOTFILES_DIR/vim/.vimrc" "$HOME/.vimrc"
 create_symlink "$DOTFILES_DIR/vim/config" "$HOME/.vim/config"
-create_symlink "$DOTFILES_DIR/vim/colors" "$HOME/.vim/colors"
+create_symlink "$DOTFILES_DIR/vim/.colors" "$HOME/.vim/.colors"
 
 # TMUX
 create_symlink "$DOTFILES_DIR/tmux/.tmux.conf" "$HOME/.tmux.conf"
