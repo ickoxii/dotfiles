@@ -90,7 +90,7 @@ SOURCE="$SRCBASE/zsh"
 DEST="$HOME/.config"
 declare -A ZSH=(
     ["$SOURCE/.zshenv"]="$HOME/.zshenv"
-    ["$SOUCE/zsh"]="$DEST"
+    ["$SOURCE/zsh"]="$DEST"
 )
 
 # GIT
