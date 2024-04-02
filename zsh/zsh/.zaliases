@@ -1,9 +1,30 @@
+# ======
+# DOCKER
+# ======
+
+alias quickubuntu='docker run -it -e DISPLAY=$(ipconfig getifaddr en0):0 --name ubuntu ubuntu'
+
+# docker remove stopped container
+alias drsc='docker rm $(docker ps -a -q)'
+
+# docker remove untagged images
+alias drui='docker rmi $(docker images -f "dangling=true" -q)'
+
+# ======
+# Device
+# ======
+
+alias getlocalip='ipconfig getifaddr en0'
+
+# https://stackoverflow.com/questions/20099333/terminal-command-to-show-connected-displays-monitors-resolutions
+alias getsysteminfo='system_profiler SPDisplaysDataType'
+
 # ====================
 # Directory Navigation
 # ====================
 
-alias 3334="cd ~/Documents/baylor/classes/csi3334/"
-alias 3471="cd ~/Documents/baylor/classes/csi3471/"
+alias 3334='cd ~/Documents/baylor/classes/csi3334/'
+alias 3471='cd ~/Documents/baylor/classes/csi3471/'
 
 # =====================
 # Application Shortcuts
@@ -13,41 +34,41 @@ alias 3471="cd ~/Documents/baylor/classes/csi3471/"
 
 # Use Homebrew's updated bash instead of macOS default
 # For scripts mainly (idfk)
-alias bash="/opt/homebrew/bin/bash"
+alias bash='/opt/homebrew/bin/bash'
 
 # Launch MATLAB CLI
-alias mat="/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop"
+alias mat='/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop'
 
 # Default Browser
-alias browser="open -a Firefox"
+alias browser='open -a Firefox'
 
 # Microsoft Word
-alias winword="open -a Microsoft\ Word"
+alias winword='open -a Microsoft\ Word'
 
 # Microsoft OneNote
-alias onenote="open -a Microsoft\ OneNote"
+alias onenote='open -a Microsoft\ OneNote'
 
 # Messaging App
-alias msg="open -a Messages"
+alias msg='open -a Messages'
 
 # IntelliJ IDEA
-alias idea="open -a Intellij\ IDEA"
+alias idea='open -a Intellij\ IDEA'
 
 # ======================
 # Open Browser Bookmarks
 # ======================
 
 # GitHub
-alias gh="browser https://github.com/ickoxii"
+alias gh='browser https://github.com/ickoxii'
 
 # DIM
-alias dim="browser https://beta.destinyitemmanager.com/4611686018486746069/d2/inventory"
+alias dim='browser https://beta.destinyitemmanager.com/4611686018486746069/d2/inventory'
 
 # Bungie LFG
-alias lfg="browser https://www.bungie.net/7/en/Fireteams/Search?platform=0&activity=0"
+alias lfg='browser https://www.bungie.net/7/en/Fireteams/Search?platform=0&activity=0'
 
 # Chunk-base seed map (minecraft)
-alias seed-map="browser https://www.chunkbase.com/apps/seed-map#"
+alias seed-map='browser https://www.chunkbase.com/apps/seed-map#'
 
 
 # ===================
@@ -55,7 +76,7 @@ alias seed-map="browser https://www.chunkbase.com/apps/seed-map#"
 # ===================
 
 # Print all user defined aliases
-alias palias="bat $ZDOTDIR/.zaliases"
+alias palias='bat $ZDOTDIR/.zaliases'
 
 # ===============
 # Small Functions
@@ -64,10 +85,10 @@ alias palias="bat $ZDOTDIR/.zaliases"
 # Open associated CSI 3334 Project
 # DEPRECATED
 proj() {
-    if [[ "$1" =~ ^[0-9]+$ ]]; then
-        open -a "Brave Browser" "https://cs.baylor.edu/~hamerly/courses/3334_23f/project$1/"
+    if [[ '$1' =~ ^[0-9]+$ ]]; then
+        open -a 'Brave Browser' 'https://cs.baylor.edu/~hamerly/courses/3334_23f/project$1/'
     else
-        echo "Invalid Argument."
+        echo 'Invalid Argument.'
     fi
 }
 
@@ -76,10 +97,10 @@ proj() {
 # ======
 
 # Kill wine64-preloader
-alias kill-preloader="sudo killall -9 wine64-preloader"
+alias kill-preloader='sudo killall -9 wine64-preloader'
 
 # Go to Lethal Company save file location
-alias lethal-save="cd '$HOME/Library/Containers/com.isaacmarovitz.Whisky/Bottles/96020B28-BC75-43BD-BD18-4527489B198C/drive_c/users/crossover/AppData/LocalLow/ZeekerssRBLX/Lethal Company/'"
+alias lethal-save='cd "$HOME/Library/Containers/com.isaacmarovitz.Whisky/Bottles/96020B28-BC75-43BD-BD18-4527489B198C/drive_c/users/crossover/AppData/LocalLow/ZeekerssRBLX/Lethal Company/"'
 
 # Go to Lethal Company Game Data Location
-alias go-lethal="cd '$HOME/Library/Containers/com.isaacmarovitz.Whisky/Bottles/96020B28-BC75-43BD-BD18-4527489B198C/drive_c/Program Files (x86)/Steam/steamapps/common/Lethal Company/'"
+alias go-lethal='cd "$HOME/Library/Containers/com.isaacmarovitz.Whisky/Bottles/96020B28-BC75-43BD-BD18-4527489B198C/drive_c/Program Files (x86)/Steam/steamapps/common/Lethal Company/"'

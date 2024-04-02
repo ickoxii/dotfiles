@@ -59,6 +59,12 @@ export PATH="${JAVA_HOME}/bin:${PATH}"
 
 # <<<< Paths <<<<
 
+# >>>> Env Variables >>>>
+
+# Display for x11 (xquartz) GUI docker containers
+set DISPLAY=10.1.30.1:0.0
+# <<<< Env Variables <<<<
+
 # >>>> Functions >>>>
 noSpecChar() {
     defaults write -g ApplePressAndHoldEnabled -bool false
