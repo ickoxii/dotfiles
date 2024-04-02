@@ -13,6 +13,7 @@ vim.opt.expandtab = true
 -- Except for make files
 vim.cmd([[
     autocmd FileType make setlocal noexpandtab
+    autocmd FileType dockerfile setlocal noexpandtab
 ]])
 
 -- Only multi-line comments will continue comment on new line
@@ -26,7 +27,7 @@ vim.opt.formatoptions = "c"
 vim.opt.smartindent = true
 
 -- Enable incremental searching
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 -- Disable text wrap
