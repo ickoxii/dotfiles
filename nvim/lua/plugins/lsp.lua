@@ -43,6 +43,7 @@ return {
                 -- "html",
                 "jdtls", -- java
                 -- "jsonls",
+                "jsonls",
                 -- "ltex", -- latex
                 "lua_ls",
                 "marksman", -- markdown
