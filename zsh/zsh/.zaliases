@@ -54,6 +54,9 @@ alias msg='open -a Messages'
 # IntelliJ IDEA
 alias idea='open -a Intellij\ IDEA'
 
+# Derby ij for SQL Database viewing
+alias ij='~/packages/derby10/bin/ij'
+
 # ======================
 # Open Browser Bookmarks
 # ======================
