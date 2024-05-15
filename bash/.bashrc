@@ -55,3 +55,4 @@ export PATH="$PATH:/Users/ickoxii/Library/Python/3.9/bin"
 
 # Load bash prompt customizations
 [ -f ~/.config/bash/.bash_prompt ] && source ~/.config/bash/.bash_prompt
+. "$HOME/.cargo/env"
