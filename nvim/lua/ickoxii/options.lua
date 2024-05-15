@@ -10,7 +10,8 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
--- Except for make files
+
+-- Keep tabs for Makefiles and Dockerfiles
 vim.cmd([[
     autocmd FileType make setlocal noexpandtab
     autocmd FileType dockerfile setlocal noexpandtab

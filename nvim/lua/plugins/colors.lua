@@ -1,5 +1,6 @@
 ---@diagnostic disable: missing-fields
 
+-- Only works if terminal also has transparent background?
 function ColorMyPencils(color)
     color = color or "rose-pine"
     vim.cmd.colorscheme(color)
@@ -10,6 +11,7 @@ function ColorMyPencils(color)
 end
 
 return {
+
     {
         "rose-pine/nvim",
         lazy = false; -- Disable lazy loading for main color theme
