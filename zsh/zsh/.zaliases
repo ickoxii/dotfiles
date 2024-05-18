@@ -57,9 +57,6 @@ alias idea='open -a Intellij\ IDEA'
 # Derby ij for SQL Database viewing
 alias ij='~/packages/derby10/bin/ij'
 
-# VS Code
-alias code='~/packages/vscode/code'
-
 # ======================
 # Open Browser Bookmarks
 # ======================
