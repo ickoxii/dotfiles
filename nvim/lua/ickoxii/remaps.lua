@@ -6,6 +6,9 @@
 -- Opens up the current directory in nvim
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+-- Automatically clear hls on <esc>
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
 -- LSP Keybinds (exports a function to be used in ../../after/plugin/lsp.lua b/c we need a reference to the current buffer) --
 --[[
 local M = {}
