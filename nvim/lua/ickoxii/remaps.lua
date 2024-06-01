@@ -1,4 +1,4 @@
--- Leader (changed in options.lua)
+-- Use space as leader (changed in options.lua)
 -- vim.g.mapleader = " "
 
 -- VIM Keybinds

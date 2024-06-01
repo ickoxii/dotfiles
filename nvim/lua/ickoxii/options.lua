@@ -85,16 +85,16 @@ vim.opt.scrolloff = 8
 -- Good colors (24-bit)
 vim.opt.termguicolors = true
 
----------------------
--- NEW CUSTOMIZATIONS
----------------------
--- Play around with these and see what we like/don't like
-
 -- Enable the sign column to prevent the screen from jumping
 vim.opt.signcolumn = "yes"
 
 -- Enable cursor line highlight
 vim.opt.cursorline = true
+
+---------------------
+-- NEW CUSTOMIZATIONS
+---------------------
+-- Play around with these and see what we like/don't like
 
 -- Set fold settings
 -- These options were reccommended by nvim-ufo
