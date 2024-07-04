@@ -135,9 +135,10 @@ return {
                 -- Directory completion
                 { name = 'path' },
             }),
-            -- completion = {
-            --     autocomplete = false -- Disable automatic popup
-            -- }
+            completion = {
+                -- autocomplete = false -- Disable automatic popup
+                autocomplete = true
+            }
         })
 
         vim.diagnostic.config({
