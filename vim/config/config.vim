@@ -1,13 +1,13 @@
 " Date Created: 11 October 2023
 " Contains actual configuration for vim
 
-
+set nocompatible
 
 " ----------
 " Appearance
 " ----------
 
-" colorscheme slate              " Vim default color scheme
+colorscheme slate              " Vim default color scheme
 
 " Aldiun Color Scheme
 " -------------------
@@ -16,7 +16,7 @@
 
 " GitHub Dark Color Scheme
 " ------------------------
-let g:gh_color = "soft"         " Use soft version
+" let g:gh_color = "soft"         " Use soft version
 
 
 " ---------

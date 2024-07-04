@@ -56,14 +56,18 @@ endif
 
 " GitHub Dark Color Scheme
 " https://github.com/vv9k/vim-github-dark
-if !empty(system("readlink -f ~/.vim/.colors/ghdark.vim"))
-    source ~/.vim/.colors/ghdark.vim
-endif
+" if !empty(system("readlink -f ~/.vim/.colors/ghdark.vim"))
+"     source ~/.vim/.colors/ghdark.vim
+" endif
 
 " rose-pine
 " if !empty(system("readlink -f !/.vim/.colors/rose-pine.vim"))
 "     source ~/.vim/.colors/rose-pine-moon.vim
 " endif
+
+if !empty(system("readlink -f !/.vim/.colors/two-firewatch.vim"))
+    source ~/.vim/.colors/two-firewatch.vim
+endif
 
 " Plug-ins
 "if !empty(system("readlink -f ~/.vim/plugins.vim"))
