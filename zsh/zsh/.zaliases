@@ -23,8 +23,7 @@ alias getsysteminfo='system_profiler SPDisplaysDataType'
 # Directory Navigation
 # ====================
 
-alias 3334='cd ~/Documents/baylor/classes/csi3334/'
-alias 3471='cd ~/Documents/baylor/classes/csi3471/'
+alias cincludes='/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/'
 
 # =====================
 # Application Shortcuts
