@@ -29,11 +29,11 @@ vim.cmd([[
 ]])
 
 -- Continue comment blocks on new lines
--- vim.opt.formatoptions = "cro"
+vim.opt.formatoptions = "cro"
 
 -- Disable continuation of comments on newlines
-vim.cmd("autocmd BufEnter * set formatoptions-=cro")
-vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+-- vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+-- vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
 -- Enable auto indenting and set to spaces
 -- vim.opt.smartindent = false
