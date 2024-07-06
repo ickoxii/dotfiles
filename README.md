@@ -1,14 +1,18 @@
-# dot-files
+# dotfiles
 
 Author: Icko Iben  
 
-These are my dot-files for various CLI's and macOS applications. Each 
-application has its own directory in which its dot-files are stored. 
-In the base dot-file directory, I have a script that creates sym-links 
-to link each dot-file to the location that its application expects it 
-to be.
+These are my dotfiles for various CLI's and macOS applications. This repository
+contains directories for each application. The organization of each application
+simulates the organization of its respective dotfiles in relation to the users
+$HOME directory. I am too lazy to figure out gnu stow or other dotfile managers
+so I have a shell script inside each directory in order to sym-link the dotfiles
+for each application. There is a Makefile inside the base directory to run through
+each application directory and run the sym-link script.
 
-This what our sym-links should look like
+## Organization
+
+This what our sym-links should look like (filenames ending in `@` are sym-links):
 
 ```
 ~
@@ -20,7 +24,6 @@ This what our sym-links should look like
 |_ .vim/
 |   |_ config@/
 |   |_ .colors@/
-|_ .vscode@/
 |_ .bash_profile@
 |_ .bashrc@
 |_ .hushlogin@
