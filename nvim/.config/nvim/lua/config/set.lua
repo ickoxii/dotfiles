@@ -29,36 +29,30 @@ vim.cmd([[
     autocmd FileType yaml               setlocal shiftwidth=2 softtabstop=2 expandtab
 ]])
 
--- Continue comment blocks on new lines
-vim.opt.formatoptions = "cro"
-
 -- Enable start indent on new-line
 vim.opt.smartindent = true
 
 -- Enable incremental searching
--- vim.opt.hlsearch = false
+vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 -- Disable text wrap
-vim.opt.wrap = false
-
--- Vertical bar at 80 chars
-vim.opt.colorcolumn = "80"
+-- vim.wo.wrap = false
 
 -- Enable text wrapping at 80 characters
 -- vim.opt.textwidth = 80
--- vim.opt.wrap = true
+-- vim.wo.wrap = true
+
+-- Vertical bar at 80 chars
+vim.opt.colorcolumn = "80"
 
 -- Better nvim pane splitting (default is up and left respectively)
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- Enable mouse mode
-vim.opt.mouse = "a"
-
 -- Persisting undos
--- vim.opt.swapfile = false
--- vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
@@ -76,17 +70,4 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 
 -- Enable cursor line highlight
-vim.opt.cursorline = true
-
----------------------
--- NEW CUSTOMIZATIONS
----------------------
--- Play around with these and see what we like/don't like
-
--- Set fold settings
--- These options were reccommended by nvim-ufo
--- See: https://github.com/kevinhwang91/nvim-ufo#minimal-configuration
--- vim.opt.foldcolumn = "0"
--- vim.opt.foldlevel = 99
--- vim.opt.foldlevelstart = 99
--- vim.opt.foldenable = true
+-- vim.opt.cursorline = true

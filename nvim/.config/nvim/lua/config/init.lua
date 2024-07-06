@@ -1,5 +1,4 @@
--- print("Hello from config")
 require("config.remaps")
 require("config.lazy")
-require("config.options")
+require("config.set")
 require("config.functions")
