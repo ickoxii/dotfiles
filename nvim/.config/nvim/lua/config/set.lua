@@ -29,6 +29,9 @@ vim.cmd([[
     autocmd FileType yaml               setlocal shiftwidth=2 softtabstop=2 expandtab
 ]])
 
+-- Continuation of comment blocks, de-indent closing brackets
+vim.opt.formatoptions = "cro"
+
 -- Enable start indent on new-line
 vim.opt.smartindent = true
 
