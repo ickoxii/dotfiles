@@ -70,4 +70,4 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 
 -- Enable cursor line highlight
--- vim.opt.cursorline = true
+vim.opt.cursorline = true
