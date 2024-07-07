@@ -22,4 +22,6 @@ create_symlink "$SOURCE_DIR/.hushlogin" "$TARGET_HOME/.hushlogin"
 # Symlink .profile to home directory
 create_symlink "$SOURCE_DIR/.profile" "$TARGET_HOME/.profile"
 
+echo "====="
 echo "General mac terminal symlinking complete."
+echo "====="

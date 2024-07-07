@@ -27,4 +27,6 @@ mkdir -p "$TARGET_CONFIG"
 # Symlink .config/zsh to ~/.config/zsh
 create_symlink "$CONFIG_DIR" "$TARGET_CONFIG/zsh"
 
+echo "====="
 echo "ZSH symlinking complete."
+echo "====="

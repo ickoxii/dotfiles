@@ -27,4 +27,6 @@ create_symlink "$CONFIG_DIR/.colors" "$TARGET_CONFIG/.colors"
 # Symlink .vim/config to ~/.vim/config
 create_symlink "$CONFIG_DIR/config" "$TARGET_CONFIG/config"
 
+echo "====="
 echo "ViM symlinking complete."
+echo "====="

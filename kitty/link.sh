@@ -24,4 +24,6 @@ mkdir -p "$TARGET_CONFIG"
 # Symlink .config/zsh to ~/.config/zsh
 create_symlink "$CONFIG_DIR" "$TARGET_CONFIG/kitty"
 
+echo "====="
 echo "Kitty symlinking complete."
+echo "====="

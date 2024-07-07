@@ -30,4 +30,6 @@ mkdir -p "$TARGET_CONFIG"
 # Symlink .config/bash to ~/.config/bash
 create_symlink "$CONFIG_DIR" "$TARGET_CONFIG/bash"
 
+echo "====="
 echo "Bash symlinking complete."
+echo "====="
