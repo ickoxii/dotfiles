@@ -11,24 +11,6 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
--- Keep tabs for Makefiles and Dockerfiles
-vim.cmd([[
-    autocmd FileType make       setlocal noexpandtab
-    autocmd FileType dockerfile setlocal noexpandtab
-]])
-
--- Set tabs to 2 spaces for html, json, xml
-vim.cmd([[
-    autocmd FileType html               setlocal shiftwidth=2 softtabstop=2 expandtab
-    autocmd FileType javascript         setlocal shiftwidth=2 softtabstop=2 expandtab
-    autocmd FileType javascriptreact    setlocal shiftwidth=2 softtabstop=2 expandtab
-    autocmd FileType typescript         setlocal shiftwidth=2 softtabstop=2 expandtab
-    autocmd FileType typescriptreact    setlocal shiftwidth=2 softtabstop=2 expandtab
-    autocmd FileType xml                setlocal shiftwidth=2 softtabstop=2 expandtab
-    autocmd FileType json               setlocal shiftwidth=2 softtabstop=2 expandtab
-    autocmd FileType yaml               setlocal shiftwidth=2 softtabstop=2 expandtab
-]])
-
 -- Continuation of comment blocks, de-indent closing brackets
 vim.opt.formatoptions = "cro"
 
