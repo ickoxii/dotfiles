@@ -1,4 +1,0 @@
-# Additional configurations and such
-
-# Change default color scheme for `bat`
-BAT_THEME=base16

@@ -1,19 +1,35 @@
 # File: .zprofile
 # Author: Icko Iben
 # Date Created: 14 November 2023
-# Date Last Modified: 14 November 2023
+# Date Last Modified: 14 July 2024
 # 
 # Sourced only for login shell
 # 
-# The sole purpose of this file is to source .zshrc in the case that a login
-# shell is executed. This is to maintain compatability between different 
-# shell environments
-#
-# ISSUE: 
-# Having it setup in this way caused it so that .zshrc and the rest of my 
-# zsh config was sourced twice. So potentially this is not needed
+# On macOS, it is recommended to set path variables in .zprofile to avoid
+# potential conflicts with the system's path helper.
 
-# What is my purpose?
-# You source .zshrc
-# Oh my god
-# [[ ! -f $ZDOTDIR/.zshrc ]] || source $ZDOTDIR/.zshrc
+#==============================================================================#
+# >>>> Paths >>>>
+#==============================================================================#
+
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Maven
+export M2_HOME="/Users/ickoxii/Packages/apache-maven-3.9.6"
+export PATH="${M2_HOME}/bin:${PATH}"
+
+# JAVA_HOME (for JDK)
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
+export PATH="${JAVA_HOME}/bin:${PATH}"
+
+# ZSH completions for pass
+FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+# GO!
+export PATH="/usr/local/go/bin:${PATH}"
+
+# My scripts
+# export PATH="/Users/ickoxii/.local/scripts:${PATH}"
+
+

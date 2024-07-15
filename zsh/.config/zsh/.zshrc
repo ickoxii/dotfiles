@@ -1,7 +1,7 @@
 #==============================================================================#
-
 # >>>> p10k configuration >>>>
-#
+#==============================================================================#
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -17,11 +17,10 @@ source $ZDOTDIR/.oh-my-zshrc
 # Set theme
 ZSH_THEME="common"
 
-# <<<< p10k configuration <<<<
 
 #==============================================================================#
-
 # >>>> My Configurations >>>>
+#==============================================================================#
 
 # Turn off the god-forsaken beeping
 unsetopt BEEP
@@ -35,41 +34,30 @@ export ZSH_COMPDUMP=~/.zsh-cache/.zcompdump-$HOST
 [[ ! -f $ZDOTDIR/.zaliases ]] || source $ZDOTDIR/.zaliases
 
 # Source other options (themes, cli tool customizations)
-[[ ! -f $ZDOTDIR/.zshoptions ]] || source $ZDOTDIR/.zshoptions
+# [[ ! -f $ZDOTDIR/.zshoptions ]] || source $ZDOTDIR/.zshoptions
 
 # Load custom prompt
 # [[ ! -f $ZDOTDIR/.zprompt ]] || source $ZDOTDIR/.zprompt
 
-# <<<< My Configurations <<<<
 
 #==============================================================================#
-
-# >>>> Paths >>>>
-
-# Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# Maven
-export M2_HOME="/Users/ickoxii/Packages/apache-maven-3.9.6"
-export PATH="${M2_HOME}/bin:${PATH}"
-
-# JAVA_HOME (for JDK)
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home"
-export PATH="${JAVA_HOME}/bin:${PATH}"
-
-# <<<< Paths <<<<
-
 # >>>> Env Variables >>>>
+#==============================================================================#
 
 # Display for x11 (xquartz) GUI docker containers
 set DISPLAY=10.1.30.1:0.0
-# <<<< Env Variables <<<<
 
+
+#==============================================================================#
 # >>>> Functions >>>>
+#==============================================================================#
+
+# The following two functions are related to key press and holds on macOS.
+# Typically when a key is held, it will bring up an option menu with
+# various accents (i.e. holding 'e' might show options for è, é, ê, ë).
 noSpecChar() {
     defaults write -g ApplePressAndHoldEnabled -bool false
 }
 setSpecChar() {
     defaults write -g ApplePressAndHoldEnabled -bool true
 }
-# <<<< Functions <<<<
