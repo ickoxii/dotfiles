@@ -45,8 +45,8 @@ vim.opt.undofile = true
 -- Increase frequency we write to swap file
 vim.opt.updatetime = 50
 
--- Always keep 8 lines above/below cursor unless at start/end of file
-vim.opt.scrolloff = 8
+-- Always keep 12 lines above/below cursor unless at start/end of file
+vim.opt.scrolloff = 12
 
 -- Good colors (24-bit)
 vim.opt.termguicolors = true

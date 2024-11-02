@@ -6,8 +6,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 # if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" # fi
  
 source $ZDOTDIR/.oh-my-zshrc
  
@@ -33,12 +32,14 @@ export ZSH_COMPDUMP=~/.zsh-cache/.zcompdump-$HOST
 # Source aliases
 [[ ! -f $ZDOTDIR/.zaliases ]] || source $ZDOTDIR/.zaliases
 
-# Source other options (themes, cli tool customizations)
-# [[ ! -f $ZDOTDIR/.zshoptions ]] || source $ZDOTDIR/.zshoptions
-
 # Load custom prompt
 # [[ ! -f $ZDOTDIR/.zprompt ]] || source $ZDOTDIR/.zprompt
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ickoxii/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ickoxii/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ickoxii/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ickoxii/google-cloud-sdk/completion.zsh.inc'; fi
 
 #==============================================================================#
 # >>>> Env Variables >>>>

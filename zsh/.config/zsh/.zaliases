@@ -1,3 +1,10 @@
+# =======
+# Kittens
+# =======
+
+# SSH
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
 # ======
 # DOCKER
 # ======
@@ -10,14 +17,30 @@ alias drsc='docker rm $(docker ps -a -q)'
 # docker remove untagged images
 alias drui='docker rmi $(docker images -f "dangling=true" -q)'
 
-# ======
-# Device
-# ======
+# =================
+# Command Shortcuts
+# =================
 
+# Get local ip
 alias getlocalip='ipconfig getifaddr en0'
 
 # https://stackoverflow.com/questions/20099333/terminal-command-to-show-connected-displays-monitors-resolutions
 alias getsysteminfo='system_profiler SPDisplaysDataType'
+
+# Get baylor id password
+alias bp='pass show -c email/microsoft/baylor'
+
+# List all tmux sessions
+alias tls='tmux ls'
+
+# Rename session
+alias trs='tmux rename-session -t'
+
+# Git status
+alias gst='git status'
+
+# Delete icon cache for kitty to get whiskers back
+alias refresh-whiskers-icon='rm /var/folders/*/*/*/com.apple.dock.iconcache; killall Dock'
 
 # ====================
 # Directory Navigation
@@ -31,6 +54,8 @@ alias cincludes='/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include
 # Save nicknames for common applications to open.
 # =====================
 
+alias vim='nvim'
+
 # Use Homebrew's updated bash instead of macOS default
 # For scripts mainly (idfk)
 alias bash='/opt/homebrew/bin/bash'
@@ -40,6 +65,9 @@ alias mat='/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop'
 
 # Default Browser
 alias browser='open -a Firefox'
+
+# Open firefox private window
+alias fpw='/Applications/Firefox.app/Contents/MacOS/firefox -private-window'
 
 # Microsoft Word
 alias winword='open -a Microsoft\ Word'
@@ -78,7 +106,7 @@ alias seed-map='browser https://www.chunkbase.com/apps/seed-map#'
 # ===================
 
 # Print all user defined aliases
-alias palias='bat $ZDOTDIR/.zaliases'
+alias palias='cat $ZDOTDIR/.zaliases'
 
 # ===============
 # Small Functions
@@ -99,7 +127,7 @@ proj() {
 # ======
 
 # Kill wine64-preloader
-alias kill-preloader='sudo killall -9 wine64-preloader'
+alias kill-preloader='killall -9 wine64-preloader'
 
 # Go to Lethal Company save file location
 alias lethal-save='cd "$HOME/Library/Containers/com.isaacmarovitz.Whisky/Bottles/96020B28-BC75-43BD-BD18-4527489B198C/drive_c/users/crossover/AppData/LocalLow/ZeekerssRBLX/Lethal Company/"'

@@ -30,6 +30,7 @@ return {
                 "rust_analyzer",
                 "tsserver",
                 "jdtls",
+                "eslint",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -56,7 +57,21 @@ return {
         })
 
         require'lspconfig'.clangd.setup{}
-        require'lspconfig'.jdtls.setup{}
+        require'lspconfig'.jdtls.setup{
+            settings = {
+                java = {
+                    configuration = {
+                        runtimes = {
+                            {
+                                name = "JavaSE-22",
+                                path = "/Library/Java/JavaVirtualMachines/jdk-22.jdk",
+                                default = true,
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         -- Emmet language server for React projects
         -- https://github.com/olrtg/emmet-language-server
