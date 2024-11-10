@@ -18,16 +18,9 @@
 
 
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases    # Source aliases file
-[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"   # Package manager for Rust
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-export BASH_SILENCE_DEPRECATION_WARNING=1
 export PRINTER='csh-308-bw'
-
-export PATH="$PATH:/opt/homebrew/bin"
-export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:$HOME/Library/Python/3.9/bin"
+export PATH=$PATH:/home/csi/i/iben/bin
 
 # >>>> PROMPT >>>>
 parse_git_branch() {
