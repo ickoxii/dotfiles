@@ -48,6 +48,15 @@ if [ -f '/Users/ickoxii/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/i
 # Display for x11 (xquartz) GUI docker containers
 set DISPLAY=10.1.30.1:0.0
 
+# Pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+   eval "$(pyenv init -)"
+fi
+
+
+# Color debugging for default terminal
+# export TERM="xterm-256color"
+# export CLICOLOR=1
 
 #==============================================================================#
 # >>>> Functions >>>>

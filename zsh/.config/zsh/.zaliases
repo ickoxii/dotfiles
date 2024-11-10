@@ -58,7 +58,7 @@ alias vim='nvim'
 
 # Use Homebrew's updated bash instead of macOS default
 # For scripts mainly (idfk)
-alias bash='/opt/homebrew/bin/bash'
+# alias bash='/opt/homebrew/bin/bash'
 
 # Launch MATLAB CLI
 alias mat='/Applications/matlab_r2023a.app/bin/matlab -nojvm -nodesktop'

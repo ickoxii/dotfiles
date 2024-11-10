@@ -52,6 +52,11 @@ export PATH="${DERBY_HOME}/bin:${PATH}"
 export GCLOUD_HOME="/Users/ickoxii/packages/google-cloud-sdk"
 export PATH="${GCLOUD_HOME}/bin:${PATH}"
 
+# Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # ======================
 # >>>> MISC CONFIGS >>>>
 # ======================

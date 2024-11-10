@@ -47,13 +47,13 @@
   # local white='#F1F1F0'
 
   # rose-pine
-  local grey='#908caa'      # subtle
-  local red='#eb6f92'       # love
-  local yellow='#f6c177'    # gold
-  local blue='#9ccfd8'      # foam
-  local magenta='#c4a7e7'   # iris
-  local cyan='#31748f'      # pine
-  local white='#e0def4'     # text
+  local grey='#908CAA'      # subtle
+  local red='#EB6F92'       # love
+  local yellow='#F6C177'    # gold
+  local blue='#9CCFD8'      # foam
+  local magenta='#C4A7E7'   # iris
+  local cyan='#31748F'      # pine
+  local white='#E0DEF4'     # text
 
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
