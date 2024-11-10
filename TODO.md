@@ -1,3 +1,4 @@
 # TODO
 
-1. figure out some tmux shenanigans
+* [ ] figure out some tmux shenanigans
+* [ ] figure out gnu stow
