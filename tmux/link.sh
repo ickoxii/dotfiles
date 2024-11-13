@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define the source and target directories
-SOURCE_DIR="$HOME/dotfiles/tmux"
+SOURCE_DIR="$HOME/.dotfiles/tmux"
 CONFIG_DIR="$SOURCE_DIR"
 TARGET_HOME="$HOME"
 
@@ -20,6 +20,5 @@ create_symlink() {
 # Symlink .tmux.conf to home directory
 create_symlink "$SOURCE_DIR/.tmux.conf" "$TARGET_HOME/.tmux.conf"
 
-echo "====="
 echo "tmux symlinking complete."
 echo "====="

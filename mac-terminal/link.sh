@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define the source and target directories
-SOURCE_DIR="$HOME/dotfiles/mac-terminal"
+SOURCE_DIR="$HOME/.dotfiles/mac-terminal"
 TARGET_HOME="$HOME"
 
 # Function to create a symlink if it doesn't exist
@@ -20,8 +20,7 @@ create_symlink() {
 create_symlink "$SOURCE_DIR/.hushlogin" "$TARGET_HOME/.hushlogin"
 
 # Symlink .profile to home directory
-create_symlink "$SOURCE_DIR/.profile" "$TARGET_HOME/.profile"
+# create_symlink "$SOURCE_DIR/.profile" "$TARGET_HOME/.profile"
 
-echo "====="
 echo "General mac terminal symlinking complete."
 echo "====="

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define the source and target directories
-SOURCE_DIR="$HOME/dotfiles/nvim"
+SOURCE_DIR="$HOME/.dotfiles/nvim"
 CONFIG_DIR="$SOURCE_DIR/.config/nvim"
 TARGET_CONFIG="$HOME/.config"
 
@@ -23,6 +23,5 @@ mkdir -p "$TARGET_CONFIG"
 # Symlink .config/nvim to ~/.config/nvim
 create_symlink "$CONFIG_DIR" "$TARGET_CONFIG/nvim"
 
-echo "====="
 echo "nvim symlinking complete."
 echo "====="

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define the source and target directories
-SOURCE_DIR="$HOME/dotfiles/vim"
+SOURCE_DIR="$HOME/.dotfiles/vim"
 CONFIG_DIR="$SOURCE_DIR/.vim"
 TARGET_HOME="$HOME"
 TARGET_CONFIG="$HOME/.vim"
@@ -22,11 +22,10 @@ create_symlink() {
 create_symlink "$SOURCE_DIR/.vimrc" "$TARGET_HOME/.vimrc"
 
 # Symlink .vim/.colors to ~/.vim/.colors
-create_symlink "$CONFIG_DIR/.colors" "$TARGET_CONFIG/.colors"
+# create_symlink "$CONFIG_DIR/.colors" "$TARGET_CONFIG/.colors"
 
 # Symlink .vim/config to ~/.vim/config
-create_symlink "$CONFIG_DIR/config" "$TARGET_CONFIG/config"
+create_symlink "$CONFIG_DIR/remaps.vim" "$TARGET_CONFIG/remaps.vim"
 
-echo "====="
 echo "ViM symlinking complete."
 echo "====="

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define the source and target directories
-SOURCE_DIR="$HOME/dotfiles/kitty"
+SOURCE_DIR="$HOME/.dotfiles/kitty"
 CONFIG_DIR="$SOURCE_DIR/.config/kitty"
 TARGET_HOME="$HOME"
 TARGET_CONFIG="$HOME/.config"
@@ -24,6 +24,5 @@ mkdir -p "$TARGET_CONFIG"
 # Symlink .config/zsh to ~/.config/zsh
 create_symlink "$CONFIG_DIR" "$TARGET_CONFIG/kitty"
 
-echo "====="
 echo "Kitty symlinking complete."
 echo "====="

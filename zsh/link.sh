@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define the source and target directories
-SOURCE_DIR="$HOME/dotfiles/zsh"
+SOURCE_DIR="$HOME/.dotfiles/zsh"
 CONFIG_DIR="$SOURCE_DIR/.config/zsh"
 TARGET_HOME="$HOME"
 TARGET_CONFIG="$HOME/.config"
@@ -27,6 +27,5 @@ mkdir -p "$TARGET_CONFIG"
 # Symlink .config/zsh to ~/.config/zsh
 create_symlink "$CONFIG_DIR" "$TARGET_CONFIG/zsh"
 
-echo "====="
 echo "ZSH symlinking complete."
 echo "====="

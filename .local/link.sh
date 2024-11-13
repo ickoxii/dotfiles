@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define the source and target directories
-SOURCE_DIR="$HOME/dotfiles/.local/bin"
+SOURCE_DIR="$HOME/.dotfiles/.local/bin"
 TARGET_DIR="$HOME/.local"
 
 # Function to create a symlink if it doesn't exist
@@ -22,6 +22,5 @@ mkdir -p "$TARGET_DIR"
 # Symlink .local/bin to ~/.local/bin
 create_symlink "$SOURCE_DIR" "$TARGET_DIR/bin"
 
-echo "====="
 echo ".local/bin symlinking complete."
 echo "====="
