@@ -19,7 +19,7 @@ export EDITOR='/opt/homebrew/bin/nvim'
 # ===============
 
 # Path to my own scripts
-export PATH="/Users/ickoxii/bin:${PATH}"
+export PATH="${HOME}/.local/bin:${PATH}"
 
 # My scripts
 # export PATH="/Users/ickoxii/.local/scripts:${PATH}"
