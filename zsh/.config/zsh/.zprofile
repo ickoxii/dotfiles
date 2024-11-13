@@ -12,7 +12,7 @@
 # >>>> ENV VARS >>>>
 # ==================
 
-export EDITOR='/opt/homebrew/bin/nvim'
+export EDITOR=nvim
 
 # ===============
 # >>>> Paths >>>>
