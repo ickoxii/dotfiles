@@ -1,75 +1,89 @@
-" .vimrc
-" -------------------------------
-" Date: 7 Aug 2023 19:32
 " Author: Icko Iben
-" Note: Some code taken from my professor at Baylor who freely shares this material.
-" Addendum: Since then, I have made numerous additions and modifications to
-" .vimrc and associated files such that they barely represent my professors
-" initial vimrc.
+" Date Created: Idk August 2024?
 "
-" General usage notes:
-" - To comment out any setting, prefix with a double-quote (`"`)
-" - Make live changes in Vim using ":set XXX" where "XXX" is the desired setting
-" - Re-open Vim after editing this file to see changes reflected
+" ISSUES
+" [001] - netrw opening new buffer
+"   netrw opens a new buffer whenever my current buffer is not currently saved
 
+set nocompatible
 
-" ================
-" Startup Settings
-" ================
-" PandocMarkdown active on open?
-let g:enable_pandoc_markdown=0      " 0 - disable | 1 - enable
+" Source remaps
+source ~/.vim/remaps.vim
 
+" Color schemes
+" elflord -- favorite
+" koehler -- vibrant
+" zellner -- red vibes
+" colorscheme elflord
 
-" =========================
-" Source Other Config Files
-" -------------------------
-" We only source configuration files if they exist. This is why we have the
-" if !empty() check. 
-"
-" The `system` function runs the command passed into it through a shell and 
-"   return the output as a string.
-"
-" This is why we pass the result of the `system` function through `empty`.
-" `empty` is a vim function that checks if the given value is empty. For
-" strings, it returns 0 if empty, 1 otherwise.
-"
-" `readlink` is a Unix command that retrieves the target of a symbolic link.
-" In this case, the `-f` flag is not force, but instead tells `readlink` to
-" canonicalize the path by following every symlink in every component of 
-" the given path and remove the '..' '.' components. If the given path is 
-" a file or symlink to a file, it will return the absolute path of the file.
-" If the file does not exist, it will return an empty string.
-"
-" i.e. `if !empty(system("readlink -f path/goes/here"))` is a conditional
-" check which takes a symlink (or file), canonicalizes the absolute path
-" to the file, and sources this file if it exists.
-" =========================
-" Vim Settings
-if !empty(system("readlink -f ~/.vim//config/config.vim"))
-    source ~/.vim/config/config.vim
-endif
+" Line numbers and relative line numbers
+set nu
+set rnu
 
-" Autocommands
-if !empty(system("readlink -f ~/.vim/config/autocmds.vim"))
-    source ~/.vim/config/autocmds.vim
-endif
+" Set wrapping at 80 characters with light grey color column
+set textwidth=80
+" set colorcolumn=80
+" highlight ColorColumn ctermbg=8
+" highlight ColorColumn guibg=#1c1c1c
 
-" GitHub Dark Color Scheme
-" https://github.com/vv9k/vim-github-dark
-" if !empty(system("readlink -f ~/.vim/.colors/ghdark.vim"))
-"     source ~/.vim/.colors/ghdark.vim
-" endif
+" Enable sign column to prevent screen from jumping
+set signcolumn="yes"
 
-" rose-pine
-" if !empty(system("readlink -f !/.vim/.colors/rose-pine.vim"))
-"     source ~/.vim/.colors/rose-pine-moon.vim
-" endif
+" Better pane splitting (default is up and left)
+set splitbelow
+set splitright
 
-if !empty(system("readlink -f !/.vim/.colors/two-firewatch.vim"))
-    source ~/.vim/.colors/two-firewatch.vim
-endif
+" Syntax highlighting
+syntax on
 
-" Plug-ins
-"if !empty(system("readlink -f ~/.vim/plugins.vim"))
-"    source ~/.vim/plugins.vim
-"endif
+" Indent using C-style blocks
+set autoindent
+set smartindent
+" set formatoptions="cro"
+set cindent
+
+" Treat tabs and indentations like 4 spaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+" Tab indentation for makefiles
+autocmd FileType make setlocal noexpandtab
+
+" Incremental searching without highlighting
+set incsearch
+set nohlsearch
+
+" Ignore case when searching
+" set ignorecase
+
+" Highlight all occurrences of a search term
+" set hlsearch
+
+" Keep status line at bottom of screen
+set laststatus=2
+
+" Better fps (theoretically)
+" Increases frequency we write to swap files
+set updatetime=50
+
+" Keep 8 lines above/below cursor
+set scrolloff=8
+
+" Mouse support (because i can)
+set mouse=a
+
+" Best setting of your life
+set belloff=all
+
+" Persistent undo's
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+
+" Folding
+set foldenable
+"set foldmethod=syntax
+"set foldlevelstart=10
