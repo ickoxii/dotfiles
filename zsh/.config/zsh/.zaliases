@@ -36,11 +36,17 @@ alias tls='tmux ls'
 # Rename session
 alias trs='tmux rename-session -t'
 
+# Attach to 0
+alias ta0='tmux attach -t 0'
+
 # Git status
 alias gst='git status'
 
 # Delete icon cache for kitty to get whiskers back
 alias refresh-whiskers-icon='rm /var/folders/*/*/*/com.apple.dock.iconcache; killall Dock'
+
+# New daily note
+alias new-daily-note='touch $(date +%Y%m%d).md'
 
 # ====================
 # Directory Navigation
