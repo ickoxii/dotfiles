@@ -19,6 +19,8 @@ create_symlink() {
 
 # Symlink .tmux.conf to home directory
 create_symlink "$SOURCE_DIR/.tmux.conf" "$TARGET_HOME/.tmux.conf"
+create_symlink "$SOURCE_DIR/.tmux-cht-commands" "$TARGET_HOME/.tmux-cht-commands"
+create_symlink "$SOURCE_DIR/.tmux-cht-languages" "$TARGET_HOME/.tmux-cht-languages"
 
 echo "tmux symlinking complete."
 echo "====="
