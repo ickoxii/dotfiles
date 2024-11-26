@@ -27,9 +27,18 @@ export PATH="${HOME}/.local/bin:${PATH}"
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Pyenv -- Should have higher precedence than brew installed versions
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # Python
 export PYTHON_HOME="/opt/homebrew/opt/python"
 export PATH="${PYTHON_HOME}/libexec/bin:${PATH}"
+
+# FZF
+source <(fzf --zsh)
 
 # Maven
 export M2_HOME="/Users/ickoxii/packages/apache-maven-3.9.6"
@@ -51,11 +60,6 @@ export PATH="${DERBY_HOME}/bin:${PATH}"
 # Google Cloud CLI
 export GCLOUD_HOME="/Users/ickoxii/packages/google-cloud-sdk"
 export PATH="${GCLOUD_HOME}/bin:${PATH}"
-
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # ======================
 # >>>> MISC CONFIGS >>>>

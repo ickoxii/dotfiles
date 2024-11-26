@@ -94,9 +94,6 @@ alias ij='~/packages/derby10/bin/ij'
 # Open Browser Bookmarks
 # ======================
 
-# GitHub
-alias gh='browser https://github.com/ickoxii'
-
 # DIM
 alias dim='browser https://beta.destinyitemmanager.com/4611686018486746069/d2/inventory'
 
@@ -105,7 +102,6 @@ alias lfg='browser https://www.bungie.net/7/en/Fireteams/Search?platform=0&activ
 
 # Chunk-base seed map (minecraft)
 alias seed-map='browser https://www.chunkbase.com/apps/seed-map#'
-
 
 # ===================
 # Miscellaneous 
