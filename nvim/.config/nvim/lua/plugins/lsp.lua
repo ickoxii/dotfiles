@@ -28,9 +28,13 @@ return {
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
+        "ast_grep",
+        "emmet_language_server",
         "eslint",
         "jdtls",
+        "jsonls",
         "lua_ls",
+        "marksman",
         "pyright",
         "rust_analyzer",
         "tsserver",
