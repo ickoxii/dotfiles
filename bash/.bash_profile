@@ -22,6 +22,8 @@
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+eval "$(fzf --bash)"
+
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export PRINTER='csh-308-bw'
 
