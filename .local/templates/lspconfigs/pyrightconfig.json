@@ -1,0 +1,13 @@
+{
+    "typeCheckingMode": "basic",
+    "reportUnknownVariableType": false,
+    "reportUnknownParameterType": false,
+    "reportUnknownArgumentType": false,
+    "reportUnknownMemberType": false,
+    "reportOptionalMemberAccess": false,
+    "exclude": [
+        "build",
+        "dist",
+        "project_env"
+    ]
+}

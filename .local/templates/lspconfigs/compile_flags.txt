@@ -1,0 +1,6 @@
+-I./include
+-Wall
+-Werror
+-Wextra
+-Wpedantic
+--std=gnu89
