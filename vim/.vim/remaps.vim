@@ -11,7 +11,11 @@ let maplocalleader = " "
 
 " Normal mode remaps
 nnoremap <leader>pv :Ex<CR>
+nnoremap j gj
+nnoremap k gk
 
 " Insert mode remaps
 
 " Visual mode remaps
+vnoremap j gj
+vnoremap k gk
