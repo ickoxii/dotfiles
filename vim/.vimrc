@@ -87,3 +87,6 @@ set undofile
 set foldenable
 "set foldmethod=syntax
 "set foldlevelstart=10
+
+" If we want to use fzf in Vim
+" set rtp+=/opt/homebrew/opt/fzf
