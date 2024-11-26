@@ -36,7 +36,7 @@ return {
         "tsserver",
       },
       handlers = {
-        function(server_name)         -- default handler (optional)
+        function(server_name) -- default handler (optional)
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
           }
@@ -62,7 +62,20 @@ return {
     require 'lspconfig'.clangd.setup {}
 
     -- Pyright lsp setup
-    require 'lspconfig'.pyright.setup {}
+    require 'lspconfig'.pyright.setup {
+      --[[
+      on_attach = on_attach,
+      settings = {
+        python = {
+          analysis = {
+            typeCheckingMode = "strict",
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+          },
+        },
+      },
+      ]]--
+    }
 
     -- Jdtls lsp setup
     require 'lspconfig'.jdtls.setup {
@@ -126,7 +139,7 @@ return {
     cmp.setup({
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body)           -- For `luasnip` users.
+          require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         end,
       },
       mapping = cmp.mapping.preset.insert({
@@ -138,7 +151,7 @@ return {
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'luasnip' },         -- For luasnip users.
+        { name = 'luasnip' }, -- For luasnip users.
       }, {
         { name = 'buffer' },
       })
