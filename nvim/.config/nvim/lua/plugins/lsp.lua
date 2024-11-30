@@ -31,7 +31,7 @@ return {
         "ast_grep",
         "emmet_language_server",
         "eslint",
-        "jdtls",
+        -- "jdtls",
         "jsonls",
         "lua_ls",
         "marksman",
@@ -62,6 +62,10 @@ return {
       }
     })
 
+    -- Java lsp setup
+    require('java').setup({})
+    require 'lspconfig'.jdtls.setup {}
+
     -- Clang lsp setup
     require 'lspconfig'.clangd.setup {}
 
@@ -82,6 +86,7 @@ return {
     }
 
     -- Jdtls lsp setup
+    --[[
     require 'lspconfig'.jdtls.setup {
       settings = {
         java = {
@@ -97,6 +102,7 @@ return {
         }
       }
     }
+    ]]--
 
     -- Emmet language server for React projects
     -- https://github.com/olrtg/emmet-language-server
