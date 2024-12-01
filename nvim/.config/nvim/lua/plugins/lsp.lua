@@ -1,8 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim", verison = "v1.5.0",
+    "williamboman/mason-lspconfig.nvim", version = "v0.1.3",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
@@ -37,7 +37,7 @@ return {
         "marksman",
         "pyright",
         "rust_analyzer",
-        "tsserver",
+        "ts_ls"
       },
       handlers = {
         function(server_name) -- default handler (optional)
