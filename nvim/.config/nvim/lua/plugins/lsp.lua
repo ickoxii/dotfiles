@@ -1,8 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "williamboman/mason.nvim", verison = "v1.5.0",
+    "williamboman/mason-lspconfig.nvim", version = "v0.1.3",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
@@ -31,13 +31,13 @@ return {
         "ast_grep",
         "emmet_language_server",
         "eslint",
-        "jdtls",
+        -- "jdtls",
         "jsonls",
         "lua_ls",
         "marksman",
         "pyright",
         "rust_analyzer",
-        "tsserver",
+        "ts_ls"
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -62,6 +62,10 @@ return {
       }
     })
 
+    -- Java lsp setup
+    require('java').setup({})
+    require 'lspconfig'.jdtls.setup {}
+
     -- Clang lsp setup
     require 'lspconfig'.clangd.setup {}
 
@@ -82,6 +86,7 @@ return {
     }
 
     -- Jdtls lsp setup
+    --[[
     require 'lspconfig'.jdtls.setup {
       settings = {
         java = {
@@ -97,6 +102,7 @@ return {
         }
       }
     }
+    ]]--
 
     -- Emmet language server for React projects
     -- https://github.com/olrtg/emmet-language-server
