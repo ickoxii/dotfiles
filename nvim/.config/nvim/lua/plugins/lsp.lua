@@ -28,12 +28,13 @@ return {
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
+        "emmet_language_server",
         "eslint",
         "jdtls",
         "lua_ls",
         "pyright",
         "rust_analyzer",
-        "tsserver",
+        "ts_ls",
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -99,14 +100,15 @@ return {
     require 'lspconfig'.emmet_language_server.setup({
       filetypes = {
         "css",
-        "eruby",
+        -- "eruby",
         "html",
         "javascript",
         "javascriptreact",
-        "less",
-        "sass",
-        "scss",
-        "pug",
+        -- "less",
+        -- "sass",
+        -- "scss",
+        -- "pug",
+        "typescript",
         "typescriptreact"
       },
       -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
