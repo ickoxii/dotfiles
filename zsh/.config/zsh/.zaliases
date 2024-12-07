@@ -39,6 +39,9 @@ alias trs='tmux rename-session -t'
 # Attach to 0
 alias ta0='tmux attach -t 0'
 
+# Attach to existing tmux sessions
+alias ta='tmux attach -t $(tmux ls | tr ":" " " | awk "{print \$1}" | fzf)'
+
 # Git status
 alias gst='git status'
 
@@ -47,6 +50,9 @@ alias refresh-whiskers-icon='rm /var/folders/*/*/*/com.apple.dock.iconcache; kil
 
 # New daily note
 alias new-daily-note='touch $(date +%Y%m%d).md'
+
+# Run previous command with sudo
+alias ffs='sudo $(fc -ln -1)'
 
 # ====================
 # Directory Navigation
