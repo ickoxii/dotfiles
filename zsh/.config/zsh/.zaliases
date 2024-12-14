@@ -87,9 +87,6 @@ alias winword='open -a Microsoft\ Word'
 # Microsoft OneNote
 alias onenote='open -a Microsoft\ OneNote'
 
-# Messaging App
-alias msg='open -a Messages'
-
 # IntelliJ IDEA
 alias idea='open -a Intellij\ IDEA'
 
@@ -137,8 +134,3 @@ proj() {
 # Kill wine64-preloader
 alias kill-preloader='killall -9 wine64-preloader'
 
-# Go to Lethal Company save file location
-alias lethal-save='cd "$HOME/Library/Containers/com.isaacmarovitz.Whisky/Bottles/96020B28-BC75-43BD-BD18-4527489B198C/drive_c/users/crossover/AppData/LocalLow/ZeekerssRBLX/Lethal Company/"'
-
-# Go to Lethal Company Game Data Location
-alias go-lethal='cd "$HOME/Library/Containers/com.isaacmarovitz.Whisky/Bottles/96020B28-BC75-43BD-BD18-4527489B198C/drive_c/Program Files (x86)/Steam/steamapps/common/Lethal Company/"'
