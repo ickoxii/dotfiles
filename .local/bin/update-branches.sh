@@ -4,6 +4,11 @@
 # 001 - git@github.com: Permission denied
 #   Just run a ssh -T git@github.com????
 
+if [[ $# -ne 1 ]]; then
+    echo "Usage: $0 <project dir>"
+    exit
+fi
+
 ssh -T git@github.com
 
 project=$1
