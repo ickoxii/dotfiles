@@ -39,6 +39,9 @@ alias trs='tmux rename-session -t'
 # Attach to 0
 alias ta0='tmux attach -t 0'
 
+# Attach to existing tmux sessions
+alias ta='tmux attach -t $(tmux ls | tr ":" " " | awk "{print \$1}" | fzf)'
+
 # Git status
 alias gst='git status'
 
@@ -47,6 +50,9 @@ alias refresh-whiskers-icon='rm /var/folders/*/*/*/com.apple.dock.iconcache; kil
 
 # New daily note
 alias new-daily-note='touch $(date +%Y%m%d).md'
+
+# Run previous command with sudo
+alias ffs='sudo $(fc -ln -1)'
 
 # ====================
 # Directory Navigation
@@ -80,9 +86,6 @@ alias winword='open -a Microsoft\ Word'
 
 # Microsoft OneNote
 alias onenote='open -a Microsoft\ OneNote'
-
-# Messaging App
-alias msg='open -a Messages'
 
 # IntelliJ IDEA
 alias idea='open -a Intellij\ IDEA'
@@ -131,8 +134,3 @@ proj() {
 # Kill wine64-preloader
 alias kill-preloader='killall -9 wine64-preloader'
 
-# Go to Lethal Company save file location
-alias lethal-save='cd "$HOME/Library/Containers/com.isaacmarovitz.Whisky/Bottles/96020B28-BC75-43BD-BD18-4527489B198C/drive_c/users/crossover/AppData/LocalLow/ZeekerssRBLX/Lethal Company/"'
-
-# Go to Lethal Company Game Data Location
-alias go-lethal='cd "$HOME/Library/Containers/com.isaacmarovitz.Whisky/Bottles/96020B28-BC75-43BD-BD18-4527489B198C/drive_c/Program Files (x86)/Steam/steamapps/common/Lethal Company/"'

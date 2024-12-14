@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "williamboman/mason.nvim", verison = "v1.5.0",
+    "williamboman/mason.nvim", version = "v1.5.0",
     "williamboman/mason-lspconfig.nvim", version = "v0.1.3",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
@@ -28,16 +28,15 @@ return {
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "ast_grep",
+        -- "ast_grep",
         "emmet_language_server",
         "eslint",
-        -- "jdtls",
         "jsonls",
         "lua_ls",
         "marksman",
         "pyright",
         "rust_analyzer",
-        "ts_ls"
+        "ts_ls",
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -109,14 +108,15 @@ return {
     require 'lspconfig'.emmet_language_server.setup({
       filetypes = {
         "css",
-        "eruby",
+        -- "eruby",
         "html",
         "javascript",
         "javascriptreact",
-        "less",
-        "sass",
-        "scss",
-        "pug",
+        -- "less",
+        -- "sass",
+        -- "scss",
+        -- "pug",
+        "typescript",
         "typescriptreact"
       },
       -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
