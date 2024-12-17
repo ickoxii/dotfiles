@@ -1,0 +1,30 @@
+JAR_NAME=replace
+ARTIFACT_ID=replace
+
+help:
+	echo "build   | package the project"
+	echo "run     | run the jar"
+	echo "br      | build and run"
+	echo "update  | pull updated dependencies"
+.PHONY: help
+
+# Package project
+build:
+	mvn package
+.PHONY: build
+
+# Run project jar
+run:
+	java -jar target/$(JAR_NAME)
+.PHONY: build
+
+# Package then Run
+br:
+	make build
+	make run
+.PHONY: br
+
+# Copy dependencies from pom without compiling project
+update:
+	mvn dependency:copy-dependencies
+.PHONY: update
