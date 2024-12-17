@@ -7,8 +7,7 @@ contains directories for each application. The organization of each application
 simulates the organization of its respective dotfiles in relation to the users
 $HOME directory. I am too lazy to figure out gnu stow or other dotfile managers
 so I have a shell script inside each directory in order to sym-link the dotfiles
-for each application. There is a Makefile inside the base directory to run through
-each application directory and run the sym-link script.
+for each application.
 
 ## Organization
 
