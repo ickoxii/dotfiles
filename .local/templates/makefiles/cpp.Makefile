@@ -3,14 +3,14 @@
 VERSION = 0.1.0
 
 # Search paths
-vpath %.c src
-vpath %.h include
+vpath %.cpp src
+vpath %.hpp include
 vpath %.o build
 
 # Compilation options
-CFLAGS := -Wall -Werror -Wextra -Wpedantic -std=gnu89
+CFLAGS := -Wall -Werror -Wextra -Wpedantic -std=c++20 -stdlib=libc++
 INCLUDES := -I include
-CC := clang
+CC := clang++
 PROGRAM := #***** PROGRAM NAME *****#
 OUTPUT_OPTION = -o $@
 
