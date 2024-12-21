@@ -1,5 +1,5 @@
 # TODO
 
 * [ ] figure out some tmux shenanigans
-* [ ] figure out gnu stow
+    * Should i automatically launch a tmux session when opening terminal?
 * [ ] mdpreview no longer works :(
