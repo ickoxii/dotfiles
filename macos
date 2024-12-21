@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+# Install dotfiles for macos
+
+if [[ -z $STOW_FOLDERS ]]; then
+  STOW_FOLDERS="bin,kitty,mac-terminal,nvim,tmux,vim,zsh"
+fi
+
+if [[ -z $DOTFILES ]]; then
+  DOTFILES=$HOME/.dotfiles
+fi
+
+STOW_FOLDERS=$STOW_FOLDERS DOTFILES=$DOTFILES $DOTFILES/install
