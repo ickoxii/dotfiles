@@ -1,33 +1,6 @@
-# ------------------- #
-# Repository Specific #
-# ------------------- #
-start-live-markdown-preview.sh
-stop-live-markdown-preview.sh
-
-# Vim 
-vim/alduin.vim
-vim/ghdark.vim
-vim/plugins.vim
-
-# Spotify-tui
-.spotify_token_cache.json
-
-# ignore for now...
-git/
-
-# zsh
 .zsh_history
 .zsh_sessions/
 .zcompdump**
-
-
-# ------------------ #
-# OS generated files #
-# ------------------ #
+.bash_history
 .DS_Store
-
-
-# -------- #
-# Pictures #
-# -------- #
 *.png
